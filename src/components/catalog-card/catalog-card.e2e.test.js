@@ -1,10 +1,10 @@
 import React from "react";
-import {mount} from "enzyme";
+import {shallow} from "enzyme";
 import CatalogCard from "./catalog-card";
 
 it(`Click handler on card title can be called only once`, () => {
   const preventDefault = jest.fn();
-  const wrapper = mount(<CatalogCard
+  const wrapper = shallow(<CatalogCard
     title={`Spider Man`}
   />);
 
