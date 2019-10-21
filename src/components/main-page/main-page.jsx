@@ -2,12 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Catalog from "./../catalog/catalog.jsx";
 
-const MainPage = ({films}) => {
-
-  MainPage.propTypes = {
-    films: PropTypes.arrayOf(PropTypes.string),
-  };
-
+const MainPage = ({filmTitles}) => {
   return (
     <main>
       <section className="movie-card">
@@ -64,9 +59,8 @@ const MainPage = ({films}) => {
       </section>
 
       <div className="page-content">
-        <Catalog
-          films={films}
-        />
+
+        <Catalog filmTitles={filmTitles}/>
 
         <footer className="page-footer">
           <div className="logo">
@@ -84,6 +78,10 @@ const MainPage = ({films}) => {
       </div>
     </main>
   );
+};
+
+MainPage.propTypes = {
+  filmTitles: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default MainPage;

@@ -2,12 +2,7 @@ import React from "react";
 import CatalogCard from "./../catalog-card/catalog-card.jsx";
 import PropTypes from "prop-types";
 
-const Catalog = ({films}) => {
-
-  Catalog.propTypes = {
-    films: PropTypes.arrayOf(PropTypes.string),
-  };
-
+const Catalog = ({filmTitles}) => {
   return (
     <section className="catalog">
       <h2 className="catalog__title visually-hidden">Catalog</h2>
@@ -46,9 +41,9 @@ const Catalog = ({films}) => {
       </ul>
 
       <div className="catalog__movies-list">
-        {films.map((filmTitle, i) =>
+        {filmTitles.map((filmTitle, i) =>
           <CatalogCard
-            key={i}
+            key={`filmTitle-${i}`}
             title={filmTitle}
           />
         )}
@@ -59,6 +54,10 @@ const Catalog = ({films}) => {
       </div>
     </section>
   );
+};
+
+Catalog.propTypes = {
+  filmTitles: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default Catalog;

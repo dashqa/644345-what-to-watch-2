@@ -3,10 +3,6 @@ import PropTypes from "prop-types";
 
 const CatalogCard = ({title}) => {
 
-  CatalogCard.propTypes = {
-    title: PropTypes.string.isRequired,
-  };
-
   const onTitleClick = (evt) => evt.preventDefault();
 
   return (
@@ -28,5 +24,10 @@ const CatalogCard = ({title}) => {
     </article>
   );
 };
+
+CatalogCard.propTypes = {
+  title: PropTypes.string.isRequired,
+};
+
 
 export default CatalogCard;

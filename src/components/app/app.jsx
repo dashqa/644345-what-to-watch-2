@@ -1,12 +1,10 @@
 import React from "react";
 import MainPage from "../main-page/main-page.jsx";
 
-const App = () => {
-  const films = [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`, `Spider Man`];
+const FILM_TITLES = [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`, `Spider Man`];
 
-  return <MainPage
-    films={films}
-  />;
+const App = () => {
+  return <MainPage filmTitles={FILM_TITLES}/>;
 };
 
 export default App;
