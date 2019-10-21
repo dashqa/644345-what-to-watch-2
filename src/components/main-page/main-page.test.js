@@ -4,9 +4,7 @@ import MainPage from './main-page';
 
 it(`Main page correctly renders after relaunch`, () => {
   const tree = renderer
-    .create(<MainPage
-      films={[`Spider Man`]}
-    />)
+    .create(<MainPage filmTitles={[`Spider Man`]}/>)
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
