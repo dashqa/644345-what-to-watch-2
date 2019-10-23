@@ -43,7 +43,7 @@ const Catalog = ({filmTitles}) => {
       <div className="catalog__movies-list">
         {filmTitles.map((filmTitle, i) =>
           <CatalogCard
-            key={`filmTitle-${i}`}
+            key={`${filmTitle}-${i}`}
             title={filmTitle}
           />
         )}
