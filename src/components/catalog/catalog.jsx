@@ -24,7 +24,7 @@ class Catalog extends React.PureComponent {
         <ul className="catalog__genres-list">
           {FILTERS.map((filter, i) => (
             <li
-              key={i}
+              key={`filter-${i}`}
               className={`catalog__genres-item ` + (this.state.activeFilter === filter ? `catalog__genres-item--active` : ``)}>
               <a href="#" className="catalog__genres-link">{filter}</a>
             </li>
