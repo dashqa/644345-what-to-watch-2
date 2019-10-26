@@ -20,7 +20,8 @@ exports[`Catalog card correctly renders after relaunch 1`] = `
   >
     <a
       className="small-movie-card__link"
-      href="movie-page.html"
+      href="/films/0"
+      onClick={[Function]}
     >
       
     </a>

@@ -26,6 +26,7 @@ Array [
       >
         <a
           className="logo__link"
+          href="main.html"
         >
           <span
             className="logo__letter logo__letter--1"
@@ -276,7 +277,8 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="/films/1"
+              onClick={[Function]}
             >
               The Grand Budapest Hotel
             </a>
@@ -301,7 +303,8 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="/films/2"
+              onClick={[Function]}
             >
               Bohemian Rhapsody
             </a>
@@ -326,7 +329,8 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="/films/3"
+              onClick={[Function]}
             >
               Johnny English
             </a>
@@ -351,7 +355,8 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="/films/4"
+              onClick={[Function]}
             >
               Shutter Island
             </a>
@@ -376,7 +381,8 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="/films/5"
+              onClick={[Function]}
             >
               Moonrise Kingdom
             </a>

@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {Link} from 'react-router-dom';
 
 const CatalogCard = ({movie, onCardHover}) => {
-  const {name, previewImage} = movie;
+  const {id, name, previewImage} = movie;
   return (
     <article
       className="small-movie-card catalog__movies-card"
@@ -13,12 +14,16 @@ const CatalogCard = ({movie, onCardHover}) => {
           src={previewImage}
           alt={name}
           width="280"
-          height="175"/>
+          height="175"
+        />
       </div>
       <h3 className="small-movie-card__title">
-        <a
+        <Link
+          to={`/films/${id}`}
           className="small-movie-card__link"
-          href="movie-page.html">{name}</a>
+        >
+          {name}
+        </Link>
       </h3>
     </article>
   );
@@ -27,6 +32,7 @@ const CatalogCard = ({movie, onCardHover}) => {
 
 CatalogCard.propTypes = {
   movie: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     previewImage: PropTypes.string.isRequired
   }).isRequired,
