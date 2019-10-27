@@ -5,7 +5,7 @@ import MovieCardBottom from "../movie-card-bottom/movie-card-bottom.jsx";
 
 const MovieCard = ({movie, isPromoMovie}) => {
   return (
-    <section className={`movie-card ` + (!isPromoMovie ? `movie-card--full` : ``)}>
+    <section className={!isPromoMovie ? `movie-card movie-card--full` : `movie-card`}>
       {isPromoMovie ? (
         <MovieCardTop
           movie={movie}

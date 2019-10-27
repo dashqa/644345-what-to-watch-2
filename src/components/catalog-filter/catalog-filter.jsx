@@ -8,7 +8,7 @@ const CatalogFilter = ({active}) => {
       {FILTERS.map((filter, i) => (
         <li
           key={`filter-${i}`}
-          className={`catalog__genres-item ` + (active === filter ? `catalog__genres-item--active` : ``)}>
+          className={active === filter ? `catalog__genres-item catalog__genres-item--active` : `catalog__genres-item`}>
           <a href="#" className="catalog__genres-link">{filter}</a>
         </li>
       ))}

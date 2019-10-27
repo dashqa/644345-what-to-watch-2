@@ -21,8 +21,8 @@ class Catalog extends React.PureComponent {
     const {activeFilter} = this.state;
 
     return (
-      <section className={`catalog ` + (!isMainCatalog ? `catalog--like-this` : ``)}>
-        <h2 className={`catalog__title ` + (isMainCatalog ? `visually-hidden` : ``)}>
+      <section className={!isMainCatalog ? `catalog catalog--like-this` : `catalog`}>
+        <h2 className={isMainCatalog ? `catalog__title visually-hidden` : `catalog__title`}>
           {isMainCatalog ? `Catalog` : `More like this`}
         </h2>
 

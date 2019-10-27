@@ -3,7 +3,7 @@
 exports[`App correctly renders after relaunch 1`] = `
 Array [
   <section
-    className="movie-card "
+    className="movie-card"
   >
     <div
       className="movie-card__bg"
@@ -144,7 +144,7 @@ Array [
     className="page-content"
   >
     <section
-      className="catalog "
+      className="catalog"
     >
       <h2
         className="catalog__title visually-hidden"
@@ -165,7 +165,7 @@ Array [
           </a>
         </li>
         <li
-          className="catalog__genres-item "
+          className="catalog__genres-item"
         >
           <a
             className="catalog__genres-link"
@@ -175,7 +175,7 @@ Array [
           </a>
         </li>
         <li
-          className="catalog__genres-item "
+          className="catalog__genres-item"
         >
           <a
             className="catalog__genres-link"
@@ -185,7 +185,7 @@ Array [
           </a>
         </li>
         <li
-          className="catalog__genres-item "
+          className="catalog__genres-item"
         >
           <a
             className="catalog__genres-link"
@@ -195,7 +195,7 @@ Array [
           </a>
         </li>
         <li
-          className="catalog__genres-item "
+          className="catalog__genres-item"
         >
           <a
             className="catalog__genres-link"
@@ -205,7 +205,7 @@ Array [
           </a>
         </li>
         <li
-          className="catalog__genres-item "
+          className="catalog__genres-item"
         >
           <a
             className="catalog__genres-link"
@@ -215,7 +215,7 @@ Array [
           </a>
         </li>
         <li
-          className="catalog__genres-item "
+          className="catalog__genres-item"
         >
           <a
             className="catalog__genres-link"
@@ -225,7 +225,7 @@ Array [
           </a>
         </li>
         <li
-          className="catalog__genres-item "
+          className="catalog__genres-item"
         >
           <a
             className="catalog__genres-link"
@@ -235,7 +235,7 @@ Array [
           </a>
         </li>
         <li
-          className="catalog__genres-item "
+          className="catalog__genres-item"
         >
           <a
             className="catalog__genres-link"
@@ -245,7 +245,7 @@ Array [
           </a>
         </li>
         <li
-          className="catalog__genres-item "
+          className="catalog__genres-item"
         >
           <a
             className="catalog__genres-link"
