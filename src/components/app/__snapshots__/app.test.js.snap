@@ -10,7 +10,7 @@ Array [
     >
       <img
         alt="The Grand Budapest Hotel"
-        src="img/bg-the-grand-budapest-hotel.jpg"
+        src="/img/bg-the-grand-budapest-hotel.jpg"
       />
     </div>
     <h1
@@ -54,7 +54,7 @@ Array [
           <img
             alt="User avatar"
             height="63"
-            src="img/avatar.jpg"
+            src="/img/avatar.jpg"
             width="63"
           />
         </div>
@@ -72,7 +72,7 @@ Array [
           <img
             alt="The Grand Budapest Hotel poster"
             height="327"
-            src="img/the-grand-budapest-hotel-poster.jpg"
+            src="/img/the-grand-budapest-hotel-poster.jpg"
             width="218"
           />
         </div>
@@ -268,7 +268,7 @@ Array [
             <img
               alt="The Grand Budapest Hotel"
               height="175"
-              src="img/the-grand-budapest-hotel-poster.jpg"
+              src="/img/the-grand-budapest-hotel-poster.jpg"
               width="280"
             />
           </div>
@@ -294,7 +294,7 @@ Array [
             <img
               alt="Bohemian Rhapsody"
               height="175"
-              src="img/bohemian-rhapsody.jpg"
+              src="/img/bohemian-rhapsody.jpg"
               width="280"
             />
           </div>
@@ -320,7 +320,7 @@ Array [
             <img
               alt="Johnny English"
               height="175"
-              src="img/johnny-english.jpg"
+              src="/img/johnny-english.jpg"
               width="280"
             />
           </div>
@@ -346,7 +346,7 @@ Array [
             <img
               alt="Shutter Island"
               height="175"
-              src="img/shutter-island.jpg"
+              src="/img/shutter-island.jpg"
               width="280"
             />
           </div>
@@ -372,7 +372,7 @@ Array [
             <img
               alt="Moonrise Kingdom"
               height="175"
-              src="img/moonrise-kingdom.jpg"
+              src="/img/moonrise-kingdom.jpg"
               width="280"
             />
           </div>

@@ -11,7 +11,7 @@ exports[`Catalog card correctly renders after relaunch 1`] = `
     <img
       alt=""
       height="175"
-      src=""
+      src="/"
       width="280"
     />
   </div>

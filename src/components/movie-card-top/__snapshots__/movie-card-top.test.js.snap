@@ -7,7 +7,7 @@ Array [
   >
     <img
       alt=""
-      src=""
+      src="/"
     />
   </div>,
   <h1
@@ -51,7 +51,7 @@ Array [
         <img
           alt="User avatar"
           height="63"
-          src="img/avatar.jpg"
+          src="/img/avatar.jpg"
           width="63"
         />
       </div>
