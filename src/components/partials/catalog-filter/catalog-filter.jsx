@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {FILTERS} from "../../constants";
+import {FILTERS} from "../../../constants";
 
 const CatalogFilter = ({active}) => {
   return (

@@ -1,7 +1,7 @@
 import React from "react";
 import {Switch, Route, BrowserRouter} from "react-router-dom";
-import MainPage from "../main-page/main-page.jsx";
-import MovieDetails from "../movie-details/movie-details.jsx";
+import MainPage from "../pages/main-page/main-page.jsx";
+import MovieDetails from "../pages/movie-details/movie-details.jsx";
 import {MOVIES} from "../../mocks/movies";
 
 const App = () => {

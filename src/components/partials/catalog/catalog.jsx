@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import CatalogCard from "./../catalog-card/catalog-card.jsx";
-import ShowMore from "./../show-more/show-more.jsx";
-import CatalogFilter from "./../catalog-filter/catalog-filter.jsx";
+import CatalogCard from "../catalog-card/catalog-card.jsx";
+import ShowMore from "../show-more/show-more.jsx";
+import CatalogFilter from "../catalog-filter/catalog-filter.jsx";
 
 class Catalog extends React.PureComponent {
   constructor(props) {

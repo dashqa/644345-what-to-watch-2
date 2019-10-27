@@ -1,8 +1,8 @@
 import React, {Fragment} from "react";
 import PropTypes from "prop-types";
-import MovieCard from "../movie-card/movie-card.jsx";
-import Catalog from "../catalog/catalog.jsx";
-import Footer from "../footer/footer.jsx";
+import MovieCard from "../../partials/movie-card/movie-card.jsx";
+import Catalog from "../../partials/catalog/catalog.jsx";
+import Footer from "../../partials/footer/footer.jsx";
 
 const MovieDetails = ({movie, relatedMovies}) => {
   return (
