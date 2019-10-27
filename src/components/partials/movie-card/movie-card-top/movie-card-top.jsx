@@ -1,7 +1,7 @@
 import React, {Fragment} from "react";
 import PropTypes from "prop-types";
-import Header from "../header/header.jsx";
-import MovieCardTopDesc from "../movie-card-top-desc/movie-card-top-desc.jsx";
+import Header from "../../header/header.jsx";
+import MovieCardTopDesc from "./movie-card-top-desc/movie-card-top-desc.jsx";
 
 const MovieCardTop = ({movie, isPromoMovie}) => {
   const {name, backgroundImage, posterImage, genre, released} = movie;

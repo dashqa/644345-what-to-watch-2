@@ -1,7 +1,7 @@
 import React, {Fragment} from "react";
 import PropTypes from "prop-types";
-import MovieCardTop from "../movie-card-top/movie-card-top.jsx";
-import MovieCardBottom from "../movie-card-bottom/movie-card-bottom.jsx";
+import MovieCardTop from "./movie-card-top/movie-card-top.jsx";
+import MovieCardBottom from "./movie-card-bottom/movie-card-bottom.jsx";
 
 const MovieCard = ({movie, isPromoMovie}) => {
   return (

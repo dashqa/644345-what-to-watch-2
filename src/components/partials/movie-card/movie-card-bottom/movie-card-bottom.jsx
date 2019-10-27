@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-
 const MovieCardBottom = ({movie}) => {
   const {name, genre, released, runTime, posterImage, director, starring} = movie;
   return (
