@@ -10,7 +10,7 @@ const MovieCardTop = ({movie, isPromoMovie}) => {
     <Fragment>
       <div className="movie-card__bg">
         <img
-          src={backgroundImage}
+          src={`/${backgroundImage}`}
           alt={name}
         />
       </div>
@@ -23,7 +23,7 @@ const MovieCardTop = ({movie, isPromoMovie}) => {
           <div className="movie-card__info">
             <div className="movie-card__poster">
               <img
-                src={posterImage}
+                src={`/${posterImage}`}
                 alt={`${name} poster`}
                 width="218"
                 height="327"

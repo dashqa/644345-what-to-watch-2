@@ -11,7 +11,7 @@ const CatalogCard = ({movie, onCardHover}) => {
     >
       <div className="small-movie-card__image">
         <img
-          src={previewImage}
+          src={`/${previewImage}`}
           alt={name}
           width="280"
           height="175"

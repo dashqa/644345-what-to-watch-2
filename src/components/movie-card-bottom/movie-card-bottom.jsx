@@ -9,7 +9,7 @@ const MovieCardBottom = ({movie}) => {
       <div className="movie-card__info">
         <div className="movie-card__poster movie-card__poster--big">
           <img
-            src={posterImage}
+            src={`/${posterImage}`}
             alt={name}
             width="218"
             height="327"
