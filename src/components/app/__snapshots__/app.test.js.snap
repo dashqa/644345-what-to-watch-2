@@ -3,7 +3,7 @@
 exports[`App correctly renders after relaunch 1`] = `
 Array [
   <section
-    className="movie-card"
+    className="movie-card "
   >
     <div
       className="movie-card__bg"
@@ -90,7 +90,7 @@ Array [
             <span
               className="movie-card__genre"
             >
-              Drama
+              Comedy
             </span>
             <span
               className="movie-card__year"
@@ -144,7 +144,7 @@ Array [
     className="page-content"
   >
     <section
-      className="catalog"
+      className="catalog "
     >
       <h2
         className="catalog__title visually-hidden"

@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import CatalogCard from "./../catalog-card/catalog-card.jsx";
-import {FILTERS} from "./../../constants";
+import ShowMore from "./../show-more/show-more.jsx";
+import CatalogFilter from "./../catalog-filter/catalog-filter.jsx";
 
 class Catalog extends React.PureComponent {
   constructor(props) {
@@ -16,20 +17,16 @@ class Catalog extends React.PureComponent {
   }
 
   render() {
-    const {movies} = this.props;
-    return (
-      <section className="catalog">
-        <h2 className="catalog__title visually-hidden">Catalog</h2>
+    const {movies, isMainCatalog} = this.props;
+    const {activeFilter} = this.state;
 
-        <ul className="catalog__genres-list">
-          {FILTERS.map((filter, i) => (
-            <li
-              key={`filter-${i}`}
-              className={`catalog__genres-item ` + (this.state.activeFilter === filter ? `catalog__genres-item--active` : ``)}>
-              <a href="#" className="catalog__genres-link">{filter}</a>
-            </li>
-          ))}
-        </ul>
+    return (
+      <section className={`catalog ` + (!isMainCatalog ? `catalog--like-this` : ``)}>
+        <h2 className={`catalog__title ` + (isMainCatalog ? `visually-hidden` : ``)}>
+          {isMainCatalog ? `Catalog` : `More like this`}
+        </h2>
+
+        {isMainCatalog && <CatalogFilter active={activeFilter}/>}
 
         <div className="catalog__movies-list">
           {movies.map((movie) =>
@@ -40,9 +37,7 @@ class Catalog extends React.PureComponent {
             />)}
         </div>
 
-        <div className="catalog__more">
-          <button className="catalog__button" type="button">Show more</button>
-        </div>
+        {isMainCatalog && <ShowMore/>}
       </section>
     );
   }
@@ -54,6 +49,7 @@ class Catalog extends React.PureComponent {
 
 Catalog.propTypes = {
   movies: PropTypes.array.isRequired,
+  isMainCatalog: PropTypes.bool.isRequired
 };
 
 export default Catalog;

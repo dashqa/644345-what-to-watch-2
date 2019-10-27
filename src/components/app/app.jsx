@@ -10,8 +10,18 @@ const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path='/' render={() => (<MainPage movies={MOVIES}/>)}/>
-        <Route path='/films/:id' render={({match}) => (<MovieDetails movie={getMovie(match.params.id)}/>)}/>
+        <Route exact path='/' render={() => (
+          <MainPage
+            movies={MOVIES}
+            promoMovie={MOVIES[0]}
+          />)}
+        />
+        <Route path='/films/:id' render={({match}) => (
+          <MovieDetails
+            movie={getMovie(match.params.id)}
+            relatedMovies={MOVIES}
+          />)}
+        />
       </Switch>
     </BrowserRouter>
   );

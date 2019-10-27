@@ -1,19 +1,31 @@
 import React, {Fragment} from "react";
 import PropTypes from "prop-types";
-import TopPage from "../top-page/top-page.jsx";
-import BottomPage from "../bottom-page/bottom-page.jsx";
+import Catalog from "../catalog/catalog.jsx";
+import MovieCard from "../movie-card/movie-card.jsx";
+import Footer from "../footer/footer.jsx";
 
-const MainPage = ({movies}) => {
+const MainPage = ({movies, promoMovie}) => {
   return (
     <Fragment>
-      <TopPage/>
-      <BottomPage movies={movies}/>
+      <MovieCard
+        movie={promoMovie}
+        isPromoMovie
+      />
+
+      <div className="page-content">
+        <Catalog
+          movies={movies}
+          isMainCatalog
+        />
+        <Footer/>
+      </div>
     </Fragment>
   );
 };
 
 MainPage.propTypes = {
   movies: PropTypes.array.isRequired,
+  promoMovie: PropTypes.object.isRequired,
 };
 
 export default MainPage;

@@ -1,24 +1,23 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import MainPage from './main-page';
+import MovieCardTop from './movie-card-top';
 
 const mock = {
-  movies: [],
-  promoMovie: {
+  movie: {
     name: ``,
     genre: ``,
     released: 0,
     backgroundImage: ``,
-    posterImage: ``,
+    posterImage: ``
   },
 };
 
-it(`Main page correctly renders after relaunch`, () => {
-  const {movies, promoMovie} = mock;
+it(`Movie card top correctly renders after relaunch`, () => {
+  const {movie} = mock;
   const tree = renderer.create(
-      <MainPage
-        movies={movies}
-        promoMovie={promoMovie}
+      <MovieCardTop
+        movie={movie}
+        isPromoMovie={false}
       />)
     .toJSON();
   expect(tree).toMatchSnapshot();

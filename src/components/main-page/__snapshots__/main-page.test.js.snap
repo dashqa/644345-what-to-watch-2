@@ -3,14 +3,14 @@
 exports[`Main page correctly renders after relaunch 1`] = `
 Array [
   <section
-    className="movie-card"
+    className="movie-card "
   >
     <div
       className="movie-card__bg"
     >
       <img
-        alt="The Grand Budapest Hotel"
-        src="img/bg-the-grand-budapest-hotel.jpg"
+        alt=""
+        src=""
       />
     </div>
     <h1
@@ -70,9 +70,9 @@ Array [
           className="movie-card__poster"
         >
           <img
-            alt="The Grand Budapest Hotel poster"
+            alt=" poster"
             height="327"
-            src="img/the-grand-budapest-hotel-poster.jpg"
+            src=""
             width="218"
           />
         </div>
@@ -82,7 +82,7 @@ Array [
           <h2
             className="movie-card__title"
           >
-            The Grand Budapest Hotel
+            
           </h2>
           <p
             className="movie-card__meta"
@@ -90,12 +90,12 @@ Array [
             <span
               className="movie-card__genre"
             >
-              Drama
+              
             </span>
             <span
               className="movie-card__year"
             >
-              2014
+              0
             </span>
           </p>
           <div
@@ -144,7 +144,7 @@ Array [
     className="page-content"
   >
     <section
-      className="catalog"
+      className="catalog "
     >
       <h2
         className="catalog__title visually-hidden"

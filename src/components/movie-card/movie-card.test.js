@@ -1,27 +1,26 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import MovieDetails from './movie-details';
+import MovieCard from './movie-card';
 
 const mock = {
   movie: {
     name: ``,
     genre: ``,
     released: 0,
-    runTime: 0,
     backgroundImage: ``,
     posterImage: ``,
+    runTime: 0,
     director: ``,
     starring: [],
   },
-  relatedMovies: []
 };
 
-it(`Movie details card correctly renders after relaunch`, () => {
-  const {movie, relatedMovies} = mock;
+it(`Movie card correctly renders after relaunch`, () => {
+  const {movie} = mock;
   const tree = renderer.create(
-      <MovieDetails
+      <MovieCard
         movie={movie}
-        relatedMovies={relatedMovies}
+        isPromoMovie={false}
       />)
     .toJSON();
   expect(tree).toMatchSnapshot();
