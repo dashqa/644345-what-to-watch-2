@@ -13,7 +13,7 @@ const MainPage = ({movies}) => {
 };
 
 MainPage.propTypes = {
-  movies: PropTypes.array.isRequired,
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default MainPage;

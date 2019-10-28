@@ -13,7 +13,7 @@ const BottomPage = ({movies}) => {
 };
 
 BottomPage.propTypes = {
-  movies: PropTypes.array.isRequired,
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default BottomPage;

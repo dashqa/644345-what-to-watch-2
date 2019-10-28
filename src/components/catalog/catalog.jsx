@@ -53,7 +53,7 @@ class Catalog extends React.PureComponent {
 }
 
 Catalog.propTypes = {
-  movies: PropTypes.array.isRequired,
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default Catalog;
