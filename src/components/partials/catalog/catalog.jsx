@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import CatalogCard from "./catalog-card/catalog-card.jsx";
+import classNames from "classnames";
+import CatalogCard from "../catalog-card/catalog-card.jsx";
 import ShowMore from "../show-more/show-more.jsx";
-import CatalogFilter from "./catalog-filter/catalog-filter.jsx";
+import CatalogFilter from "../catalog-filter/catalog-filter.jsx";
 
 class Catalog extends React.PureComponent {
   constructor(props) {
@@ -10,7 +11,7 @@ class Catalog extends React.PureComponent {
 
     this.state = {
       activeCard: {},
-      activeFilter: `All genres`
+      activeFilter: `all`
     };
 
     this._handleCardHover = this._handleCardHover.bind(this);
@@ -21,8 +22,8 @@ class Catalog extends React.PureComponent {
     const {activeFilter} = this.state;
 
     return (
-      <section className={!isMainCatalog ? `catalog catalog--like-this` : `catalog`}>
-        <h2 className={isMainCatalog ? `catalog__title visually-hidden` : `catalog__title`}>
+      <section className={classNames(`catalog`, {'catalog--like-this': !isMainCatalog})}>
+        <h2 className={classNames(`catalog__title`, {'visually-hidden': isMainCatalog})}>
           {isMainCatalog ? `Catalog` : `More like this`}
         </h2>
 

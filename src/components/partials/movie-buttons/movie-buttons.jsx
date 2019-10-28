@@ -1,26 +1,46 @@
 import React from "react";
+import UIButton from "../UI-button/UI-button.jsx";
 
-const MovieButtons = () => {
-  return (
-    <div className="movie-card__buttons">
-      <button className="btn btn--play movie-card__button" type="button">
-        <svg viewBox="0 0 19 19" width="19" height="19">
-          <use xlinkHref="#play-s"></use>
-        </svg>
-        <span>Play</span>
-      </button>
-      <button className="btn btn--list movie-card__button" type="button">
-        <svg viewBox="0 0 19 20" width="19" height="20">
-          <use xlinkHref="#add"></use>
-        </svg>
-        <span>My list</span>
-      </button>
+class MovieButtons extends React.PureComponent {
+  constructor(props) {
+    super(props);
 
-      {location.pathname !== `/` &&
+    this._handlePlayButtonClick = this._handlePlayButtonClick.bind(this);
+    this._handlePlayButtonClick = this._handlePlayButtonClick.bind(this);
+  }
+
+  render() {
+    return (
+      <div className="movie-card__buttons">
+        <UIButton
+          classMods={[`btn-play`]}
+          svgViewBox={`0 0 19 19`}
+          svgWidth={19}
+          svgHeight={19}
+          svg={`#play-s`}
+          title={`Play`}
+          onButtonClick={this._handlePlayButtonClick}
+        />
+
+        <UIButton
+          classMods={[`btn-list`]}
+          svgViewBox={`0 0 19 20`}
+          svgWidth={19}
+          svgHeight={20}
+          svg={`#add`}
+          title={`My list`}
+          onButtonClick={this._handleMyListButtonClick}
+        />
+
+        {location.pathname !== `/` &&
         <a href="add-review.html" className="btn movie-card__button">Add review</a>
-      }
-    </div>
-  );
-};
+        }
+      </div>
+    );
+  }
+
+  _handlePlayButtonClick() {}
+  _handleMyListButtonClick() {}
+}
 
 export default MovieButtons;
