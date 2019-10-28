@@ -24,7 +24,7 @@ const MainPage = ({movies, promoMovie}) => {
 };
 
 MainPage.propTypes = {
-  movies: PropTypes.array.isRequired,
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
   promoMovie: PropTypes.object.isRequired,
 };
 
