@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UI svg correctly renders after relaunch 1`] = `
+<svg
+  height={0}
+  viewBox=""
+  width={0}
+>
+  <use
+    xlinkHref=""
+  />
+</svg>
+`;
