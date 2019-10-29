@@ -1,15 +1,15 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import MainPage from './main-page';
+import BottomPage from './bottom-page';
 
 const mock = {
   movies: [],
 };
 
-it(`Main page correctly renders after relaunch`, () => {
+it(`Bottom page correctly renders after relaunch`, () => {
   const {movies} = mock;
   const tree = renderer
-    .create(<MainPage movies={movies}/>)
+    .create(<BottomPage movies={movies}/>)
     .toJSON();
   expect(tree).toMatchSnapshot();
 });

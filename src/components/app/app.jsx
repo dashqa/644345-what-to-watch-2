@@ -1,10 +1,9 @@
 import React from "react";
 import MainPage from "../main-page/main-page.jsx";
-
-const FILM_TITLES = [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`, `Spider Man`];
+import {MOVIES} from "../../mocks/movies";
 
 const App = () => {
-  return <MainPage filmTitles={FILM_TITLES}/>;
+  return <MainPage movies={MOVIES}/>;
 };
 
 export default App;
