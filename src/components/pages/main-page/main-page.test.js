@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import MainPage from './main-page';
 
-const mock = {
+const props = {
   movies: [],
   promoMovie: {
     name: ``,
@@ -14,12 +14,6 @@ const mock = {
 };
 
 it(`Main page correctly renders after relaunch`, () => {
-  const {movies, promoMovie} = mock;
-  const tree = renderer.create(
-      <MainPage
-        movies={movies}
-        promoMovie={promoMovie}
-      />)
-    .toJSON();
+  const tree = renderer.create(<MainPage {...props}/>).toJSON();
   expect(tree).toMatchSnapshot();
 });

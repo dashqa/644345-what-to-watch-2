@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import UISvg from './UI-svg';
 
-const mock = {
+const props = {
   xlink: ``,
   viewBox: ``,
   width: ``,
@@ -10,14 +10,6 @@ const mock = {
 };
 
 it(`UI svg correctly renders after relaunch`, () => {
-  const {xlink, viewBox, width, height} = mock;
-  const tree = renderer.create(
-      <UISvg
-        xlink={xlink}
-        viewBox={viewBox}
-        width={width}
-        height={height}
-      />)
-    .toJSON();
+  const tree = renderer.create(<UISvg {...props}/>).toJSON();
   expect(tree).toMatchSnapshot();
 });

@@ -2,19 +2,13 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import UIButton from './UI-button';
 
-const mock = {
+const props = {
   classMods: ``,
-  title: ``
+  title: ``,
+  onClick: () => {},
 };
 
 it(`UI button correctly renders after relaunch`, () => {
-  const {classMods, title} = mock;
-  const tree = renderer.create(
-      <UIButton
-        classMods={classMods}
-        title={title}
-        onClick={()=>{}}
-      />)
-    .toJSON();
+  const tree = renderer.create(<UIButton {...props}/>).toJSON();
   expect(tree).toMatchSnapshot();
 });
