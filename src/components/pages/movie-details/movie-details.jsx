@@ -7,14 +7,10 @@ import Footer from "../../partials/footer/footer.jsx";
 const MovieDetails = ({movie, relatedMovies}) => {
   return (
     <>
-      <MovieCard
-        movie={movie}
-      />
+      <MovieCard movie={movie}/>
 
       <div className="page-content">
-        <Catalog
-          movies={relatedMovies}
-        />
+        <Catalog movies={relatedMovies}/>
         <Footer/>
       </div>
     </>

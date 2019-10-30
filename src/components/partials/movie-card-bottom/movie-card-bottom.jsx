@@ -1,69 +1,80 @@
 import React from "react";
 import PropTypes from "prop-types";
 import MovieCardPoster from "../movie-card-poster/movie-card-poster.jsx";
+import MovieCardTabs from "../movie-card-tabs/movie-card-tabs.jsx";
+import TabOverview from "../tab-overview/tab-overview.jsx";
+import TabDetails from "../tab-details/tab-details.jsx";
+import TabReviews from "../tab-reviews/tab-reviews.jsx";
 
-const MovieCardBottom = ({movie}) => {
-  const {name, genre, released, runTime, posterImage, director, starring} = movie;
-  return (
-    <div className="movie-card__wrap movie-card__translate-top">
-      <div className="movie-card__info">
+class MovieCardBottom extends React.PureComponent {
+  constructor(props) {
+    super(props);
 
-        <MovieCardPoster
-          name={name}
-          posterImage={posterImage}
-          isBig
-        />
+    this.state = {
+      activeTab: `overview`
+    };
 
-        <div className="movie-card__desc">
-          <nav className="movie-nav movie-card__nav">
-            <ul className="movie-nav__list">
-              <li className="movie-nav__item">
-                <a href="#" className="movie-nav__link">Overview</a>
-              </li>
-              <li className="movie-nav__item movie-nav__item--active">
-                <a href="#" className="movie-nav__link">Details</a>
-              </li>
-              <li className="movie-nav__item">
-                <a href="#" className="movie-nav__link">Reviews</a>
-              </li>
-            </ul>
-          </nav>
+    this._handleChangeTab = this._handleChangeTab.bind(this);
+  }
 
-          <div className="movie-card__text movie-card__row">
-            <div className="movie-card__text-col">
-              <p className="movie-card__details-item">
-                <strong className="movie-card__details-name">Director</strong>
-                <span className="movie-card__details-value">{director}</span>
-              </p>
-              <p className="movie-card__details-item">
-                <strong className="movie-card__details-name">Starring</strong>
-                <span
-                  className="movie-card__details-value"
-                  dangerouslySetInnerHTML={{__html: starring.join(`</br>`)}}>
-                </span>
-              </p>
-            </div>
+  render() {
+    const {name, genre, description, released, rating, scoresCount, runTime, posterImage, director, starring, comments} = this.props.movie;
+    const {activeTab} = this.state;
 
-            <div className="movie-card__text-col">
-              <p className="movie-card__details-item">
-                <strong className="movie-card__details-name">Run Time</strong>
-                <span className="movie-card__details-value">{runTime}</span>
-              </p>
-              <p className="movie-card__details-item">
-                <strong className="movie-card__details-name">Genre</strong>
-                <span className="movie-card__details-value">{genre}</span>
-              </p>
-              <p className="movie-card__details-item">
-                <strong className="movie-card__details-name">Released</strong>
-                <span className="movie-card__details-value">{released}</span>
-              </p>
-            </div>
+    return (
+      <div className="movie-card__wrap movie-card__translate-top">
+        <div className="movie-card__info">
+
+          <MovieCardPoster
+            name={name}
+            posterImage={posterImage}
+            isBig
+          />
+
+          <div className="movie-card__desc">
+            <MovieCardTabs
+              active={activeTab}
+              onChangeTab={this._handleChangeTab}
+            />
+
+            {(() => {
+              switch (activeTab) {
+                case `overview`:
+                  return (
+                    <TabOverview
+                      rating={rating}
+                      scoresCount={scoresCount}
+                      description={description}
+                      director={director}
+                      starring={starring}
+                    />);
+                case `details`:
+                  return (
+                    <TabDetails
+                      runTime={runTime}
+                      genre={genre}
+                      released={released}
+                      director={director}
+                      starring={starring}
+                    />);
+                case `reviews`:
+                  return (
+                    <TabReviews comments={comments}/>
+                  );
+                default:
+                  return null;
+              }
+            })()}
           </div>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+
+  _handleChangeTab(tab) {
+    this.setState({activeTab: tab});
+  }
+}
 
 MovieCardBottom.defaultProps = {
   movie: {},
@@ -73,11 +84,15 @@ MovieCardBottom.propTypes = {
   movie: PropTypes.shape({
     name: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
     released: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
     runTime: PropTypes.number.isRequired,
     posterImage: PropTypes.string.isRequired,
     director: PropTypes.string.isRequired,
     starring: PropTypes.arrayOf(PropTypes.string).isRequired,
+    scoresCount: PropTypes.number.isRequired,
+    comments: PropTypes.arrayOf(PropTypes.object)
   }).isRequired,
 };
 

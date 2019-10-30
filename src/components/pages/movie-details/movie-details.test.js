@@ -7,11 +7,15 @@ const props = {
     name: ``,
     genre: ``,
     released: 0,
-    runTime: 0,
     backgroundImage: ``,
     posterImage: ``,
+    runTime: 0,
     director: ``,
     starring: [],
+    description: ``,
+    rating: 0,
+    scoresCount: 0,
+    comments: []
   },
   relatedMovies: []
 };

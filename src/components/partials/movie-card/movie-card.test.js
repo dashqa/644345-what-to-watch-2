@@ -12,6 +12,10 @@ const props = {
     runTime: 0,
     director: ``,
     starring: [],
+    description: ``,
+    rating: 0,
+    scoresCount: 0,
+    comments: [],
   },
 };
 

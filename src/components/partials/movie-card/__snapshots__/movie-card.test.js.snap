@@ -66,80 +66,66 @@ exports[`Movie card correctly renders after relaunch 1`] = `
       className="movie-card__wrap"
     >
       <div
-        className="movie-card__info"
+        className="movie-card__desc"
       >
-        <div
-          className="movie-card__poster"
+        <h2
+          className="movie-card__title"
         >
-          <img
-            alt=""
-            height="327"
-            src="/"
-            width="218"
-          />
-        </div>
-        <div
-          className="movie-card__desc"
+          
+        </h2>
+        <p
+          className="movie-card__meta"
         >
-          <h2
-            className="movie-card__title"
+          <span
+            className="movie-card__genre"
           >
             
-          </h2>
-          <p
-            className="movie-card__meta"
+          </span>
+          <span
+            className="movie-card__year"
           >
-            <span
-              className="movie-card__genre"
-            >
-              
-            </span>
-            <span
-              className="movie-card__year"
-            >
-              0
-            </span>
-          </p>
-          <div
-            className="movie-card__buttons"
+            0
+          </span>
+        </p>
+        <div
+          className="movie-card__buttons"
+        >
+          <button
+            className="btn movie-card__button btn-play"
+            onClick={[Function]}
+            type="button"
           >
-            <button
-              className="btn movie-card__button btn-play"
-              onClick={[Function]}
-              type="button"
+            <svg
+              height="19"
+              viewBox="0 0 19 19"
+              width="19"
             >
-              <svg
-                height="19"
-                viewBox="0 0 19 19"
-                width="19"
-              >
-                <use
-                  xlinkHref="#play-s"
-                />
-              </svg>
-              <span>
-                Play
-              </span>
-            </button>
-            <button
-              className="btn movie-card__button btn-list"
-              onClick={[Function]}
-              type="button"
+              <use
+                xlinkHref="#play-s"
+              />
+            </svg>
+            <span>
+              Play
+            </span>
+          </button>
+          <button
+            className="btn movie-card__button btn-list"
+            onClick={[Function]}
+            type="button"
+          >
+            <svg
+              height="20"
+              viewBox="0 0 19 20"
+              width="19"
             >
-              <svg
-                height="20"
-                viewBox="0 0 19 20"
-                width="19"
-              >
-                <use
-                  xlinkHref="#add"
-                />
-              </svg>
-              <span>
-                My list
-              </span>
-            </button>
-          </div>
+              <use
+                xlinkHref="#add"
+              />
+            </svg>
+            <span>
+              My list
+            </span>
+          </button>
         </div>
       </div>
     </div>
@@ -170,7 +156,8 @@ exports[`Movie card correctly renders after relaunch 1`] = `
             className="movie-nav__list"
           >
             <li
-              className="movie-nav__item"
+              className="movie-nav__item movie-nav__item--active"
+              onClick={[Function]}
             >
               <a
                 className="movie-nav__link"
@@ -180,7 +167,8 @@ exports[`Movie card correctly renders after relaunch 1`] = `
               </a>
             </li>
             <li
-              className="movie-nav__item movie-nav__item--active"
+              className="movie-nav__item"
+              onClick={[Function]}
             >
               <a
                 className="movie-nav__link"
@@ -191,6 +179,7 @@ exports[`Movie card correctly renders after relaunch 1`] = `
             </li>
             <li
               className="movie-nav__item"
+              onClick={[Function]}
             >
               <a
                 className="movie-nav__link"
@@ -202,89 +191,51 @@ exports[`Movie card correctly renders after relaunch 1`] = `
           </ul>
         </nav>
         <div
-          className="movie-card__text movie-card__row"
+          className="movie-rating"
         >
           <div
-            className="movie-card__text-col"
+            className="movie-rating__score"
           >
-            <p
-              className="movie-card__details-item"
-            >
-              <strong
-                className="movie-card__details-name"
-              >
-                Director
-              </strong>
-              <span
-                className="movie-card__details-value"
-              >
-                
-              </span>
-            </p>
-            <p
-              className="movie-card__details-item"
-            >
-              <strong
-                className="movie-card__details-name"
-              >
-                Starring
-              </strong>
-              <span
-                className="movie-card__details-value"
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "",
-                  }
-                }
-              />
-            </p>
+            0
           </div>
-          <div
-            className="movie-card__text-col"
+          <p
+            className="movie-rating__meta"
           >
-            <p
-              className="movie-card__details-item"
+            <span
+              className="movie-rating__level"
             >
-              <strong
-                className="movie-card__details-name"
-              >
-                Run Time
-              </strong>
-              <span
-                className="movie-card__details-value"
-              >
-                0
-              </span>
-            </p>
-            <p
-              className="movie-card__details-item"
+              Bad
+            </span>
+            <span
+              className="movie-rating__count"
             >
-              <strong
-                className="movie-card__details-name"
-              >
-                Genre
-              </strong>
-              <span
-                className="movie-card__details-value"
-              >
-                
-              </span>
-            </p>
-            <p
-              className="movie-card__details-item"
-            >
-              <strong
-                className="movie-card__details-name"
-              >
-                Released
-              </strong>
-              <span
-                className="movie-card__details-value"
-              >
-                0
-              </span>
-            </p>
-          </div>
+              0
+               ratings
+            </span>
+          </p>
+        </div>
+        <div
+          className="movie-card__text"
+        >
+          <p>
+            
+          </p>
+          <p
+            className="movie-card__director"
+          >
+            <strong>
+              Director: 
+              
+            </strong>
+          </p>
+          <p
+            className="movie-card__starring"
+          >
+            <strong>
+              Starring: 
+              
+            </strong>
+          </p>
         </div>
       </div>
     </div>

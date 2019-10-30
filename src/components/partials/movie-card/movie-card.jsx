@@ -12,13 +12,13 @@ const MovieCard = ({movie, isPromoMovie}) => {
       {isPromoMovie ? (
         <MovieCardTop
           movie={movie}
-          isPromoMovie/>
+          isPromoMovie={isPromoMovie}/>
       ) : (
         <>
           <div className="movie-card__hero">
             <MovieCardTop
               movie={movie}
-              isPromoMovie/>
+              isPromoMovie={isPromoMovie}/>
           </div>
 
           <MovieCardBottom movie={movie}/>
