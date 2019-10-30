@@ -2,12 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-const UIButton = ({children, classMods, title, onButtonClick}) => {
+const UIButton = ({children, classMods, title, onClick}) => {
   return (
     <button
       className={classNames(`btn`, `movie-card__button`, classMods)}
       type="button"
-      onClick={onButtonClick}
+      onClick={onClick}
     >
       {children}
 
@@ -16,11 +16,18 @@ const UIButton = ({children, classMods, title, onButtonClick}) => {
   );
 };
 
+UIButton.defaultProps = {
+  children: ``,
+  classMods: ``,
+  title: ``,
+  onClick: () => {}
+};
+
 UIButton.propTypes = {
   children: PropTypes.node,
-  classMods: PropTypes.arrayOf(PropTypes.string.isRequired),
+  classMods: PropTypes.string,
   title: PropTypes.string.isRequired,
-  onButtonClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default UIButton;

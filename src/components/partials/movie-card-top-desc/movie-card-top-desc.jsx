@@ -15,6 +15,12 @@ const MovieCardTopDesc = ({name, genre, released}) => {
   );
 };
 
+MovieCardTopDesc.defaultProps = {
+  name: ``,
+  genre: ``,
+  released: 0,
+};
+
 MovieCardTopDesc.propTypes = {
   name: PropTypes.string.isRequired,
   genre: PropTypes.string.isRequired,

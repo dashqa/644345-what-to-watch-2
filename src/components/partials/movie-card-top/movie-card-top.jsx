@@ -1,13 +1,14 @@
-import React, {Fragment} from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import Header from "../header/header.jsx";
 import MovieCardTopDesc from "../movie-card-top-desc/movie-card-top-desc.jsx";
+import MovieCardPoster from "../movie-card-poster/movie-card-poster.jsx";
 
 const MovieCardTop = ({movie, isPromoMovie}) => {
   const {name, backgroundImage, posterImage, genre, released} = movie;
 
   return (
-    <Fragment>
+    <>
       <div className="movie-card__bg">
         <img
           src={`/${backgroundImage}`}
@@ -21,14 +22,10 @@ const MovieCardTop = ({movie, isPromoMovie}) => {
       <div className="movie-card__wrap">
         {isPromoMovie ? (
           <div className="movie-card__info">
-            <div className="movie-card__poster">
-              <img
-                src={`/${posterImage}`}
-                alt={`${name} poster`}
-                width="218"
-                height="327"
-              />
-            </div>
+            <MovieCardPoster
+              name={name}
+              posterImage={posterImage}
+            />
 
             <MovieCardTopDesc
               name={name}
@@ -44,8 +41,13 @@ const MovieCardTop = ({movie, isPromoMovie}) => {
           />
         )}
       </div>
-    </Fragment>
+    </>
   );
+};
+
+MovieCardTop.defaultProps = {
+  movie: {},
+  isPromoMovie: false,
 };
 
 MovieCardTop.propTypes = {

@@ -1,4 +1,4 @@
-import React, {Fragment} from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import Catalog from "../../partials/catalog/catalog.jsx";
 import MovieCard from "../../partials/movie-card/movie-card.jsx";
@@ -6,7 +6,7 @@ import Footer from "../../partials/footer/footer.jsx";
 
 const MainPage = ({movies, promoMovie}) => {
   return (
-    <Fragment>
+    <>
       <MovieCard
         movie={promoMovie}
         isPromoMovie
@@ -19,8 +19,13 @@ const MainPage = ({movies, promoMovie}) => {
         />
         <Footer/>
       </div>
-    </Fragment>
+    </>
   );
+};
+
+MainPage.defaultProps = {
+  movies: [],
+  promoMovie: {},
 };
 
 MainPage.propTypes = {

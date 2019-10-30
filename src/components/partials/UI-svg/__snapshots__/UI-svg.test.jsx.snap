@@ -2,9 +2,9 @@
 
 exports[`UI svg correctly renders after relaunch 1`] = `
 <svg
-  height={0}
+  height=""
   viewBox=""
-  width={0}
+  width=""
 >
   <use
     xlinkHref=""

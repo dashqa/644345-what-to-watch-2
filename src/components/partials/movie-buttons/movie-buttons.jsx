@@ -14,28 +14,28 @@ class MovieButtons extends React.PureComponent {
     return (
       <div className="movie-card__buttons">
         <UIButton
-          classMods={[`btn-play`]}
-          title={`Play`}
-          onButtonClick={this._handlePlayButtonClick}
+          classMods="btn-play"
+          title="Play"
+          onClick={this._handlePlayButtonClick}
         >
           <UISvg
-            xlink={`#play-s`}
-            viewBox={`0 0 19 19`}
-            width={19}
-            height={19}
+            xlink="#play-s"
+            viewBox="0 0 19 19"
+            width="19"
+            height="19"
           />
         </UIButton>
 
         <UIButton
-          classMods={[`btn-list`]}
-          title={`My list`}
-          onButtonClick={this._handleMyListButtonClick}
+          classMods="btn-list"
+          title="My list"
+          onClick={this._handleMyListButtonClick}
         >
           <UISvg
-            xlink={`#add`}
-            viewBox={`0 0 19 20`}
-            width={19}
-            height={20}
+            xlink="#add"
+            viewBox="0 0 19 20"
+            width="19"
+            height="20"
           />
         </UIButton>
 

@@ -6,6 +6,7 @@ exports[`UI button correctly renders after relaunch 1`] = `
   onClick={[Function]}
   type="button"
 >
+  
   <span>
     
   </span>

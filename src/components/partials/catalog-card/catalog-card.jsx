@@ -4,10 +4,13 @@ import {Link} from 'react-router-dom';
 
 const CatalogCard = ({movie, onCardHover}) => {
   const {id, name, previewImage} = movie;
+  const moviePath = `/films/${id}`;
+
   return (
     <article
       className="small-movie-card catalog__movies-card"
       onMouseEnter={() => onCardHover(movie)}
+      onClick={() => (location.href = moviePath)}
     >
       <div className="small-movie-card__image">
         <img
@@ -19,7 +22,7 @@ const CatalogCard = ({movie, onCardHover}) => {
       </div>
       <h3 className="small-movie-card__title">
         <Link
-          to={`/films/${id}`}
+          to={moviePath}
           className="small-movie-card__link"
         >
           {name}
@@ -27,6 +30,11 @@ const CatalogCard = ({movie, onCardHover}) => {
       </h3>
     </article>
   );
+};
+
+CatalogCard.defaultProps = {
+  movie: {},
+  onCardHover: () => {},
 };
 
 

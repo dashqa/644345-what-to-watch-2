@@ -20,10 +20,12 @@ class Catalog extends React.PureComponent {
   render() {
     const {movies, isMainCatalog} = this.props;
     const {activeFilter} = this.state;
+    const sectionClasses = classNames(`catalog`, {'catalog--like-this': !isMainCatalog});
+    const headerClasses = classNames(`catalog__title`, {'visually-hidden': isMainCatalog});
 
     return (
-      <section className={classNames(`catalog`, {'catalog--like-this': !isMainCatalog})}>
-        <h2 className={classNames(`catalog__title`, {'visually-hidden': isMainCatalog})}>
+      <section className={sectionClasses}>
+        <h2 className={headerClasses}>
           {isMainCatalog ? `Catalog` : `More like this`}
         </h2>
 
@@ -47,6 +49,11 @@ class Catalog extends React.PureComponent {
     this.setState({activeCard: movie});
   }
 }
+
+Catalog.defaultProps = {
+  movies: [],
+  isMainCatalog: false,
+};
 
 Catalog.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,

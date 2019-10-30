@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import UIButton from './UI-button';
 
 const mock = {
-  classMods: [],
+  classMods: ``,
   title: ``
 };
 
@@ -13,7 +13,7 @@ it(`UI button correctly renders after relaunch`, () => {
       <UIButton
         classMods={classMods}
         title={title}
-        onButtonClick={()=>{}}
+        onClick={()=>{}}
       />)
     .toJSON();
   expect(tree).toMatchSnapshot();

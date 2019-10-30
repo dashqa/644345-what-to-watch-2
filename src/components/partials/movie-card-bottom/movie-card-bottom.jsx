@@ -1,19 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
+import MovieCardPoster from "../movie-card-poster/movie-card-poster.jsx";
 
 const MovieCardBottom = ({movie}) => {
   const {name, genre, released, runTime, posterImage, director, starring} = movie;
   return (
     <div className="movie-card__wrap movie-card__translate-top">
       <div className="movie-card__info">
-        <div className="movie-card__poster movie-card__poster--big">
-          <img
-            src={`/${posterImage}`}
-            alt={name}
-            width="218"
-            height="327"
-          />
-        </div>
+
+        <MovieCardPoster
+          name={name}
+          posterImage={posterImage}
+          isBig
+        />
 
         <div className="movie-card__desc">
           <nav className="movie-nav movie-card__nav">
@@ -64,6 +63,10 @@ const MovieCardBottom = ({movie}) => {
       </div>
     </div>
   );
+};
+
+MovieCardBottom.defaultProps = {
+  movie: {},
 };
 
 MovieCardBottom.propTypes = {

@@ -13,11 +13,18 @@ const UISvg = ({xlink, viewBox, width, height}) => {
   );
 };
 
+UISvg.defaultProps = {
+  xlink: ``,
+  viewBox: ``,
+  width: ``,
+  height: ``,
+};
+
 UISvg.propTypes = {
   xlink: PropTypes.string.isRequired,
   viewBox: PropTypes.string.isRequired,
-  width: PropTypes.number.isRequired,
-  height: PropTypes.number.isRequired,
+  width: PropTypes.string.isRequired,
+  height: PropTypes.string.isRequired,
 };
 
 export default UISvg;

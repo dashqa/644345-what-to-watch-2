@@ -5,8 +5,8 @@ import UISvg from './UI-svg';
 const mock = {
   xlink: ``,
   viewBox: ``,
-  width: 0,
-  height: 0,
+  width: ``,
+  height: ``,
 };
 
 it(`UI svg correctly renders after relaunch`, () => {

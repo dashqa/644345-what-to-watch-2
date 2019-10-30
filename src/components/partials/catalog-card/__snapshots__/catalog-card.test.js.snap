@@ -3,6 +3,7 @@
 exports[`Catalog card correctly renders after relaunch 1`] = `
 <article
   className="small-movie-card catalog__movies-card"
+  onClick={[Function]}
   onMouseEnter={[Function]}
 >
   <div
