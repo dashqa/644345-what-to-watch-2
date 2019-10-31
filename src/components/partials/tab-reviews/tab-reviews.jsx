@@ -14,8 +14,8 @@ class TabReviews extends React.PureComponent {
   componentDidMount() {
     const {comments} = this.props;
     const commentsObj = {
+      even: [],
       odd: [],
-      even: []
     };
 
     comments.forEach((comment, i) => i % 2 ? commentsObj.odd.push(comment) : commentsObj.even.push(comment));
