@@ -77,7 +77,19 @@ class MovieCardBottom extends React.PureComponent {
 }
 
 MovieCardBottom.defaultProps = {
-  movie: {},
+  movie: {
+    name: ``,
+    genre: ``,
+    description: ``,
+    released: 0,
+    rating: 0,
+    runTime: 0,
+    posterImage: ``,
+    director: ``,
+    starring: [],
+    scoresCount: 0,
+    comments: []
+  },
 };
 
 MovieCardBottom.propTypes = {

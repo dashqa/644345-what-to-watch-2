@@ -1,22 +1,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import MovieCard from './movie-card';
+import MovieCard from "./movie-card";
+
+jest.mock(`../../partials/movie-card-top/movie-card-top.jsx`, () => `MovieCardTop`);
+jest.mock(`../../partials/movie-card-bottom/movie-card-bottom.jsx`, () => `MovieCardBottom`);
 
 const props = {
-  movie: {
-    name: ``,
-    genre: ``,
-    released: 0,
-    backgroundImage: ``,
-    posterImage: ``,
-    runTime: 0,
-    director: ``,
-    starring: [],
-    description: ``,
-    rating: 0,
-    scoresCount: 0,
-    comments: [],
-  },
+  movie: {},
 };
 
 it(`Movie card correctly renders after relaunch`, () => {

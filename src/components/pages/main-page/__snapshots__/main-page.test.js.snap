@@ -1,42 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Main page correctly renders after relaunch 1`] = `
-<div
-  className="page-content"
->
-  <footer
-    className="page-footer"
+Array [
+  <MovieCard
+    isPromoMovie={true}
+    movie={Object {}}
+  />,
+  <div
+    className="page-content"
   >
-    <div
-      className="logo"
+    <Catalog
+      isMainCatalog={true}
+      movies={Array []}
+    />
+    <footer
+      className="page-footer"
     >
-      <a
-        className="logo__link logo__link--light"
+      <div
+        className="logo"
       >
-        <span
-          className="logo__letter logo__letter--1"
+        <a
+          className="logo__link logo__link--light"
         >
-          W
-        </span>
-        <span
-          className="logo__letter logo__letter--2"
-        >
-          T
-        </span>
-        <span
-          className="logo__letter logo__letter--3"
-        >
-          W
-        </span>
-      </a>
-    </div>
-    <div
-      className="copyright"
-    >
-      <p>
-        © 2019 What to watch Ltd.
-      </p>
-    </div>
-  </footer>
-</div>
+          <span
+            className="logo__letter logo__letter--1"
+          >
+            W
+          </span>
+          <span
+            className="logo__letter logo__letter--2"
+          >
+            T
+          </span>
+          <span
+            className="logo__letter logo__letter--3"
+          >
+            W
+          </span>
+        </a>
+      </div>
+      <div
+        className="copyright"
+      >
+        <p>
+          © 2019 What to watch Ltd.
+        </p>
+      </div>
+    </footer>
+  </div>,
+]
 `;

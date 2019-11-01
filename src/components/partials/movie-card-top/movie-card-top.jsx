@@ -46,7 +46,13 @@ const MovieCardTop = ({movie, isPromoMovie}) => {
 };
 
 MovieCardTop.defaultProps = {
-  movie: {},
+  movie: {
+    name: ``,
+    genre: ``,
+    released: 0,
+    backgroundImage: ``,
+    posterImage: ``,
+  },
   isPromoMovie: false,
 };
 
