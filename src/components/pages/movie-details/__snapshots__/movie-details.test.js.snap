@@ -1,7 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Movie details card correctly renders after relaunch 1`] = `
-<div
-  className="page-content"
-/>
+Array [
+  <MovieCard
+    movie={Object {}}
+  />,
+  <div
+    className="page-content"
+  >
+    <Catalog
+      movies={Array []}
+    />
+    <Footer />
+  </div>,
+]
 `;
