@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UI button correctly renders after relaunch 1`] = `
+<button
+  className="btn movie-card__button"
+  onClick={[Function]}
+  type="button"
+>
+  
+  <span>
+    
+  </span>
+</button>
+`;
