@@ -264,136 +264,171 @@ Array [
           className="small-movie-card catalog__movies-card"
           onClick={[Function]}
           onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
-            <img
-              alt="The Grand Budapest Hotel"
-              height="175"
-              src="/img/the-grand-budapest-hotel-poster.jpg"
+            <video
+              controls={false}
+              height="180"
+              muted={true}
+              poster="/img/the-grand-budapest-hotel-poster.jpg"
               width="280"
-            />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="/films/1"
-              onClick={[Function]}
             >
-              The Grand Budapest Hotel
-            </a>
-          </h3>
+              <source
+                src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+                type="video/mp4"
+              />
+            </video>
+            <h3
+              className="small-movie-card__title"
+            >
+              <a
+                className="small-movie-card__link"
+                href="/films/1"
+                onClick={[Function]}
+              >
+                The Grand Budapest Hotel
+              </a>
+            </h3>
+          </div>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
           onClick={[Function]}
           onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
-            <img
-              alt="Bohemian Rhapsody"
-              height="175"
-              src="/img/bohemian-rhapsody.jpg"
+            <video
+              controls={false}
+              height="180"
+              muted={true}
+              poster="/img/bohemian-rhapsody.jpg"
               width="280"
-            />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="/films/2"
-              onClick={[Function]}
             >
-              Bohemian Rhapsody
-            </a>
-          </h3>
+              <source
+                src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+                type="video/mp4"
+              />
+            </video>
+            <h3
+              className="small-movie-card__title"
+            >
+              <a
+                className="small-movie-card__link"
+                href="/films/2"
+                onClick={[Function]}
+              >
+                Bohemian Rhapsody
+              </a>
+            </h3>
+          </div>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
           onClick={[Function]}
           onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
-            <img
-              alt="Johnny English"
-              height="175"
-              src="/img/johnny-english.jpg"
+            <video
+              controls={false}
+              height="180"
+              muted={true}
+              poster="/img/johnny-english.jpg"
               width="280"
-            />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="/films/3"
-              onClick={[Function]}
             >
-              Johnny English
-            </a>
-          </h3>
+              <source
+                src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+                type="video/mp4"
+              />
+            </video>
+            <h3
+              className="small-movie-card__title"
+            >
+              <a
+                className="small-movie-card__link"
+                href="/films/3"
+                onClick={[Function]}
+              >
+                Johnny English
+              </a>
+            </h3>
+          </div>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
           onClick={[Function]}
           onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
-            <img
-              alt="Shutter Island"
-              height="175"
-              src="/img/shutter-island.jpg"
+            <video
+              controls={false}
+              height="180"
+              muted={true}
+              poster="/img/shutter-island.jpg"
               width="280"
-            />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="/films/4"
-              onClick={[Function]}
             >
-              Shutter Island
-            </a>
-          </h3>
+              <source
+                src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+                type="video/mp4"
+              />
+            </video>
+            <h3
+              className="small-movie-card__title"
+            >
+              <a
+                className="small-movie-card__link"
+                href="/films/4"
+                onClick={[Function]}
+              >
+                Shutter Island
+              </a>
+            </h3>
+          </div>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
           onClick={[Function]}
           onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
-            <img
-              alt="Moonrise Kingdom"
-              height="175"
-              src="/img/moonrise-kingdom.jpg"
+            <video
+              controls={false}
+              height="180"
+              muted={true}
+              poster="/img/moonrise-kingdom.jpg"
               width="280"
-            />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="/films/5"
-              onClick={[Function]}
             >
-              Moonrise Kingdom
-            </a>
-          </h3>
+              <source
+                src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+                type="video/mp4"
+              />
+            </video>
+            <h3
+              className="small-movie-card__title"
+            >
+              <a
+                className="small-movie-card__link"
+                href="/films/5"
+                onClick={[Function]}
+              >
+                Moonrise Kingdom
+              </a>
+            </h3>
+          </div>
         </article>
       </div>
       <div

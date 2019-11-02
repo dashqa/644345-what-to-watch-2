@@ -1,40 +1,76 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {Link} from 'react-router-dom';
+import VideoPlayer from "../video-player/video-player.jsx";
 
-const CatalogCard = ({movie, onCardHover}) => {
-  const {id, name, previewImage} = movie;
-  const moviePath = `/films/${id}`;
+class CatalogCard extends React.PureComponent {
+  constructor(props) {
+    super(props);
 
-  return (
-    <article
-      className="small-movie-card catalog__movies-card"
-      onMouseEnter={() => onCardHover(movie)}
-      onClick={() => (location.href = moviePath)}
-    >
-      <div className="small-movie-card__image">
-        <img
-          src={`/${previewImage}`}
-          alt={name}
-          width="280"
-          height="175"
-        />
-      </div>
-      <h3 className="small-movie-card__title">
-        <Link
-          to={moviePath}
-          className="small-movie-card__link"
-        >
-          {name}
-        </Link>
-      </h3>
-    </article>
-  );
-};
+    this._videoTimeout = null;
+    this._playerRef = React.createRef();
+
+    this._handleMouseLeave = this._handleMouseLeave.bind(this);
+    this._handleMouseEnter = this._handleMouseEnter.bind(this);
+
+    this.state = {
+      isVideoPlaying: false,
+    };
+  }
+
+  componentWillUnmount() {
+    this._handleMouseLeave();
+  }
+
+  render() {
+    const {id, name, previewImage, previewVideoLink} = this.props.movie;
+    const {isVideoPlaying} = this.state;
+    const moviePath = `/films/${id}`;
+
+    return (
+      <article
+        className="small-movie-card catalog__movies-card"
+        onMouseEnter={this._handleMouseEnter}
+        onMouseLeave={this._handleMouseLeave}
+        onClick={() => (location.href = moviePath)}
+      >
+        <div className="small-movie-card__image">
+          <VideoPlayer
+            ref={this._playerRef}
+            link={previewVideoLink}
+            poster={`/${previewImage}`}
+            isPlaying={isVideoPlaying}
+            muted
+            width="280"
+            height="180"
+          />
+          <h3 className="small-movie-card__title">
+            <Link
+              to={moviePath}
+              className="small-movie-card__link"
+            >
+              {name}
+            </Link>
+          </h3>
+        </div>
+      </article>
+    );
+  }
+
+  _handleMouseEnter() {
+    this._videoTimeout = setTimeout(() => {
+      this.setState({isVideoPlaying: true});
+    }, 1000);
+  }
+
+  _handleMouseLeave() {
+    clearTimeout(this._videoTimeout);
+    this.setState({isVideoPlaying: false});
+  }
+}
 
 CatalogCard.defaultProps = {
   movie: {},
-  onCardHover: () => {},
 };
 
 
@@ -42,9 +78,9 @@ CatalogCard.propTypes = {
   movie: PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    previewImage: PropTypes.string.isRequired
+    previewImage: PropTypes.string.isRequired,
+    previewVideoLink: PropTypes.string
   }).isRequired,
-  onCardHover: PropTypes.func.isRequired
 };
 
 export default CatalogCard;

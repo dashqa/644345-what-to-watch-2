@@ -2,12 +2,11 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import CatalogFilter from './catalog-filter';
 
-const mock = {
+const props = {
   active: ``,
 };
 
 it(`Catalog filter correctly renders after relaunch`, () => {
-  const {active} = mock;
-  const tree = renderer.create(<CatalogFilter active={active}/>).toJSON();
+  const tree = renderer.create(<CatalogFilter {...props}/>).toJSON();
   expect(tree).toMatchSnapshot();
 });

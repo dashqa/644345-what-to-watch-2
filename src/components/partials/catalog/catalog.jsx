@@ -10,11 +10,8 @@ class Catalog extends React.PureComponent {
     super(props);
 
     this.state = {
-      activeCard: {},
       activeFilter: `all`
     };
-
-    this._handleCardHover = this._handleCardHover.bind(this);
   }
 
   render() {
@@ -36,17 +33,12 @@ class Catalog extends React.PureComponent {
             <CatalogCard
               key={movie.id}
               movie={movie}
-              onCardHover={this._handleCardHover}
             />)}
         </div>
 
         {isMainCatalog && <ShowMore/>}
       </section>
     );
-  }
-
-  _handleCardHover(movie) {
-    this.setState({activeCard: movie});
   }
 }
 

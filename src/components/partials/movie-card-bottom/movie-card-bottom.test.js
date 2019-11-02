@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import MovieCardBottom from './movie-card-bottom';
 
-const mock = {
+const props = {
   movie: {
     name: ``,
     genre: ``,
@@ -16,7 +16,6 @@ const mock = {
 };
 
 it(`Movie card bottom correctly renders after relaunch`, () => {
-  const {movie} = mock;
-  const tree = renderer.create(<MovieCardBottom movie={movie}/>).toJSON();
+  const tree = renderer.create(<MovieCardBottom {...props}/>).toJSON();
   expect(tree).toMatchSnapshot();
 });
