@@ -12,6 +12,7 @@ class CatalogCard extends React.PureComponent {
 
     this._handleMouseLeave = this._handleMouseLeave.bind(this);
     this._handleMouseEnter = this._handleMouseEnter.bind(this);
+    this._handleCardCLick = this._handleCardCLick.bind(this);
 
     this.state = {
       isVideoPlaying: false,
@@ -25,14 +26,13 @@ class CatalogCard extends React.PureComponent {
   render() {
     const {id, name, previewImage, previewVideoLink} = this.props.movie;
     const {isVideoPlaying} = this.state;
-    const moviePath = `/films/${id}`;
 
     return (
       <article
         className="small-movie-card catalog__movies-card"
         onMouseEnter={this._handleMouseEnter}
         onMouseLeave={this._handleMouseLeave}
-        onClick={() => (location.href = moviePath)}
+        onClick={this._handleCardCLick}
       >
         <div className="small-movie-card__image">
           <VideoPlayer
@@ -46,7 +46,7 @@ class CatalogCard extends React.PureComponent {
           />
           <h3 className="small-movie-card__title">
             <Link
-              to={moviePath}
+              to={`/films/${id}`}
               className="small-movie-card__link"
             >
               {name}
@@ -66,6 +66,11 @@ class CatalogCard extends React.PureComponent {
   _handleMouseLeave() {
     clearTimeout(this._videoTimeout);
     this.setState({isVideoPlaying: false});
+  }
+
+  _handleCardCLick() {
+    const {id} = this.props.movie;
+    location.href = `/films/${id}`;
   }
 }
 

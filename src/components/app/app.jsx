@@ -4,9 +4,9 @@ import MainPage from "../pages/main-page/main-page.jsx";
 import MovieDetails from "../pages/movie-details/movie-details.jsx";
 import {MOVIES} from "../../mocks/movies";
 
-const App = () => {
-  const getMovie = (paramsId) => MOVIES.find(({id}) => id === parseInt(paramsId, 10));
+const getMovie = (paramsId) => MOVIES.find(({id}) => id === parseInt(paramsId, 10));
 
+const App = () => {
   return (
     <BrowserRouter>
       <Switch>

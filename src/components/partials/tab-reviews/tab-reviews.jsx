@@ -32,24 +32,28 @@ class TabReviews extends React.PureComponent {
             className="movie-card__reviews-col"
             key={key}
           >
-            {comments.map(({id, comment, user, date, rating}) => (
-              <div
-                className="review"
-                key={id}
-              >
-                <blockquote className="review__quote">
-                  <p className="review__text">{comment}</p>
+            {comments.map(({id, comment, user, date, rating}) => {
+              const commentDate = moment(date);
 
-                  <footer className="review__details">
-                    <cite className="review__author">{user.name}</cite>
-                    <time className="review__date" dateTime={moment(date).format(`YYYY-MM-DD`)}>
-                      {moment(date).format(`MMMM Do, YYYY`)}</time>
-                  </footer>
-                </blockquote>
+              return (
+                <div
+                  className="review"
+                  key={id}
+                >
+                  <blockquote className="review__quote">
+                    <p className="review__text">{comment}</p>
 
-                <div className="review__rating">{rating}</div>
-              </div>
-            ))}
+                    <footer className="review__details">
+                      <cite className="review__author">{user.name}</cite>
+                      <time className="review__date" dateTime={commentDate.format(`YYYY-MM-DD`)}>
+                        {commentDate.format(`MMMM Do, YYYY`)}</time>
+                    </footer>
+                  </blockquote>
+
+                  <div className="review__rating">{rating}</div>
+                </div>
+              );
+            })}
           </div>
         ))}
       </div>
