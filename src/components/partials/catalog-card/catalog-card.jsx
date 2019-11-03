@@ -12,7 +12,7 @@ class CatalogCard extends React.PureComponent {
 
     this._handleMouseLeave = this._handleMouseLeave.bind(this);
     this._handleMouseEnter = this._handleMouseEnter.bind(this);
-    this._handleCardCLick = this._handleCardCLick.bind(this);
+    this._handleCardClick = this._handleCardClick.bind(this);
 
     this.state = {
       isVideoPlaying: false,
@@ -32,7 +32,7 @@ class CatalogCard extends React.PureComponent {
         className="small-movie-card catalog__movies-card"
         onMouseEnter={this._handleMouseEnter}
         onMouseLeave={this._handleMouseLeave}
-        onClick={this._handleCardCLick}
+        onClick={this._handleCardClick}
       >
         <div className="small-movie-card__image">
           <VideoPlayer
@@ -68,7 +68,7 @@ class CatalogCard extends React.PureComponent {
     this.setState({isVideoPlaying: false});
   }
 
-  _handleCardCLick() {
+  _handleCardClick() {
     const {id} = this.props.movie;
     location.href = `/films/${id}`;
   }
