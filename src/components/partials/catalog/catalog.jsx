@@ -1,32 +1,29 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+import {connect} from "react-redux";
 import CatalogCard from "../catalog-card/catalog-card.jsx";
 import ShowMore from "../show-more/show-more.jsx";
 import CatalogFilter from "../catalog-filter/catalog-filter.jsx";
+import {getFilteredMovies} from "../../../store/actions";
 
 class Catalog extends React.PureComponent {
   constructor(props) {
     super(props);
-
-    this.state = {
-      activeFilter: `all`
-    };
   }
 
   render() {
-    const {movies, isMainCatalog} = this.props;
-    const {activeFilter} = this.state;
-    const sectionClasses = classNames(`catalog`, {'catalog--like-this': !isMainCatalog});
-    const headerClasses = classNames(`catalog__title`, {'visually-hidden': isMainCatalog});
+    const {movies, isMainPage} = this.props;
+    const sectionClasses = classNames(`catalog`, {'catalog--like-this': !isMainPage});
+    const headerClasses = classNames(`catalog__title`, {'visually-hidden': isMainPage});
 
     return (
       <section className={sectionClasses}>
         <h2 className={headerClasses}>
-          {isMainCatalog ? `Catalog` : `More like this`}
+          {isMainPage ? `Catalog` : `More like this`}
         </h2>
 
-        {isMainCatalog && <CatalogFilter active={activeFilter}/>}
+        {isMainPage && <CatalogFilter/>}
 
         <div className="catalog__movies-list">
           {movies.map((movie) =>
@@ -36,7 +33,7 @@ class Catalog extends React.PureComponent {
             />)}
         </div>
 
-        {isMainCatalog && <ShowMore/>}
+        {isMainPage && <ShowMore/>}
       </section>
     );
   }
@@ -44,12 +41,17 @@ class Catalog extends React.PureComponent {
 
 Catalog.defaultProps = {
   movies: [],
-  isMainCatalog: false,
+  isMainPage: false,
 };
 
 Catalog.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-  isMainCatalog: PropTypes.bool.isRequired
+  isMainPage: PropTypes.bool.isRequired,
 };
 
-export default Catalog;
+const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
+  movies: getFilteredMovies(state),
+});
+
+export {Catalog};
+export default connect(mapStateToProps)(Catalog);

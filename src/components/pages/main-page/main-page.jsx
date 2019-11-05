@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {connect} from "react-redux";
 import Catalog from "../../partials/catalog/catalog.jsx";
 import MovieCard from "../../partials/movie-card/movie-card.jsx";
 import Footer from "../../partials/footer/footer.jsx";
@@ -9,13 +10,13 @@ const MainPage = ({movies, promoMovie}) => {
     <>
       <MovieCard
         movie={promoMovie}
-        isPromoMovie
+        isMainPage
       />
 
       <div className="page-content">
         <Catalog
           movies={movies}
-          isMainCatalog
+          isMainPage
         />
         <Footer/>
       </div>
@@ -33,4 +34,10 @@ MainPage.propTypes = {
   promoMovie: PropTypes.object.isRequired,
 };
 
-export default MainPage;
+const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
+  movies: state.movies,
+  promoMovie: state.promoMovie,
+});
+
+export {MainPage};
+export default connect(mapStateToProps)(MainPage);

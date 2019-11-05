@@ -1,8 +1,14 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import App from './app';
+import {shallow} from "enzyme";
+import toJSON from "enzyme-to-json";
+import App from "./app";
+import configureMockStore from "redux-mock-store";
+import {initialState} from "../../store/reducers";
+
+const mockStore = configureMockStore();
+const store = mockStore(initialState);
 
 it(`App correctly renders after relaunch`, () => {
-  const tree = renderer.create(<App/>).toJSON();
-  expect(tree).toMatchSnapshot();
+  const tree = shallow(<App store={store}/>);
+  expect(toJSON(tree)).toMatchSnapshot();
 });

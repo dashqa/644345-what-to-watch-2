@@ -3,11 +3,12 @@ import PropTypes from "prop-types";
 import MovieCard from "../../partials/movie-card/movie-card.jsx";
 import Catalog from "../../partials/catalog/catalog.jsx";
 import Footer from "../../partials/footer/footer.jsx";
+import {connect} from "react-redux";
 
-const MovieDetails = ({movie, relatedMovies}) => {
+const MovieDetails = ({currentMovie, relatedMovies}) => {
   return (
     <>
-      <MovieCard movie={movie}/>
+      <MovieCard movie={currentMovie}/>
 
       <div className="page-content">
         <Catalog movies={relatedMovies}/>
@@ -18,13 +19,22 @@ const MovieDetails = ({movie, relatedMovies}) => {
 };
 
 MovieDetails.defaultProps = {
-  movie: {},
+  currentMovie: {},
   relatedMovies: [],
+  isMainPage: false,
 };
 
 MovieDetails.propTypes = {
-  movie: PropTypes.object.isRequired,
+  currentMovie: PropTypes.object.isRequired,
   relatedMovies: PropTypes.arrayOf(PropTypes.object).isRequired,
+  isMainPage: PropTypes.bool.isRequired,
 };
 
-export default MovieDetails;
+const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
+  currentMovie: state.currentMovie,
+  relatedMovies: state.relatedMovies,
+  isMainPage: state.isMainPage,
+});
+
+export {MovieDetails};
+export default connect(mapStateToProps)(MovieDetails);

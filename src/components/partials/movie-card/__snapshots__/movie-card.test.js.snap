@@ -8,7 +8,7 @@ exports[`Movie card correctly renders after relaunch 1`] = `
     className="movie-card__hero"
   >
     <MovieCardTop
-      isPromoMovie={false}
+      isMainPage={false}
       movie={Object {}}
     />
   </div>

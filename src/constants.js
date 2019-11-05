@@ -1,7 +1,5 @@
-export const FILTERS = {all: `All genres`, comedies: `Comedies`, crime: `Crime`, documentary: `Documentary`, dramas: `Dramas`,
-  horror: `Horror`, kidsFamily: `Kids & Family`, romance: `Romance`, sciFi: `Sci-Fi`, thrillers: `Thrillers`};
-
 export const MOVIE_TABS = {overview: `Overview`, details: `Details`, reviews: `Reviews`};
+export const DEFAULT_FILTER = `All genres`;
 
 export const USER_RATINGS = [
   {title: `Bad`, minRating: 0},

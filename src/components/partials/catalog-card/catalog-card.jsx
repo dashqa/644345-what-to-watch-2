@@ -1,7 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
 import VideoPlayer from "../video-player/video-player.jsx";
+import {setCurrentMovie} from "../../../store/actions";
 
 class CatalogCard extends React.PureComponent {
   constructor(props) {
@@ -69,15 +72,18 @@ class CatalogCard extends React.PureComponent {
   }
 
   _handleCardClick() {
-    const {id} = this.props.movie;
-    location.href = `/films/${id}`;
+    const {onClickCard, history, movie} = this.props;
+    const {id} = movie;
+
+    history.push(`/films/${id}`);
+    onClickCard(this.props.movie);
   }
 }
 
 CatalogCard.defaultProps = {
   movie: {},
+  onClickCard: () => {},
 };
-
 
 CatalogCard.propTypes = {
   movie: PropTypes.shape({
@@ -86,6 +92,15 @@ CatalogCard.propTypes = {
     previewImage: PropTypes.string.isRequired,
     previewVideoLink: PropTypes.string
   }).isRequired,
+  onClickCard: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
 };
 
-export default CatalogCard;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onClickCard: bindActionCreators(setCurrentMovie, dispatch),
+  };
+};
+
+export {CatalogCard};
+export default withRouter(connect(null, mapDispatchToProps)(CatalogCard));
