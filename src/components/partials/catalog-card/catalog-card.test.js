@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import {BrowserRouter} from "react-router-dom";
-import CatalogCard from './catalog-card';
+import {CatalogCard} from './catalog-card';
 
 const props = {
   movie: {
@@ -9,7 +9,8 @@ const props = {
     name: ``,
     previewImage: ``
   },
-  key: 0
+  onClickCard: () => {},
+  history: {},
 };
 
 it(`Catalog card correctly renders after relaunch`, () => {

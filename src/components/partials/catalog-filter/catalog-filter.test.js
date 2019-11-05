@@ -1,9 +1,11 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import CatalogFilter from './catalog-filter';
+import {CatalogFilter} from './catalog-filter';
 
 const props = {
-  active: ``,
+  active: `all`,
+  genres: new Set([`comedy`]),
+  onChange: () => {}
 };
 
 it(`Catalog filter correctly renders after relaunch`, () => {

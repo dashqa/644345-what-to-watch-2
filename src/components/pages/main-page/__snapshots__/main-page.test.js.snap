@@ -3,14 +3,14 @@
 exports[`Main page correctly renders after relaunch 1`] = `
 Array [
   <MovieCard
-    isPromoMovie={true}
+    isMainPage={true}
     movie={Object {}}
   />,
   <div
     className="page-content"
   >
     <Catalog
-      isMainCatalog={true}
+      isMainPage={true}
       movies={Array []}
     />
     <footer
