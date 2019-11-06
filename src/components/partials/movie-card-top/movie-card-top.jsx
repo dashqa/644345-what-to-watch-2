@@ -11,7 +11,7 @@ const MovieCardTop = ({movie, isMainPage}) => {
     <>
       <div className="movie-card__bg">
         <img
-          src={`/${backgroundImage}`}
+          src={`${backgroundImage}`}
           alt={name}
         />
       </div>

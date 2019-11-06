@@ -1,11 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import {bindActionCreators} from "redux";
-import {setActiveFilter, getGenres} from "../../../store/actions";
-import {connect} from "react-redux";
+import {DEFAULT_FILTER} from "../../../constants";
 
-const CatalogFilter = ({active, onChange, genres}) => {
+
+const CatalogFilter = ({active, genres, onChange}) => {
   return (
     <ul className="catalog__genres-list">
       {[...genres].map((genre) => {
@@ -25,7 +24,7 @@ const CatalogFilter = ({active, onChange, genres}) => {
 };
 
 CatalogFilter.defaultProps = {
-  active: `all`,
+  active: DEFAULT_FILTER,
   genres: {},
   onChange: () => {}
 };
@@ -36,16 +35,4 @@ CatalogFilter.propTypes = {
   onChange: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
-  active: state.activeFilter,
-  genres: getGenres(state),
-});
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onChange: bindActionCreators(setActiveFilter, dispatch),
-  };
-};
-
-export {CatalogFilter};
-export default connect(mapStateToProps, mapDispatchToProps)(CatalogFilter);
+export default CatalogFilter;

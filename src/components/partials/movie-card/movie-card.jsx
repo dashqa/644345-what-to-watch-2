@@ -8,7 +8,10 @@ const MovieCard = ({movie, isMainPage}) => {
   const sectionClasses = classNames(`movie-card`, {'movie-card--full': !isMainPage});
 
   return (
-    <section className={sectionClasses}>
+    <section
+      className={sectionClasses}
+      style={{backgroundColor: movie.backgroundColor}}
+    >
       {isMainPage ? (
         <MovieCardTop
           movie={movie}

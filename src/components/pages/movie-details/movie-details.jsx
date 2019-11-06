@@ -1,39 +1,53 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {connect} from "react-redux";
+import memoize from "memoize-one";
+
 import MovieCard from "../../partials/movie-card/movie-card.jsx";
 import Catalog from "../../partials/catalog/catalog.jsx";
 import Footer from "../../partials/footer/footer.jsx";
-import {connect} from "react-redux";
+import {getMovie, getRelatedMovies} from "../../../utils";
 
-const MovieDetails = ({currentMovie, relatedMovies}) => {
-  return (
-    <>
-      <MovieCard movie={currentMovie}/>
 
-      <div className="page-content">
-        <Catalog movies={relatedMovies}/>
-        <Footer/>
-      </div>
-    </>
-  );
-};
+class MovieDetails extends React.PureComponent {
+  constructor(props) {
+    super(props);
+
+    const {movies} = this.props;
+    this.memoizedCurrentMovie = memoize((movieId) => getMovie(movies, movieId));
+    this.memoizedRelaitedMovies = memoize((movieId) => getRelatedMovies(movies, getMovie(movies, movieId)));
+  }
+
+  render() {
+    const {movieId} = this.props;
+    const currentMovie = this.memoizedCurrentMovie(movieId);
+    const relatedMovies = this.memoizedRelaitedMovies(movieId);
+
+    return (
+      <>
+        <MovieCard movie={currentMovie}/>
+
+        <div className="page-content">
+          <Catalog movies={relatedMovies}/>
+          <Footer/>
+        </div>
+      </>
+    );
+  }
+}
 
 MovieDetails.defaultProps = {
-  currentMovie: {},
-  relatedMovies: [],
-  isMainPage: false,
+  movies: [],
+  movieId: null,
 };
 
 MovieDetails.propTypes = {
-  currentMovie: PropTypes.object.isRequired,
-  relatedMovies: PropTypes.arrayOf(PropTypes.object).isRequired,
-  isMainPage: PropTypes.bool.isRequired,
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+  movieId: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
-  currentMovie: state.currentMovie,
-  relatedMovies: state.relatedMovies,
-  isMainPage: state.isMainPage,
+  movies: state.movies,
 });
 
 export {MovieDetails};

@@ -7,7 +7,7 @@ exports[`Movie card poster correctly renders after relaunch 1`] = `
   <img
     alt=""
     height="327"
-    src="/"
+    src=""
     width="218"
   />
 </div>

@@ -1,9 +1,9 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import {CatalogFilter} from './catalog-filter';
+import CatalogFilter from './catalog-filter';
 
 const props = {
-  active: `all`,
+  active: ``,
   genres: new Set([`comedy`]),
   onChange: () => {}
 };

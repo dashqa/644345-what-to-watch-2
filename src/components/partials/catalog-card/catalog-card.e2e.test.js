@@ -1,6 +1,6 @@
 import React from "react";
 import {shallow} from "enzyme/build";
-import {CatalogCard} from "./catalog-card";
+import CatalogCard from "./catalog-card";
 
 describe(`Catalog card container initial`, () => {
   const props = {

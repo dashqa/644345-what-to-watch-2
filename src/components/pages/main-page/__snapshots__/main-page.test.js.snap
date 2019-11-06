@@ -10,8 +10,15 @@ Array [
     className="page-content"
   >
     <Catalog
+      activeFilter="All genres"
+      genres={
+        Set {
+          "All genres",
+        }
+      }
       isMainPage={true}
       movies={Array []}
+      onChangeFilter={[Function]}
     />
     <footer
       className="page-footer"

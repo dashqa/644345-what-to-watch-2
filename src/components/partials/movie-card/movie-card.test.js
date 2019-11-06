@@ -6,7 +6,9 @@ jest.mock(`../../partials/movie-card-top/movie-card-top.jsx`, () => `MovieCardTo
 jest.mock(`../../partials/movie-card-bottom/movie-card-bottom.jsx`, () => `MovieCardBottom`);
 
 const props = {
-  movie: {},
+  movie: {
+    backgroundColor: ``
+  },
 };
 
 it(`Movie card correctly renders after relaunch`, () => {

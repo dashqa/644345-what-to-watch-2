@@ -7,7 +7,7 @@ const App = () => {
   return (
     <Switch>
       <Route exact path='/' component={MainPage}/>
-      <Route path='/films/:id' component={MovieDetails}/>
+      <Route path='/films/:id' render={({match}) => (<MovieDetails movieId={parseInt(match.params.id, 10)}/>)}/>
     </Switch>
   );
 };

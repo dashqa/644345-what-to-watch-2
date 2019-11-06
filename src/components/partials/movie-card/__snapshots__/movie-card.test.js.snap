@@ -3,17 +3,30 @@
 exports[`Movie card correctly renders after relaunch 1`] = `
 <section
   className="movie-card movie-card--full"
+  style={
+    Object {
+      "backgroundColor": "",
+    }
+  }
 >
   <div
     className="movie-card__hero"
   >
     <MovieCardTop
       isMainPage={false}
-      movie={Object {}}
+      movie={
+        Object {
+          "backgroundColor": "",
+        }
+      }
     />
   </div>
   <MovieCardBottom
-    movie={Object {}}
+    movie={
+      Object {
+        "backgroundColor": "",
+      }
+    }
   />
 </section>
 `;

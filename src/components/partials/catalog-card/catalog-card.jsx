@@ -1,10 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {Link, withRouter} from 'react-router-dom';
-import {connect} from "react-redux";
-import {bindActionCreators} from "redux";
+import {Link} from 'react-router-dom';
 import VideoPlayer from "../video-player/video-player.jsx";
-import {setCurrentMovie} from "../../../store/actions";
 
 class CatalogCard extends React.PureComponent {
   constructor(props) {
@@ -15,7 +12,6 @@ class CatalogCard extends React.PureComponent {
 
     this._handleMouseLeave = this._handleMouseLeave.bind(this);
     this._handleMouseEnter = this._handleMouseEnter.bind(this);
-    this._handleCardClick = this._handleCardClick.bind(this);
 
     this.state = {
       isVideoPlaying: false,
@@ -35,27 +31,26 @@ class CatalogCard extends React.PureComponent {
         className="small-movie-card catalog__movies-card"
         onMouseEnter={this._handleMouseEnter}
         onMouseLeave={this._handleMouseLeave}
-        onClick={this._handleCardClick}
       >
-        <div className="small-movie-card__image">
-          <VideoPlayer
-            ref={this._playerRef}
-            link={previewVideoLink}
-            poster={`/${previewImage}`}
-            isPlaying={isVideoPlaying}
-            muted
-            width="280"
-            height="180"
-          />
-          <h3 className="small-movie-card__title">
-            <Link
-              to={`/films/${id}`}
-              className="small-movie-card__link"
-            >
+        <Link
+          to={`/films/${id}`}
+          className="small-movie-card__link"
+        >
+          <div className="small-movie-card__image">
+            <VideoPlayer
+              ref={this._playerRef}
+              link={previewVideoLink}
+              poster={`${previewImage}`}
+              isPlaying={isVideoPlaying}
+              muted
+              width="280"
+              height="180"
+            />
+            <h3 className="small-movie-card__title">
               {name}
-            </Link>
-          </h3>
-        </div>
+            </h3>
+          </div>
+        </Link>
       </article>
     );
   }
@@ -70,19 +65,10 @@ class CatalogCard extends React.PureComponent {
     clearTimeout(this._videoTimeout);
     this.setState({isVideoPlaying: false});
   }
-
-  _handleCardClick() {
-    const {onClickCard, history, movie} = this.props;
-    const {id} = movie;
-
-    history.push(`/films/${id}`);
-    onClickCard(this.props.movie);
-  }
 }
 
 CatalogCard.defaultProps = {
   movie: {},
-  onClickCard: () => {},
 };
 
 CatalogCard.propTypes = {
@@ -92,15 +78,6 @@ CatalogCard.propTypes = {
     previewImage: PropTypes.string.isRequired,
     previewVideoLink: PropTypes.string
   }).isRequired,
-  onClickCard: PropTypes.func.isRequired,
-  history: PropTypes.object.isRequired,
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onClickCard: bindActionCreators(setCurrentMovie, dispatch),
-  };
-};
-
-export {CatalogCard};
-export default withRouter(connect(null, mapDispatchToProps)(CatalogCard));
+export default CatalogCard;

@@ -4,11 +4,10 @@ import {MovieDetails} from './movie-details';
 
 jest.mock(`../../partials/movie-card/movie-card.jsx`, () => `MovieCard`);
 jest.mock(`../../partials/catalog/catalog.jsx`, () => `Catalog`);
-jest.mock(`../../partials/footer/footer.jsx`, () => `Footer`);
 
 const props = {
-  movie: {},
-  relatedMovies: []
+  movies: [],
+  movieId: 0,
 };
 
 it(`Movie details card correctly renders after relaunch`, () => {

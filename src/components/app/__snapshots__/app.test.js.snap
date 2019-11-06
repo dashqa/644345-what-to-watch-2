@@ -16,16 +16,8 @@ exports[`App correctly renders after relaunch 1`] = `
     path="/"
   />
   <Route
-    component={
-      Object {
-        "$$typeof": Symbol(react.memo),
-        "WrappedComponent": [Function],
-        "compare": null,
-        "displayName": "Connect(MovieDetails)",
-        "type": [Function],
-      }
-    }
     path="/films/:id"
+    render={[Function]}
   />
 </Switch>
 `;

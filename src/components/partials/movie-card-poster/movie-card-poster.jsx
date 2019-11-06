@@ -7,7 +7,7 @@ const MovieCardPoster = ({name, posterImage, isBig}) => {
   return (
     <div className={classes}>
       <img
-        src={`/${posterImage}`}
+        src={`${posterImage}`}
         alt={name}
         width="218"
         height="327"
