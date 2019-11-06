@@ -25,11 +25,13 @@ const Catalog = ({movies, counter, genres, activeFilter, onChangeFilter, onShowM
           />}
 
       <div className="catalog__movies-list">
-        {movies.slice(0, counter).map((movie) =>
-          <CatalogCard
-            key={movie.id}
-            movie={movie}
-          />)}
+        {movies
+          .slice(0, counter)
+          .map((movie) =>
+            <CatalogCard
+              key={movie.id}
+              movie={movie}
+            />)}
       </div>
 
       {isMainPage && counter < movies.length &&
