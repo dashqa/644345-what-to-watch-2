@@ -18,7 +18,7 @@ class MovieCardBottom extends React.PureComponent {
   }
 
   render() {
-    const {name, genre, description, released, rating, scoresCount, runTime, posterImage, director, starring, comments} = this.props.movie;
+    const {name, genre, description, released, rating, scoresCount, runTime, posterImage, director, starring, comments = []} = this.props.movie;
     const {activeTab} = this.state;
 
     return (
