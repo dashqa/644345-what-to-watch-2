@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {USER_RATINGS} from "../../../constants";
+import {USER_RATINGS} from "../../../utils/constants";
 import memoize from "memoize-one";
 
 class TabOverview extends React.PureComponent {

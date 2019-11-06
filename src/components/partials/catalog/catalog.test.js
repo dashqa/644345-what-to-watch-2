@@ -4,6 +4,7 @@ import renderer from "react-test-renderer";
 
 const props = {
   movies: [],
+  counter: 0,
   genres: {},
   activeFilter: ``,
   isMainPage: false,

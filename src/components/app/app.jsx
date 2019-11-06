@@ -1,7 +1,7 @@
 import React from "react";
 import {Switch, Route} from "react-router-dom";
-import MainPage from "../pages/main-page/main-page.jsx";
-import MovieDetails from "../pages/movie-details/movie-details.jsx";
+import MainPage from "../pages/main-page/main-page";
+import MovieDetails from "../pages/movie-details/movie-details";
 
 const App = () => {
   return (

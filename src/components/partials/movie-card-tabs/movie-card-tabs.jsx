@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import {MOVIE_TABS} from "../../../constants";
+import {MOVIE_TABS} from "../../../utils/constants";
 
 const MovieCardTabs = ({active, onChangeTab}) => {
   return (

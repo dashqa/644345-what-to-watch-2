@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import memoize from "memoize-one";
 
-import MovieCard from "../../partials/movie-card/movie-card.jsx";
-import Catalog from "../../partials/catalog/catalog.jsx";
-import Footer from "../../partials/footer/footer.jsx";
-import {getMovie, getRelatedMovies} from "../../../utils";
+import MovieCard from "../../partials/movie-card/movie-card";
+import Catalog from "../../partials/catalog/catalog";
+import Footer from "../../partials/footer/footer";
+import {getMovie, getRelatedMovies} from "../../../utils/utils";
 
 
 class MovieDetails extends React.PureComponent {

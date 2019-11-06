@@ -11,6 +11,7 @@ Array [
   >
     <Catalog
       activeFilter="All genres"
+      counter={8}
       genres={
         Set {
           "All genres",
@@ -19,6 +20,7 @@ Array [
       isMainPage={true}
       movies={Array []}
       onChangeFilter={[Function]}
+      onShowMoreClick={[Function]}
     />
     <footer
       className="page-footer"

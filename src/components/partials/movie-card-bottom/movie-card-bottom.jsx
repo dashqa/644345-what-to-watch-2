@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import MovieCardPoster from "../movie-card-poster/movie-card-poster.jsx";
-import MovieCardTabs from "../movie-card-tabs/movie-card-tabs.jsx";
-import TabOverview from "../tab-overview/tab-overview.jsx";
-import TabDetails from "../tab-details/tab-details.jsx";
-import TabReviews from "../tab-reviews/tab-reviews.jsx";
+import MovieCardPoster from "../movie-card-poster/movie-card-poster";
+import MovieCardTabs from "../movie-card-tabs/movie-card-tabs";
+import TabOverview from "../tab-overview/tab-overview";
+import TabDetails from "../tab-details/tab-details";
+import TabReviews from "../tab-reviews/tab-reviews";
 
 class MovieCardBottom extends React.PureComponent {
   constructor(props) {

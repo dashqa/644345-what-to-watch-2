@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Header from "../header/header.jsx";
-import MovieCardTopDesc from "../movie-card-top-desc/movie-card-top-desc.jsx";
-import MovieCardPoster from "../movie-card-poster/movie-card-poster.jsx";
+import Header from "../header/header";
+import MovieCardTopDesc from "../movie-card-top-desc/movie-card-top-desc";
+import MovieCardPoster from "../movie-card-poster/movie-card-poster";
 
 const MovieCardTop = ({movie, isMainPage}) => {
   const {name, backgroundImage, posterImage, genre, released} = movie;

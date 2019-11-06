@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import memoize from "memoize-one";
 
-import Catalog from "../../partials/catalog/catalog.jsx";
-import MovieCard from "../../partials/movie-card/movie-card.jsx";
-import Footer from "../../partials/footer/footer.jsx";
-import {DEFAULT_FILTER} from "../../../constants";
-import {getGenres, getFilteredMovies} from "../../../utils";
+import Catalog from "../../partials/catalog/catalog";
+import MovieCard from "../../partials/movie-card/movie-card";
+import Footer from "../../partials/footer/footer";
+import {DEFAULT_FILTER, MOVIES_COUNTER_INITIAL, MOVIES_COUNTER_STEP} from "../../../utils/constants";
+import {getGenres, getFilteredMovies} from "../../../utils/utils";
 
 
 class MainPage extends React.PureComponent {
@@ -16,9 +16,11 @@ class MainPage extends React.PureComponent {
 
     this.state = {
       activeFilter: DEFAULT_FILTER,
+      moviesCounter: MOVIES_COUNTER_INITIAL,
     };
 
     this._handleChangeFilter = this._handleChangeFilter.bind(this);
+    this._handleShowMoreClick = this._handleShowMoreClick.bind(this);
 
     this.memoizedGenres = memoize((movies) => getGenres(movies));
     this.memoizedFilteredMovies = memoize((activeFilter) => getFilteredMovies(this.props.movies, activeFilter));
@@ -26,7 +28,7 @@ class MainPage extends React.PureComponent {
 
   render() {
     const {movies, promoMovie} = this.props;
-    const {activeFilter} = this.state;
+    const {activeFilter, moviesCounter} = this.state;
 
     const genres = this.memoizedGenres(movies);
     const filteredMovies = this.memoizedFilteredMovies(activeFilter);
@@ -41,9 +43,11 @@ class MainPage extends React.PureComponent {
         <div className="page-content">
           <Catalog
             movies={filteredMovies}
+            counter={moviesCounter}
             genres={genres}
             activeFilter={activeFilter}
             onChangeFilter={this._handleChangeFilter}
+            onShowMoreClick={this._handleShowMoreClick}
             isMainPage
           />
           <Footer/>
@@ -53,7 +57,11 @@ class MainPage extends React.PureComponent {
   }
 
   _handleChangeFilter(genre) {
-    this.setState({activeFilter: genre});
+    this.setState({activeFilter: genre, moviesCounter: MOVIES_COUNTER_INITIAL});
+  }
+
+  _handleShowMoreClick() {
+    this.setState((prevState) => ({moviesCounter: prevState.moviesCounter + MOVIES_COUNTER_STEP}));
   }
 }
 
