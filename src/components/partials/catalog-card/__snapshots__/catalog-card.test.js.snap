@@ -3,36 +3,35 @@
 exports[`Catalog card correctly renders after relaunch 1`] = `
 <article
   className="small-movie-card catalog__movies-card"
-  onClick={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
 >
-  <div
-    className="small-movie-card__image"
+  <a
+    className="small-movie-card__link"
+    href="/films/0"
+    onClick={[Function]}
   >
-    <video
-      controls={false}
-      height="180"
-      muted={true}
-      poster="/"
-      width="280"
+    <div
+      className="small-movie-card__image"
     >
-      <source
-        src=""
-        type="video/mp4"
-      />
-    </video>
-    <h3
-      className="small-movie-card__title"
-    >
-      <a
-        className="small-movie-card__link"
-        href="/films/0"
-        onClick={[Function]}
+      <video
+        controls={false}
+        height="180"
+        muted={true}
+        poster=""
+        width="280"
+      >
+        <source
+          src=""
+          type="video/mp4"
+        />
+      </video>
+      <h3
+        className="small-movie-card__title"
       >
         
-      </a>
-    </h3>
-  </div>
+      </h3>
+    </div>
+  </a>
 </article>
 `;

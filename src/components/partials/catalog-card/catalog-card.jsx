@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {Link} from 'react-router-dom';
-import VideoPlayer from "../video-player/video-player.jsx";
+import VideoPlayer from "../video-player/video-player";
 
 class CatalogCard extends React.PureComponent {
   constructor(props) {
@@ -25,34 +25,32 @@ class CatalogCard extends React.PureComponent {
   render() {
     const {id, name, previewImage, previewVideoLink} = this.props.movie;
     const {isVideoPlaying} = this.state;
-    const moviePath = `/films/${id}`;
 
     return (
       <article
         className="small-movie-card catalog__movies-card"
         onMouseEnter={this._handleMouseEnter}
         onMouseLeave={this._handleMouseLeave}
-        onClick={() => (location.href = moviePath)}
       >
-        <div className="small-movie-card__image">
-          <VideoPlayer
-            ref={this._playerRef}
-            link={previewVideoLink}
-            poster={`/${previewImage}`}
-            isPlaying={isVideoPlaying}
-            muted
-            width="280"
-            height="180"
-          />
-          <h3 className="small-movie-card__title">
-            <Link
-              to={moviePath}
-              className="small-movie-card__link"
-            >
+        <Link
+          to={`/films/${id}`}
+          className="small-movie-card__link"
+        >
+          <div className="small-movie-card__image">
+            <VideoPlayer
+              ref={this._playerRef}
+              link={previewVideoLink}
+              poster={`${previewImage}`}
+              isPlaying={isVideoPlaying}
+              muted
+              width="280"
+              height="180"
+            />
+            <h3 className="small-movie-card__title">
               {name}
-            </Link>
-          </h3>
-        </div>
+            </h3>
+          </div>
+        </Link>
       </article>
     );
   }
@@ -72,7 +70,6 @@ class CatalogCard extends React.PureComponent {
 CatalogCard.defaultProps = {
   movie: {},
 };
-
 
 CatalogCard.propTypes = {
   movie: PropTypes.shape({

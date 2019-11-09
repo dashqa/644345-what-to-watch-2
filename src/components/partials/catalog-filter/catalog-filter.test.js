@@ -4,6 +4,8 @@ import CatalogFilter from './catalog-filter';
 
 const props = {
   active: ``,
+  genres: new Set([`comedy`]),
+  onChange: () => {}
 };
 
 it(`Catalog filter correctly renders after relaunch`, () => {

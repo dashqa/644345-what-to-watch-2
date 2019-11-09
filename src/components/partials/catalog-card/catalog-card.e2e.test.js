@@ -23,7 +23,8 @@ describe(`Catalog card container initial`, () => {
       released: 0,
       isFavorite: null,
     },
-    key: 0
+    onClickCard: () => {},
+    history: {},
   };
 
   const wrapper = shallow(<CatalogCard {...props}/>);

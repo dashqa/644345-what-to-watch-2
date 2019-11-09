@@ -6,6 +6,7 @@ exports[`Show more correctly renders after relaunch 1`] = `
 >
   <button
     className="catalog__button"
+    onClick={[Function]}
     type="button"
   >
     Show more

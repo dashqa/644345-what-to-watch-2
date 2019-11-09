@@ -9,7 +9,7 @@ const props = {
     name: ``,
     previewImage: ``
   },
-  key: 0
+  onClickCard: () => {},
 };
 
 it(`Catalog card correctly renders after relaunch`, () => {

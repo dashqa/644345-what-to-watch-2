@@ -1,24 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import MovieCardTop from "../movie-card-top/movie-card-top.jsx";
-import MovieCardBottom from "../movie-card-bottom/movie-card-bottom.jsx";
+import MovieCardTop from "../movie-card-top/movie-card-top";
+import MovieCardBottom from "../movie-card-bottom/movie-card-bottom";
 
-const MovieCard = ({movie, isPromoMovie}) => {
-  const sectionClasses = classNames(`movie-card`, {'movie-card--full': !isPromoMovie});
+const MovieCard = ({movie, isMainPage}) => {
+  const sectionClasses = classNames(`movie-card`, {'movie-card--full': !isMainPage});
 
   return (
-    <section className={sectionClasses}>
-      {isPromoMovie ? (
+    <section
+      className={sectionClasses}
+      style={{backgroundColor: movie.backgroundColor}}
+    >
+      {isMainPage ? (
         <MovieCardTop
           movie={movie}
-          isPromoMovie/>
+          isMainPage={isMainPage}/>
       ) : (
         <>
           <div className="movie-card__hero">
             <MovieCardTop
               movie={movie}
-              isPromoMovie/>
+              isMainPage={isMainPage}/>
           </div>
 
           <MovieCardBottom movie={movie}/>
@@ -30,13 +33,12 @@ const MovieCard = ({movie, isPromoMovie}) => {
 
 MovieCard.defaultProps = {
   movie: [],
-  isPromoMovie: false,
+  isMainPage: false,
 };
 
 MovieCard.propTypes = {
   movie: PropTypes.object.isRequired,
-  isPromoMovie: PropTypes.bool.isRequired,
-  children: PropTypes.node,
+  isMainPage: PropTypes.bool.isRequired,
 };
 
 export default MovieCard;

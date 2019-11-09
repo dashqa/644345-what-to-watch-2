@@ -1,17 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Header from "../header/header.jsx";
-import MovieCardTopDesc from "../movie-card-top-desc/movie-card-top-desc.jsx";
-import MovieCardPoster from "../movie-card-poster/movie-card-poster.jsx";
+import Header from "../header/header";
+import MovieCardTopDesc from "../movie-card-top-desc/movie-card-top-desc";
+import MovieCardPoster from "../movie-card-poster/movie-card-poster";
 
-const MovieCardTop = ({movie, isPromoMovie}) => {
+const MovieCardTop = ({movie, isMainPage}) => {
   const {name, backgroundImage, posterImage, genre, released} = movie;
 
   return (
     <>
       <div className="movie-card__bg">
         <img
-          src={`/${backgroundImage}`}
+          src={`${backgroundImage}`}
           alt={name}
         />
       </div>
@@ -20,7 +20,7 @@ const MovieCardTop = ({movie, isPromoMovie}) => {
       <Header/>
 
       <div className="movie-card__wrap">
-        {isPromoMovie ? (
+        {isMainPage ? (
           <div className="movie-card__info">
             <MovieCardPoster
               name={name}
@@ -46,8 +46,14 @@ const MovieCardTop = ({movie, isPromoMovie}) => {
 };
 
 MovieCardTop.defaultProps = {
-  movie: {},
-  isPromoMovie: false,
+  movie: {
+    name: ``,
+    genre: ``,
+    released: 0,
+    backgroundImage: ``,
+    posterImage: ``,
+  },
+  isMainPage: false,
 };
 
 MovieCardTop.propTypes = {
@@ -58,7 +64,7 @@ MovieCardTop.propTypes = {
     backgroundImage: PropTypes.string.isRequired,
     posterImage: PropTypes.string.isRequired,
   }).isRequired,
-  isPromoMovie: PropTypes.bool.isRequired,
+  isMainPage: PropTypes.bool.isRequired,
 };
 
 export default MovieCardTop;

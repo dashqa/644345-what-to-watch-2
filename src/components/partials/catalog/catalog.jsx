@@ -1,55 +1,63 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import CatalogCard from "../catalog-card/catalog-card.jsx";
-import ShowMore from "../show-more/show-more.jsx";
-import CatalogFilter from "../catalog-filter/catalog-filter.jsx";
 
-class Catalog extends React.PureComponent {
-  constructor(props) {
-    super(props);
+import CatalogCard from "../catalog-card/catalog-card";
+import ShowMore from "../show-more/show-more";
+import CatalogFilter from "../catalog-filter/catalog-filter";
+import {DEFAULT_FILTER, MOVIES_COUNTER_INITIAL} from "../../../utils/constants";
 
-    this.state = {
-      activeFilter: `all`
-    };
-  }
+const Catalog = ({movies, counter, genres, activeFilter, onChangeFilter, onShowMoreClick, isMainPage}) => {
+  const sectionClasses = classNames(`catalog`, {'catalog--like-this': !isMainPage});
+  const headerClasses = classNames(`catalog__title`, {'visually-hidden': isMainPage});
 
-  render() {
-    const {movies, isMainCatalog} = this.props;
-    const {activeFilter} = this.state;
-    const sectionClasses = classNames(`catalog`, {'catalog--like-this': !isMainCatalog});
-    const headerClasses = classNames(`catalog__title`, {'visually-hidden': isMainCatalog});
+  return (
+    <section className={sectionClasses}>
+      <h2 className={headerClasses}>
+        {isMainPage ? `Catalog` : `More like this`}
+      </h2>
 
-    return (
-      <section className={sectionClasses}>
-        <h2 className={headerClasses}>
-          {isMainCatalog ? `Catalog` : `More like this`}
-        </h2>
+      {isMainPage &&
+          <CatalogFilter
+            active={activeFilter}
+            genres={genres}
+            onChange={onChangeFilter}
+          />}
 
-        {isMainCatalog && <CatalogFilter active={activeFilter}/>}
-
-        <div className="catalog__movies-list">
-          {movies.map((movie) =>
+      <div className="catalog__movies-list">
+        {movies
+          .slice(0, counter)
+          .map((movie) =>
             <CatalogCard
               key={movie.id}
               movie={movie}
             />)}
-        </div>
+      </div>
 
-        {isMainCatalog && <ShowMore/>}
-      </section>
-    );
-  }
-}
+      {isMainPage && counter < movies.length &&
+        <ShowMore onClick={onShowMoreClick}/>}
+    </section>
+  );
+};
 
 Catalog.defaultProps = {
   movies: [],
-  isMainCatalog: false,
+  counter: MOVIES_COUNTER_INITIAL,
+  genres: {},
+  activeFilter: DEFAULT_FILTER,
+  isMainPage: false,
+  onChangeFilter: () => {},
+  onShowMoreClick: () => {}
 };
 
 Catalog.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-  isMainCatalog: PropTypes.bool.isRequired
+  isMainPage: PropTypes.bool.isRequired,
+  counter: PropTypes.number,
+  genres: PropTypes.object,
+  activeFilter: PropTypes.string,
+  onChangeFilter: PropTypes.func,
+  onShowMoreClick: PropTypes.func,
 };
 
 export default Catalog;

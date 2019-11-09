@@ -11,7 +11,11 @@ class VideoPlayer extends React.PureComponent {
     const {isPlaying} = this.props;
     const video = this._videoRef.current;
 
-    return isPlaying ? video.play() : video.load();
+    if (isPlaying) {
+      video.load();
+    } else {
+      video.play();
+    }
   }
 
   render() {

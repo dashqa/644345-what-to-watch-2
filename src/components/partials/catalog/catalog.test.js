@@ -1,10 +1,14 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
 import Catalog from './catalog';
+import renderer from "react-test-renderer";
 
 const props = {
   movies: [],
-  isMainCatalog: false
+  counter: 0,
+  genres: {},
+  activeFilter: ``,
+  isMainPage: false,
+  onChangeFilter: () => {}
 };
 
 it(`Catalog correctly renders after relaunch`, () => {
