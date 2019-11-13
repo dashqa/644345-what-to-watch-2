@@ -12,9 +12,9 @@ class VideoPlayer extends React.PureComponent {
     const video = this._videoRef.current;
 
     if (isPlaying) {
-      video.load();
-    } else {
       video.play();
+    } else {
+      video.load();
     }
   }
 

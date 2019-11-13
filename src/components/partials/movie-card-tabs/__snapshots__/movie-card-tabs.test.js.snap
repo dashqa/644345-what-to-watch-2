@@ -14,6 +14,7 @@ exports[`Movie card tabs correctly renders after relaunch 1`] = `
       <a
         className="movie-nav__link"
         href="#"
+        onClick={[Function]}
       >
         Overview
       </a>
@@ -25,6 +26,7 @@ exports[`Movie card tabs correctly renders after relaunch 1`] = `
       <a
         className="movie-nav__link"
         href="#"
+        onClick={[Function]}
       >
         Details
       </a>
@@ -36,6 +38,7 @@ exports[`Movie card tabs correctly renders after relaunch 1`] = `
       <a
         className="movie-nav__link"
         href="#"
+        onClick={[Function]}
       >
         Reviews
       </a>

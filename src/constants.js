@@ -1,4 +1,8 @@
-export const MOVIE_TABS = {overview: `Overview`, details: `Details`, reviews: `Reviews`};
+export const MovieTabs = {
+  OVERVIEW: `Overview`,
+  DETAILS: `Details`,
+  REVIEWS: `Reviews`
+};
 export const DEFAULT_FILTER = `All genres`;
 export const MOVIES_COUNTER_INITIAL = 8;
 export const MOVIES_COUNTER_STEP = 20;

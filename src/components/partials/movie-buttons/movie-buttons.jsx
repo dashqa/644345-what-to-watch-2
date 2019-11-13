@@ -1,6 +1,7 @@
 import React from "react";
-import UIButton from "../UI-button/UI-button";
-import UISvg from "../UI-svg/UI-svg";
+
+import UIButton from "@partials/UI-button/UI-button";
+import UISvg from "@partials/UI-svg/UI-svg";
 
 class MovieButtons extends React.PureComponent {
   constructor(props) {

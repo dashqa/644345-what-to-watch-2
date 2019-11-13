@@ -1,54 +1,53 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import memoize from "memoize-one";
 
-import MovieCard from "../../partials/movie-card/movie-card";
-import Catalog from "../../partials/catalog/catalog";
-import Footer from "../../partials/footer/footer";
-import {getMovie, getRelatedMovies} from "../../../utils/utils";
+import {getMovieById, getRelatedMovies, getFetching} from "@store/selectors";
 
+import MovieCard from "@partials/movie-card/movie-card";
+import Catalog from "@partials/catalog/catalog";
+import Footer from "@partials/footer/footer";
+import Loader from "@partials/loader/loader";
 
-class MovieDetails extends React.PureComponent {
-  constructor(props) {
-    super(props);
+const MovieDetails = ({currentMovie, relatedMovies, isLoading}) => {
 
-    const {movies} = this.props;
-    this.memoizedCurrentMovie = memoize((movieId) => getMovie(movies, movieId));
-    this.memoizedRelaitedMovies = memoize((movieId) => getRelatedMovies(movies, getMovie(movies, movieId)));
+  if (isLoading) {
+    return <Loader/>;
   }
 
-  render() {
-    const {movieId} = this.props;
-    const currentMovie = this.memoizedCurrentMovie(movieId);
-    const relatedMovies = this.memoizedRelaitedMovies(movieId);
+  return (
+    <>
+      <MovieCard movie={currentMovie}/>
 
-    return (
-      <>
-        <MovieCard movie={currentMovie}/>
-
-        <div className="page-content">
-          <Catalog movies={relatedMovies}/>
-          <Footer/>
-        </div>
-      </>
-    );
-  }
-}
+      <div className="page-content">
+        <Catalog movies={relatedMovies}/>
+        <Footer/>
+      </div>
+    </>
+  );
+};
 
 MovieDetails.defaultProps = {
-  movies: [],
-  movieId: null,
+  currentMovie: {},
+  relatedMovies: [],
+  isLoading: false,
 };
 
 MovieDetails.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-  movieId: PropTypes.number.isRequired,
+  currentMovie: PropTypes.object.isRequired,
+  relatedMovies: PropTypes.arrayOf(PropTypes.object).isRequired,
+  isLoading: PropTypes.bool.isRequired
 };
 
-const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
-  movies: state.movies,
-});
+const mapStateToProps = (state, {match}) => {
+  const currentMovie = getMovieById(state, match.params.id);
+
+  return {
+    currentMovie,
+    relatedMovies: getRelatedMovies(state, currentMovie),
+    isLoading: getFetching(state),
+  };
+};
 
 export {MovieDetails};
 export default connect(mapStateToProps)(MovieDetails);

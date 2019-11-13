@@ -16,7 +16,7 @@ exports[`Movie card bottom correctly renders after relaunch 1`] = `
       className="movie-card__desc"
     >
       <MovieCardTabs
-        active="overview"
+        active="Overview"
         onChangeTab={[Function]}
       />
       <TabOverview

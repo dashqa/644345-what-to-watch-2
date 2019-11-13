@@ -16,6 +16,13 @@ module.exports = {
   },
   resolve: {
     extensions: [`.js`, `.jsx`],
+    alias: {
+      "@pages": path.resolve(__dirname, `src/components/pages`),
+      "@partials": path.resolve(__dirname, `src/components/partials`),
+      "@store": path.resolve(__dirname, `src/store`),
+      "@api": path.resolve(__dirname, `src/api`),
+      "@constants": path.resolve(__dirname, `src/constants.js`)
+    },
   },
   module: {
     rules: [
@@ -33,5 +40,5 @@ module.exports = {
       localesToKeep: [`es-us`],
     }),
   ],
-  devtool: `source-map`
+  devtool: `source-map`,
 };

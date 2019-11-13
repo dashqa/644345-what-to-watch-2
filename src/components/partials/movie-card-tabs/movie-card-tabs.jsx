@@ -1,22 +1,29 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import {MOVIE_TABS} from "../../../utils/constants";
+
+import {MovieTabs} from "@constants";
 
 const MovieCardTabs = ({active, onChangeTab}) => {
   return (
     <nav className="movie-nav movie-card__nav">
       <ul className="movie-nav__list">
-        {Object.entries(MOVIE_TABS).map(([key, title]) => {
-          const classes = classNames(`movie-nav__item`, {'movie-nav__item--active': active === key});
+        {Object.entries(MovieTabs).map(([key, title]) => {
+          const classes = classNames(`movie-nav__item`, {'movie-nav__item--active': active === title});
 
           return (
             <li
               key={key}
               className={classes}
-              onClick={() => onChangeTab(key)}
+              onClick={() => onChangeTab(title)}
             >
-              <a href="#" className="movie-nav__link">{title}</a>
+              <a
+                href="#"
+                className="movie-nav__link"
+                onClick={(evt) => evt.preventDefault()}
+              >
+                {title}
+              </a>
             </li>
           );
         })}
@@ -26,7 +33,7 @@ const MovieCardTabs = ({active, onChangeTab}) => {
 };
 
 MovieCardTabs.defaultProps = {
-  active: `overview`,
+  active: MovieTabs.OVERVIEW,
   onChangeTab: () => {}
 };
 

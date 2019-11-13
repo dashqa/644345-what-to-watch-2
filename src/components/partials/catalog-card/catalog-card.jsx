@@ -1,14 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {Link} from 'react-router-dom';
-import VideoPlayer from "../video-player/video-player";
+
+import VideoPlayer from "@partials/video-player/video-player";
 
 class CatalogCard extends React.PureComponent {
   constructor(props) {
     super(props);
 
     this._videoTimeout = null;
-    this._playerRef = React.createRef();
 
     this._handleMouseLeave = this._handleMouseLeave.bind(this);
     this._handleMouseEnter = this._handleMouseEnter.bind(this);
@@ -38,9 +38,8 @@ class CatalogCard extends React.PureComponent {
         >
           <div className="small-movie-card__image">
             <VideoPlayer
-              ref={this._playerRef}
               link={previewVideoLink}
-              poster={`${previewImage}`}
+              poster={previewImage}
               isPlaying={isVideoPlaying}
               muted
               width="280"

@@ -1,17 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
-import MovieCardPoster from "../movie-card-poster/movie-card-poster";
-import MovieCardTabs from "../movie-card-tabs/movie-card-tabs";
-import TabOverview from "../tab-overview/tab-overview";
-import TabDetails from "../tab-details/tab-details";
-import TabReviews from "../tab-reviews/tab-reviews";
+
+import {MovieTabs} from "@constants";
+
+import MovieCardPoster from "@partials/movie-card-poster/movie-card-poster";
+import MovieCardTabs from "@partials/movie-card-tabs/movie-card-tabs";
+import TabOverview from "@partials/tab-overview/tab-overview";
+import TabDetails from "@partials/tab-details/tab-details";
+import TabReviews from "@partials/tab-reviews/tab-reviews";
 
 class MovieCardBottom extends React.PureComponent {
   constructor(props) {
     super(props);
 
     this.state = {
-      activeTab: `overview`
+      activeTab: MovieTabs.OVERVIEW
     };
 
     this._handleChangeTab = this._handleChangeTab.bind(this);
@@ -39,7 +42,7 @@ class MovieCardBottom extends React.PureComponent {
 
             {(() => {
               switch (activeTab) {
-                case `overview`:
+                case MovieTabs.OVERVIEW:
                   return (
                     <TabOverview
                       rating={rating}
@@ -48,7 +51,7 @@ class MovieCardBottom extends React.PureComponent {
                       director={director}
                       starring={starring}
                     />);
-                case `details`:
+                case MovieTabs.DETAILS:
                   return (
                     <TabDetails
                       runTime={runTime}
@@ -57,7 +60,7 @@ class MovieCardBottom extends React.PureComponent {
                       director={director}
                       starring={starring}
                     />);
-                case `reviews`:
+                case MovieTabs.REVIEWS:
                   return (
                     <TabReviews comments={comments}/>
                   );
