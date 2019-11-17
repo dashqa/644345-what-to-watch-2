@@ -12,21 +12,26 @@ exports[`Movie card bottom correctly renders after relaunch 1`] = `
       name=""
       posterImage=""
     />
-    <div
-      className="movie-card__desc"
-    >
-      <MovieCardTabs
-        active="Overview"
-        onChangeTab={[Function]}
-      />
-      <TabOverview
-        description=""
-        director=""
-        rating={0}
-        scoresCount={0}
-        starring={Array []}
-      />
-    </div>
+    <MovieCardTabs
+      active="Overview"
+      movie={
+        Object {
+          "backgroundImage": "",
+          "comments": Array [],
+          "description": "",
+          "director": "",
+          "genre": "",
+          "name": "",
+          "posterImage": "",
+          "rating": 0,
+          "released": 0,
+          "runTime": 0,
+          "scoresCount": 0,
+          "starring": Array [],
+        }
+      }
+      onChangeTab={[Function]}
+    />
   </div>
 </div>
 `;

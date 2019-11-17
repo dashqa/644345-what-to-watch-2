@@ -3,14 +3,17 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-
-import {setActiveFilter, setMoviesCounter} from "@store/actions";
-import {getActiveFilter, getGenres, getMoviesCounter} from "@store/selectors";
 import {DEFAULT_FILTER, MOVIES_COUNTER_INITIAL} from "@constants";
+
+import {setActiveFilter, increaseMoviesCounter} from "@store/action-creators";
+import {getActiveFilter, getGenres, getMoviesCounter} from "@store/selectors";
 
 import CatalogCard from "@partials/catalog-card/catalog-card";
 import ShowMore from "@partials/show-more/show-more";
 import CatalogFilter from "@partials/catalog-filter/catalog-filter";
+
+import withPlayOnHover from "@hocs/with-play-on-hover/with-play-on-hover";
+const CatalogCardWrapped = withPlayOnHover(CatalogCard);
 
 const Catalog = ({movies, genres, activeFilter, moviesCounter, onChangeFilter, onShowMoreClick, isMainPage}) => {
   const sectionClasses = classNames(`catalog`, {'catalog--like-this': !isMainPage});
@@ -31,7 +34,7 @@ const Catalog = ({movies, genres, activeFilter, moviesCounter, onChangeFilter, o
 
       <div className="catalog__movies-list">
         {movies.map((movie) =>
-          <CatalogCard
+          <CatalogCardWrapped
             key={movie.id}
             movie={movie}
           />)}
@@ -71,7 +74,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onChangeFilter: bindActionCreators(setActiveFilter, dispatch),
-  onShowMoreClick: bindActionCreators(setMoviesCounter, dispatch)
+  onShowMoreClick: bindActionCreators(increaseMoviesCounter, dispatch)
 });
 
 export {Catalog};

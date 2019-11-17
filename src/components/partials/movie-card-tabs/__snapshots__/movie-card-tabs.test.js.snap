@@ -1,48 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Movie card tabs correctly renders after relaunch 1`] = `
-<nav
-  className="movie-nav movie-card__nav"
+<div
+  className="movie-card__desc"
 >
-  <ul
-    className="movie-nav__list"
+  <nav
+    className="movie-nav movie-card__nav"
   >
-    <li
-      className="movie-nav__item"
-      onClick={[Function]}
+    <ul
+      className="movie-nav__list"
     >
-      <a
-        className="movie-nav__link"
-        href="#"
+      <li
+        className="movie-nav__item"
         onClick={[Function]}
       >
-        Overview
-      </a>
-    </li>
-    <li
-      className="movie-nav__item"
-      onClick={[Function]}
-    >
-      <a
-        className="movie-nav__link"
-        href="#"
+        <a
+          className="movie-nav__link"
+          href="#"
+          onClick={[Function]}
+        >
+          Overview
+        </a>
+      </li>
+      <li
+        className="movie-nav__item"
         onClick={[Function]}
       >
-        Details
-      </a>
-    </li>
-    <li
-      className="movie-nav__item"
-      onClick={[Function]}
-    >
-      <a
-        className="movie-nav__link"
-        href="#"
+        <a
+          className="movie-nav__link"
+          href="#"
+          onClick={[Function]}
+        >
+          Details
+        </a>
+      </li>
+      <li
+        className="movie-nav__item"
         onClick={[Function]}
       >
-        Reviews
-      </a>
-    </li>
-  </ul>
-</nav>
+        <a
+          className="movie-nav__link"
+          href="#"
+          onClick={[Function]}
+        >
+          Reviews
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
 `;

@@ -1,21 +1,12 @@
-import React from "react";
+import React, {useMemo} from "react";
 import PropTypes from "prop-types";
-import memoize from "memoize-one";
 
-import {USER_RATINGS} from "@constants";
+import {computeRatingLevel} from "@utils";
 
-class TabOverview extends React.PureComponent {
-  constructor(props) {
-    super(props);
+const TabOverview = ({rating, scoresCount, description, director, starring}) => {
+  const ratingLevel = useMemo(() => computeRatingLevel(rating), [rating]);
 
-    this.memoizedRatingLevel = memoize((rating) => USER_RATINGS.filter((rank) => rank.minRating <= rating).pop().title);
-  }
-
-  render() {
-    const {rating, scoresCount, description, director, starring} = this.props;
-    const ratingLevel = this.memoizedRatingLevel(rating);
-
-    return (
+  return (
       <>
         <div className="movie-rating">
           <div className="movie-rating__score">{rating}</div>
@@ -31,9 +22,8 @@ class TabOverview extends React.PureComponent {
           <p className="movie-card__starring"><strong>Starring: {starring.join(`, `)}</strong></p>
         </div>
       </>
-    );
-  }
-}
+  );
+};
 
 TabOverview.deafultProps = {
   rating: 0,

@@ -1,5 +1,5 @@
 import {ActionTypes} from "./action-types";
-import {MOVIES_COUNTER_STEP} from "../constants";
+import {MOVIES_COUNTER_STEP} from "@constants";
 
 export const setMovies = (movies) => {
   return {
@@ -22,9 +22,9 @@ export const setActiveFilter = (genre) => {
   };
 };
 
-export const setMoviesCounter = () => {
+export const increaseMoviesCounter = () => {
   return {
-    type: ActionTypes.SET_MOVIES_COUNTER,
+    type: ActionTypes.INCREASE_MOVIES_COUNTER,
     payload: MOVIES_COUNTER_STEP
   };
 };
@@ -36,9 +36,16 @@ export const setIsAuthorized = (bool) => {
   };
 };
 
-export const setFetching = (bool) => {
+export const setFetchingMovies = (bool) => {
   return {
-    type: ActionTypes.SET_FETCHING,
+    type: ActionTypes.SET_FETCHING_MOVIES,
+    payload: bool
+  };
+};
+
+export const setFetchingPromo = (bool) => {
+  return {
+    type: ActionTypes.SET_FETCHING_PROMO,
     payload: bool
   };
 };

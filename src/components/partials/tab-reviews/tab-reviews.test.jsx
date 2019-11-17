@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import TabReviews from './tab-reviews';
 
 const props = {
-  comments: [],
+  dividedComments: {},
 };
 
 it(`Reviews tab correctly renders after relaunch`, () => {

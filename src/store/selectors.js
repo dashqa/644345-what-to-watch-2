@@ -1,12 +1,13 @@
 import {createSelector} from "reselect";
-import {DEFAULT_FILTER} from "../constants";
+import {DEFAULT_FILTER} from "@constants";
 
 export const getMovies = (state) => state.movies;
 export const getActiveFilter = (state) => state.activeFilter;
 export const getPromoMovie = (state) => state.promoMovie;
 export const getMoviesCounter = (state) => state.moviesCounter;
 export const getMovieById = (state, movieId) => state.movies.find(({id}) => id === parseInt(movieId, 10));
-export const getFetching = (state) => state.isLoading;
+export const getFetchingMovies = (state) => state.isLoadingMovies;
+export const getFetchingPromo = (state) => state.isLoadingPromo;
 
 export const getRelatedMovies = (state, currentMovie) =>
   state.movies.filter(({id, genre}) => id !== currentMovie.id && genre === currentMovie.genre);

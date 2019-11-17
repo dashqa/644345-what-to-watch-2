@@ -19,9 +19,11 @@ module.exports = {
     alias: {
       "@pages": path.resolve(__dirname, `src/components/pages`),
       "@partials": path.resolve(__dirname, `src/components/partials`),
+      "@hocs": path.resolve(__dirname, `src/hocs`),
       "@store": path.resolve(__dirname, `src/store`),
       "@api": path.resolve(__dirname, `src/api`),
-      "@constants": path.resolve(__dirname, `src/constants.js`)
+      "@utils": path.resolve(__dirname, `src/utils/utils.js`),
+      "@constants": path.resolve(__dirname, `src/utils/constants.js`)
     },
   },
   module: {

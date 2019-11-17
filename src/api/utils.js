@@ -1,21 +1,27 @@
-export const parseMovie = (movie) => ({
-  id: movie.id || null,
-  name: movie.name || ``,
-  posterImage: movie.poster_image || ``,
-  previewImage: movie.preview_image || ``,
-  backgroundImage: movie.background_image || ``,
-  backgroundColor: movie.background_color || ``,
-  description: movie.description || ``,
-  rating: movie.rating || null,
-  scoresCount: movie.scores_count || null,
-  director: movie.director || ``,
-  starring: movie.starring || [],
-  runTime: movie.run_time || null,
-  genre: movie.genre || ``,
-  released: movie.released || null,
-  isFavorite: movie.is_favorite || false,
-  videoLink: movie.video_link || ``,
-  previewVideoLink: movie.preview_video_link || ``
-});
+export const movieAdapter = (movie) => {
+  const {
+    id = null,
+    name = ``,
+    poster_image: posterImage = ``,
+    preview_image: previewImage = ``,
+    background_image: backgroundImage = ``,
+    background_color: backgroundColor = ``,
+    description = ``,
+    rating = null,
+    scores_count: scoresCount = null,
+    director = ``,
+    starring = [],
+    run_time: runTime = null,
+    genre = ``,
+    released = null,
+    is_favorite: isFavorite = false,
+    video_link: videoLink = ``,
+    preview_video_link: previewVideoLink = ``
+  } = movie;
+  return {
+    id, name, posterImage, previewImage, backgroundImage, backgroundColor, description, rating, scoresCount, director,
+    starring, runTime, genre, released, isFavorite, videoLink, previewVideoLink,
+  };
+};
 
-export const parseMovies = (movies) => movies.map((movie) => parseMovie(movie));
+export const moviesAdapter = (movies) => movies.map((movie) => movieAdapter(movie));
