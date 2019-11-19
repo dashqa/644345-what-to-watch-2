@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import {Link} from 'react-router-dom';
 
 import VideoPlayer from "@partials/video-player/video-player";
+import withPlayOnHover from "@hocs/with-play-on-hover/with-play-on-hover";
 
 const CatalogCard = ({movie, onEnter, onLeave, isVideoPlaying}) => {
   const {id, name, previewImage, previewVideoLink} = movie;
@@ -54,4 +55,5 @@ CatalogCard.propTypes = {
   isVideoPlaying: PropTypes.bool.isRequired,
 };
 
-export default CatalogCard;
+export {CatalogCard};
+export default withPlayOnHover(CatalogCard);
