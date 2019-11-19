@@ -3,5 +3,146 @@
 exports[`Reviews tab correctly renders after relaunch 1`] = `
 <div
   className="movie-card__reviews movie-card__row"
-/>
+>
+  <div
+    className="movie-card__reviews-col"
+  >
+    <div
+      className="review"
+    >
+      <blockquote
+        className="review__quote"
+      >
+        <p
+          className="review__text"
+        >
+          Discerning travellers and Wes Anderson fans will luxuriate in the glorious Mittel-European kitsch of one of the director's funniest and most exquisitely designed movies in years.
+        </p>
+        <footer
+          className="review__details"
+        >
+          <cite
+            className="review__author"
+          >
+            John Snow
+          </cite>
+          <time
+            className="review__date"
+            dateTime="2019-05-08"
+          >
+            May 8th, 2019
+          </time>
+        </footer>
+      </blockquote>
+      <div
+        className="review__rating"
+      >
+        3.4
+      </div>
+    </div>
+    <div
+      className="review"
+    >
+      <blockquote
+        className="review__quote"
+      >
+        <p
+          className="review__text"
+        >
+          Discerning travellers and Wes Anderson fans will luxuriate in the glorious Mittel-European kitsch of one of the director's funniest and most exquisitely designed movies in years.
+        </p>
+        <footer
+          className="review__details"
+        >
+          <cite
+            className="review__author"
+          >
+            Brad Pitt
+          </cite>
+          <time
+            className="review__date"
+            dateTime="2019-05-08"
+          >
+            May 8th, 2019
+          </time>
+        </footer>
+      </blockquote>
+      <div
+        className="review__rating"
+      >
+        5.3
+      </div>
+    </div>
+  </div>
+  <div
+    className="movie-card__reviews-col"
+  >
+    <div
+      className="review"
+    >
+      <blockquote
+        className="review__quote"
+      >
+        <p
+          className="review__text"
+        >
+          Discerning travellers and Wes Anderson fans will luxuriate in the glorious Mittel-European kitsch of one of the director's funniest and most exquisitely designed movies in years.
+        </p>
+        <footer
+          className="review__details"
+        >
+          <cite
+            className="review__author"
+          >
+            John Snow
+          </cite>
+          <time
+            className="review__date"
+            dateTime="2019-05-08"
+          >
+            May 8th, 2019
+          </time>
+        </footer>
+      </blockquote>
+      <div
+        className="review__rating"
+      >
+        3.4
+      </div>
+    </div>
+    <div
+      className="review"
+    >
+      <blockquote
+        className="review__quote"
+      >
+        <p
+          className="review__text"
+        >
+          Discerning travellers and Wes Anderson fans will luxuriate in the glorious Mittel-European kitsch of one of the director's funniest and most exquisitely designed movies in years.
+        </p>
+        <footer
+          className="review__details"
+        >
+          <cite
+            className="review__author"
+          >
+            Ivan Ivanov
+          </cite>
+          <time
+            className="review__date"
+            dateTime="2019-05-08"
+          >
+            May 8th, 2019
+          </time>
+        </footer>
+      </blockquote>
+      <div
+        className="review__rating"
+      >
+        2.3
+      </div>
+    </div>
+  </div>
+</div>
 `;

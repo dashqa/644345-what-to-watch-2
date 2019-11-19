@@ -5,6 +5,7 @@ import {computeRatingLevel} from "@utils";
 
 const TabOverview = ({rating, scoresCount, description, director, starring}) => {
   const ratingLevel = useMemo(() => computeRatingLevel(rating), [rating]);
+  const formattedStarring = starring.join(`, `);
 
   return (
       <>
@@ -19,7 +20,7 @@ const TabOverview = ({rating, scoresCount, description, director, starring}) => 
         <div className="movie-card__text">
           <p>{description}</p>
           <p className="movie-card__director"><strong>Director: {director}</strong></p>
-          <p className="movie-card__starring"><strong>Starring: {starring.join(`, `)}</strong></p>
+          <p className="movie-card__starring"><strong>Starring: {formattedStarring}</strong></p>
         </div>
       </>
   );

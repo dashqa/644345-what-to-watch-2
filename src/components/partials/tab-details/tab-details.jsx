@@ -4,6 +4,8 @@ import moment from "moment/moment";
 import 'moment-duration-format';
 
 const TabDetails = ({runTime, genre, released, director, starring}) => {
+  const formattedRunTime = moment.duration(runTime, `minutes`).format(`h[h] m[m]`);
+
   return (
     <div className="movie-card__text movie-card__row">
       <div className="movie-card__text-col">
@@ -23,7 +25,7 @@ const TabDetails = ({runTime, genre, released, director, starring}) => {
       <div className="movie-card__text-col">
         <p className="movie-card__details-item">
           <strong className="movie-card__details-name">Run Time</strong>
-          <span className="movie-card__details-value">{moment.duration(runTime, `minutes`).format(`h[h] m[m]`)}</span>
+          <span className="movie-card__details-value">{formattedRunTime}</span>
         </p>
         <p className="movie-card__details-item">
           <strong className="movie-card__details-name">Genre</strong>

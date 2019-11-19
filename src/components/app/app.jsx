@@ -7,8 +7,8 @@ import {loadMovies, loadPromoMovie} from "@store/operations";
 
 import MainPage from "@pages/main-page/main-page";
 import MovieDetails from "@pages/movie-details/movie-details";
-import withLoading from "@hocs/with-loading/with-loading";
 
+import withLoading from "@hocs/with-loading/with-loading";
 const MainPageWrapped = withLoading(MainPage);
 const MovieDetailsWrapped = withLoading(MovieDetails);
 

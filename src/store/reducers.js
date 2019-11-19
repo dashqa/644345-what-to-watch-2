@@ -1,5 +1,5 @@
 import {ActionTypes} from "./action-types";
-import {moviesAdapter, movieAdapter} from "@api/utils";
+import {getAdaptedMovies, getAdaptedMovie} from "@api/utils";
 import {DEFAULT_FILTER, MOVIES_COUNTER_INITIAL} from "@constants";
 
 export const initialState = {
@@ -16,12 +16,12 @@ export const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionTypes.SET_MOVIES:
       return Object.assign({}, state, {
-        movies: moviesAdapter(action.payload),
+        movies: getAdaptedMovies(action.payload),
       });
 
     case ActionTypes.SET_PROMO_MOVIE:
       return Object.assign({}, state, {
-        promoMovie: movieAdapter(action.payload),
+        promoMovie: getAdaptedMovie(action.payload),
       });
 
     case ActionTypes.SET_ACTIVE_FILTER:

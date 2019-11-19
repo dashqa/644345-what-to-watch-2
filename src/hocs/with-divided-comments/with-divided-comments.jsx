@@ -12,13 +12,51 @@ const withDividedComments = (Component) => {
     }
 
     componentDidMount() {
-      const {comments} = this.props;
-      const commentsObj = {
-        even: [],
-        odd: [],
-      };
+      // const {comments} = this.props;
+      const comments = [
+        {
+          id: 1,
+          user: {
+            id: 5,
+            name: `John Snow`,
+          },
+          rating: 3.4,
+          comment: `Discerning travellers and Wes Anderson fans will luxuriate in the glorious Mittel-European kitsch of one of the director's funniest and most exquisitely designed movies in years.`,
+          date: `2019-05-08T14:13:56.569Z`
+        }, {
+          id: 2,
+          user: {
+            id: 5,
+            name: `John Snow`,
+          },
+          rating: 3.4,
+          comment: `Discerning travellers and Wes Anderson fans will luxuriate in the glorious Mittel-European kitsch of one of the director's funniest and most exquisitely designed movies in years.`,
+          date: `2019-05-08T14:13:56.569Z`
+        }, {
+          id: 3,
+          user: {
+            id: 10,
+            name: `Ivan Ivanov`,
+          },
+          rating: 2.3,
+          comment: `Discerning travellers and Wes Anderson fans will luxuriate in the glorious Mittel-European kitsch of one of the director's funniest and most exquisitely designed movies in years.`,
+          date: `2019-05-08T14:13:56.569Z`
+        }, {
+          id: 4,
+          user: {
+            id: 22,
+            name: `Brad Pitt`,
+          },
+          rating: 5.3,
+          comment: `Discerning travellers and Wes Anderson fans will luxuriate in the glorious Mittel-European kitsch of one of the director's funniest and most exquisitely designed movies in years.`,
+          date: `2019-05-08T14:13:56.569Z`
+        }];
 
-      comments.forEach((comment, i) => i % 2 ? commentsObj.odd.push(comment) : commentsObj.even.push(comment));
+      const commentsObj = comments.reduce((acc, current, i) => {
+        acc[i % 2 ? `odd` : `even`].push(current);
+        return acc;
+      }, {odd: [], even: []});
+
       this.setState({dividedComments: commentsObj});
     }
 

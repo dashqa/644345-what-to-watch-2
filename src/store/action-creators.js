@@ -29,23 +29,23 @@ export const increaseMoviesCounter = () => {
   };
 };
 
-export const setIsAuthorized = (bool) => {
+export const setIsAuthorized = (isAuthorized) => {
   return {
     type: ActionTypes.SET_IS_AUTHORIZED,
-    payload: bool
+    payload: isAuthorized
   };
 };
 
-export const setFetchingMovies = (bool) => {
+export const setFetchingMovies = (isLoaded) => {
   return {
     type: ActionTypes.SET_FETCHING_MOVIES,
-    payload: bool
+    payload: isLoaded
   };
 };
 
-export const setFetchingPromo = (bool) => {
+export const setFetchingPromo = (isLoaded) => {
   return {
     type: ActionTypes.SET_FETCHING_PROMO,
-    payload: bool
+    payload: isLoaded
   };
 };

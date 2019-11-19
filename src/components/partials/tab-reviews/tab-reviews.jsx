@@ -2,6 +2,8 @@ import React from "react";
 import moment from "moment/moment";
 import PropTypes from "prop-types";
 
+import withDividedComments from "@hocs/with-divided-comments/with-divided-comments";
+
 const TabReviews = ({dividedComments}) => {
   return (
     <div className="movie-card__reviews movie-card__row">
@@ -49,4 +51,5 @@ TabReviews.propTypes = {
       ))
 };
 
-export default TabReviews;
+export {TabReviews};
+export default withDividedComments(TabReviews);
