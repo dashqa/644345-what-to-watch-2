@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import {DEFAULT_FILTER} from "../../../utils/constants";
 
+import {DEFAULT_FILTER} from "@constants";
 
 const CatalogFilter = ({active, genres, onChange}) => {
   return (

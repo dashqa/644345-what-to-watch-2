@@ -1,5 +1,5 @@
 import React from 'react';
-import Catalog from './catalog';
+import {Catalog} from './catalog';
 import renderer from "react-test-renderer";
 
 const props = {

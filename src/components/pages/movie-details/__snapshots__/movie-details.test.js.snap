@@ -2,7 +2,9 @@
 
 exports[`Movie details card correctly renders after relaunch 1`] = `
 Array [
-  <MovieCard />,
+  <MovieCard
+    movie={Object {}}
+  />,
   <div
     className="page-content"
   >

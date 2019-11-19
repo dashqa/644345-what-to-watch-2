@@ -1,13 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+import {DEFAULT_FILTER, MOVIES_COUNTER_INITIAL} from "@constants";
 
-import CatalogCard from "../catalog-card/catalog-card";
-import ShowMore from "../show-more/show-more";
-import CatalogFilter from "../catalog-filter/catalog-filter";
-import {DEFAULT_FILTER, MOVIES_COUNTER_INITIAL} from "../../../utils/constants";
+import {setActiveFilter, increaseMoviesCounter} from "@store/action-creators";
+import {getActiveFilter, getGenres, getMoviesCounter} from "@store/selectors";
 
-const Catalog = ({movies, counter, genres, activeFilter, onChangeFilter, onShowMoreClick, isMainPage}) => {
+import CatalogCard from "@partials/catalog-card/catalog-card";
+import ShowMore from "@partials/show-more/show-more";
+import CatalogFilter from "@partials/catalog-filter/catalog-filter";
+
+import withPlayOnHover from "@hocs/with-play-on-hover/with-play-on-hover";
+const CatalogCardWrapped = withPlayOnHover(CatalogCard);
+
+const Catalog = ({movies, genres, activeFilter, moviesCounter, onChangeFilter, onShowMoreClick, isMainPage}) => {
   const sectionClasses = classNames(`catalog`, {'catalog--like-this': !isMainPage});
   const headerClasses = classNames(`catalog__title`, {'visually-hidden': isMainPage});
 
@@ -25,16 +33,14 @@ const Catalog = ({movies, counter, genres, activeFilter, onChangeFilter, onShowM
           />}
 
       <div className="catalog__movies-list">
-        {movies
-          .slice(0, counter)
-          .map((movie) =>
-            <CatalogCard
-              key={movie.id}
-              movie={movie}
-            />)}
+        {movies.map((movie) =>
+          <CatalogCardWrapped
+            key={movie.id}
+            movie={movie}
+          />)}
       </div>
 
-      {isMainPage && counter < movies.length &&
+      {isMainPage && moviesCounter <= movies.length &&
         <ShowMore onClick={onShowMoreClick}/>}
     </section>
   );
@@ -42,8 +48,8 @@ const Catalog = ({movies, counter, genres, activeFilter, onChangeFilter, onShowM
 
 Catalog.defaultProps = {
   movies: [],
-  counter: MOVIES_COUNTER_INITIAL,
   genres: {},
+  moviesCounter: MOVIES_COUNTER_INITIAL,
   activeFilter: DEFAULT_FILTER,
   isMainPage: false,
   onChangeFilter: () => {},
@@ -53,11 +59,23 @@ Catalog.defaultProps = {
 Catalog.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
   isMainPage: PropTypes.bool.isRequired,
-  counter: PropTypes.number,
+  moviesCounter: PropTypes.number,
   genres: PropTypes.object,
   activeFilter: PropTypes.string,
   onChangeFilter: PropTypes.func,
   onShowMoreClick: PropTypes.func,
 };
 
-export default Catalog;
+const mapStateToProps = (state) => ({
+  genres: getGenres(state),
+  activeFilter: getActiveFilter(state),
+  moviesCounter: getMoviesCounter(state),
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onChangeFilter: bindActionCreators(setActiveFilter, dispatch),
+  onShowMoreClick: bindActionCreators(increaseMoviesCounter, dispatch)
+});
+
+export {Catalog};
+export default connect(mapStateToProps, mapDispatchToProps)(Catalog);

@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import MovieButtons from "../movie-buttons/movie-buttons";
+
+import MovieButtons from "@partials/movie-buttons/movie-buttons";
 
 const MovieCardTopDesc = ({name, genre, released}) => {
   return (

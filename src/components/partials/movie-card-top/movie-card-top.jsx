@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Header from "../header/header";
-import MovieCardTopDesc from "../movie-card-top-desc/movie-card-top-desc";
-import MovieCardPoster from "../movie-card-poster/movie-card-poster";
+
+import Header from "@partials/header/header";
+import MovieCardTopDesc from "@partials/movie-card-top-desc/movie-card-top-desc";
+import MovieCardPoster from "@partials/movie-card-poster/movie-card-poster";
 
 const MovieCardTop = ({movie, isMainPage}) => {
   const {name, backgroundImage, posterImage, genre, released} = movie;
@@ -11,7 +12,7 @@ const MovieCardTop = ({movie, isMainPage}) => {
     <>
       <div className="movie-card__bg">
         <img
-          src={`${backgroundImage}`}
+          src={backgroundImage}
           alt={name}
         />
       </div>
