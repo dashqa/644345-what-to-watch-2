@@ -1,13 +1,22 @@
-import {createStore, applyMiddleware} from "redux";
-import thunk from "redux-thunk";
+import {createStore, applyMiddleware, combineReducers} from "redux";
 import {composeWithDevTools} from 'redux-devtools-extension';
-
+import thunk from "redux-thunk";
 import createAPI from "@api/api";
-import {rootReducer} from "@store/reducers";
+
+import {reducer as moviesData} from "./movies-data/movies-data";
+import {reducer as common} from "./common/common";
+import {reducer as user} from "./user/user";
+
+const reducers = combineReducers({
+  moviesData,
+  common,
+  user,
+});
+
 
 const api = createAPI((...args) => store.dispatch(...args));
 
-const store = createStore(rootReducer, composeWithDevTools(
+const store = createStore(reducers, composeWithDevTools(
     applyMiddleware(thunk.withExtraArgument(api))
 ));
 

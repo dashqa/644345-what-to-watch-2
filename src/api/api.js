@@ -1,8 +1,7 @@
 import axios from 'axios/index';
-import {setIsAuthorized} from "@store/action-creators";
 import {BASE_URL, TIMEOUT} from "@api/constants";
 
-const createAPI = (dispatch) => {
+const createAPI = () => {
   const api = axios.create({
     baseURL: BASE_URL,
     timeout: TIMEOUT,
@@ -13,7 +12,7 @@ const createAPI = (dispatch) => {
 
   const onFail = (error) => {
     if (error.response.status === 403) {
-      dispatch(setIsAuthorized());
+      history.push(`/`);
     }
     return error;
   };

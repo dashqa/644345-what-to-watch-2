@@ -3,7 +3,7 @@ import {Provider} from "react-redux";
 import {Switch, Route, BrowserRouter} from "react-router-dom";
 
 import store from "@store/store.js";
-import {loadMovies, loadPromoMovie} from "@store/operations";
+import {loadMovies, loadPromoMovie} from "@store/movies-data/operations";
 
 import MainPage from "@pages/main-page/main-page";
 import MovieDetails from "@pages/movie-details/movie-details";
