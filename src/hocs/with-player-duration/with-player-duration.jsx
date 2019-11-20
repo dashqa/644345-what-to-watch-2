@@ -30,11 +30,12 @@ const withPlayerDuration = (Component) => {
 
     render() {
       const {timeLeft, percentage} = this.state;
+      const formattedTiming = formatTime(timeLeft, `second`, `HH:mm:ss`);
 
       return (
         <Component
           {...this.props}
-          timing={formatTime(timeLeft, `second`, `HH:mm:ss`)}
+          timing={formattedTiming}
           progressPosition={percentage}
           progressRef={this._progressRef}
           toggleRef={this._toggleRef}
