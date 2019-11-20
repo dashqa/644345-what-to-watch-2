@@ -1,4 +1,4 @@
-export const movieAdapter = (movie) => {
+export const getAdaptedMovie = (movie) => {
   const {
     id = null,
     name = ``,
@@ -24,4 +24,4 @@ export const movieAdapter = (movie) => {
   };
 };
 
-export const moviesAdapter = (movies) => movies.map((movie) => movieAdapter(movie));
+export const getAdaptedMovies = (movies) => movies.map((movie) => getAdaptedMovie(movie));

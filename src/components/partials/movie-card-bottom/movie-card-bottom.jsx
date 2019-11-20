@@ -4,9 +4,6 @@ import PropTypes from "prop-types";
 import MovieCardPoster from "@partials/movie-card-poster/movie-card-poster";
 import MovieCardTabs from "@partials/movie-card-tabs/movie-card-tabs";
 
-import withActiveTab from "@hocs/with-active-tab/with-active-tab";
-const MovieCardTabsWrapped = withActiveTab(MovieCardTabs);
-
 const MovieCardBottom = ({movie}) => {
   const {name, posterImage} = movie;
 
@@ -20,7 +17,7 @@ const MovieCardBottom = ({movie}) => {
           isBig
         />
 
-        <MovieCardTabsWrapped movie={movie}/>
+        <MovieCardTabs movie={movie}/>
       </div>
     </div>
   );

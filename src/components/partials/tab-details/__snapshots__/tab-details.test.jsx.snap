@@ -53,7 +53,7 @@ exports[`Details tab correctly renders after relaunch 1`] = `
       <span
         className="movie-card__details-value"
       >
-        0m
+        0h 0m
       </span>
     </p>
     <p

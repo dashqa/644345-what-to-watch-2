@@ -7,13 +7,10 @@ const withPlayOnHover = (Component) => {
       super(props);
 
       this._videoTimeout = null;
+      this._videoRef = React.createRef();
 
       this._handleMouseLeave = this._handleMouseLeave.bind(this);
       this._handleMouseEnter = this._handleMouseEnter.bind(this);
-
-      this.state = {
-        isVideoPlaying: false,
-      };
     }
 
     componentWillUnmount() {
@@ -21,12 +18,10 @@ const withPlayOnHover = (Component) => {
     }
 
     render() {
-      const {isVideoPlaying} = this.state;
-
       return (
         <Component
           {...this.props}
-          isVideoPlaying={isVideoPlaying}
+          videoRef={this._videoRef}
           onEnter={this._handleMouseEnter}
           onLeave={this._handleMouseLeave}
         />
@@ -35,13 +30,13 @@ const withPlayOnHover = (Component) => {
 
     _handleMouseEnter() {
       this._videoTimeout = setTimeout(() => {
-        this.setState({isVideoPlaying: true});
+        this._videoRef.current.play();
       }, MOVIE_PREVIEW_DELAY);
     }
 
     _handleMouseLeave() {
       clearTimeout(this._videoTimeout);
-      this.setState({isVideoPlaying: false});
+      this._videoRef.current.load();
     }
   }
 

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Svg button correctly renders after relaunch 1`] = `
+<button
+  className=""
+  data-icon=""
+  onClick={[Function]}
+  type="button"
+>
+  <svg
+    height=""
+    viewBox=""
+    width=""
+  >
+    <use
+      xlinkHref=""
+    />
+  </svg>
+  <span>
+    
+  </span>
+</button>
+`;

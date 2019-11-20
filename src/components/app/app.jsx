@@ -7,10 +7,7 @@ import {loadMovies, loadPromoMovie} from "@store/operations";
 
 import MainPage from "@pages/main-page/main-page";
 import MovieDetails from "@pages/movie-details/movie-details";
-import withLoading from "@hocs/with-loading/with-loading";
-
-const MainPageWrapped = withLoading(MainPage);
-const MovieDetailsWrapped = withLoading(MovieDetails);
+import MoviePlayer from "@pages/movie-player/movie-player";
 
 const App = () => {
   store.dispatch(loadMovies());
@@ -20,8 +17,9 @@ const App = () => {
     <Provider store={store}>
       <BrowserRouter>
         <Switch>
-          <Route exact path='/' component={MainPageWrapped}/>
-          <Route path='/films/:id' component={MovieDetailsWrapped}/>
+          <Route exact path='/' component={MainPage}/>
+          <Route exact path='/films/:id' component={MovieDetails}/>
+          <Route path='/films/:id/player' component={MoviePlayer}/>
         </Switch>
       </BrowserRouter>
     </Provider>

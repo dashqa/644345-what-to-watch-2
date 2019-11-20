@@ -63,6 +63,7 @@ Array [
   >
     <MovieCardTopDesc
       genre=""
+      id={0}
       name=""
       released={0}
     />

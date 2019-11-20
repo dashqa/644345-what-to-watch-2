@@ -7,8 +7,7 @@ import TabOverview from "@partials/tab-overview/tab-overview";
 import TabDetails from "@partials/tab-details/tab-details";
 import TabReviews from "@partials/tab-reviews/tab-reviews";
 
-import withDividedComments from "@hocs/with-divided-comments/with-divided-comments";
-const TabReviewsWrapped = withDividedComments(TabReviews);
+import withActiveTab from "@hocs/with-active-tab/with-active-tab";
 
 const MovieCardTabs = ({active, onChangeTab, movie}) => {
   const {genre, description, released, rating, scoresCount, runTime, director, starring, comments = []} = movie;
@@ -35,7 +34,7 @@ const MovieCardTabs = ({active, onChangeTab, movie}) => {
           />);
       case MovieTabs.REVIEWS:
         return (
-          <TabReviewsWrapped comments={comments}/>
+          <TabReviews comments={comments}/>
         );
       default:
         return null;
@@ -103,4 +102,5 @@ MovieCardTabs.propTypes = {
   }).isRequired,
 };
 
-export default MovieCardTabs;
+export {MovieCardTabs};
+export default withActiveTab(MovieCardTabs);

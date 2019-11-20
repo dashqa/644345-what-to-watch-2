@@ -27,7 +27,8 @@ exports[`Movie card top desc correctly renders after relaunch 1`] = `
     className="movie-card__buttons"
   >
     <button
-      className="btn movie-card__button btn-play"
+      className="btn btn-play movie-card__button"
+      data-icon="#play-s"
       onClick={[Function]}
       type="button"
     >
@@ -45,7 +46,8 @@ exports[`Movie card top desc correctly renders after relaunch 1`] = `
       </span>
     </button>
     <button
-      className="btn movie-card__button btn-list"
+      className="btn btn-list movie-card__button"
+      data-icon="#add"
       onClick={[Function]}
       type="button"
     >

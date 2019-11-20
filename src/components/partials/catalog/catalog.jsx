@@ -12,9 +12,6 @@ import CatalogCard from "@partials/catalog-card/catalog-card";
 import ShowMore from "@partials/show-more/show-more";
 import CatalogFilter from "@partials/catalog-filter/catalog-filter";
 
-import withPlayOnHover from "@hocs/with-play-on-hover/with-play-on-hover";
-const CatalogCardWrapped = withPlayOnHover(CatalogCard);
-
 const Catalog = ({movies, genres, activeFilter, moviesCounter, onChangeFilter, onShowMoreClick, isMainPage}) => {
   const sectionClasses = classNames(`catalog`, {'catalog--like-this': !isMainPage});
   const headerClasses = classNames(`catalog__title`, {'visually-hidden': isMainPage});
@@ -34,7 +31,7 @@ const Catalog = ({movies, genres, activeFilter, moviesCounter, onChangeFilter, o
 
       <div className="catalog__movies-list">
         {movies.map((movie) =>
-          <CatalogCardWrapped
+          <CatalogCard
             key={movie.id}
             movie={movie}
           />)}

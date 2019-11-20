@@ -20,7 +20,7 @@ exports[`App correctly renders after relaunch 1`] = `
             "$$typeof": Symbol(react.memo),
             "WrappedComponent": [Function],
             "compare": null,
-            "displayName": "Connect(WithLoading)",
+            "displayName": "Connect(Connect(WithLoading))",
             "type": [Function],
           }
         }
@@ -33,11 +33,24 @@ exports[`App correctly renders after relaunch 1`] = `
             "$$typeof": Symbol(react.memo),
             "WrappedComponent": [Function],
             "compare": null,
+            "displayName": "Connect(Connect(WithLoading))",
+            "type": [Function],
+          }
+        }
+        exact={true}
+        path="/films/:id"
+      />
+      <Route
+        component={
+          Object {
+            "$$typeof": Symbol(react.memo),
+            "WrappedComponent": [Function],
+            "compare": null,
             "displayName": "Connect(WithLoading)",
             "type": [Function],
           }
         }
-        path="/films/:id"
+        path="/films/:id/player"
       />
     </Switch>
   </BrowserRouter>
