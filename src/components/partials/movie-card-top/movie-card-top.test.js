@@ -8,6 +8,7 @@ jest.mock(`../../partials/movie-card-top-desc/movie-card-top-desc.jsx`, () => `M
 
 const props = {
   movie: {
+    id: 0,
     name: ``,
     genre: ``,
     released: 0,
