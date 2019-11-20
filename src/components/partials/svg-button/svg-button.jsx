@@ -1,15 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import classNames from "classnames";
 
-const SvgButton = ({classMods, title, svgViewBox, svgWidth, svgHeight, svgXlink, onClick}) => {
-  const classes = classNames(`btn`, `movie-card__button`, classMods);
-
+const SvgButton = ({classes, title, svgViewBox, svgWidth, svgHeight, svgXlink, onClick}) => {
   return (
     <button
       className={classes}
       type="button"
       onClick={onClick}
+      data-icon={svgXlink}
     >
       <svg
         viewBox={svgViewBox}
@@ -25,7 +23,7 @@ const SvgButton = ({classMods, title, svgViewBox, svgWidth, svgHeight, svgXlink,
 };
 
 SvgButton.defaultProps = {
-  classMods: ``,
+  classes: ``,
   title: ``,
   svgViewBox: ``,
   svgWidth: ``,
@@ -35,7 +33,7 @@ SvgButton.defaultProps = {
 };
 
 SvgButton.propTypes = {
-  classMods: PropTypes.string,
+  classes: PropTypes.string,
   title: PropTypes.string.isRequired,
   svgViewBox: PropTypes.string.isRequired,
   svgWidth: PropTypes.string.isRequired,

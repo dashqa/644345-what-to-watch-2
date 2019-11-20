@@ -3,10 +3,12 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 
 import {getPromoMovie, getFilteredMovies} from "@store/selectors";
+import withLoading from "@hocs/with-loading/with-loading";
 
 import Catalog from "@partials/catalog/catalog";
 import MovieCard from "@partials/movie-card/movie-card";
 import Footer from "@partials/footer/footer";
+
 
 const MainPage = ({movies, promoMovie}) => {
   return (
@@ -43,4 +45,4 @@ const mapStateToProps = (state) => ({
 });
 
 export {MainPage};
-export default connect(mapStateToProps)(MainPage);
+export default connect(mapStateToProps)(withLoading(MainPage));

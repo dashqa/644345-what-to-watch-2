@@ -1,10 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import moment from "moment/moment";
-import 'moment-duration-format';
+import {formatTime} from "@utils";
 
 const TabDetails = ({runTime, genre, released, director, starring}) => {
-  const formattedRunTime = moment.duration(runTime, `minutes`).format(`h[h] m[m]`);
+  const formattedRunTime = formatTime(runTime, `minutes`, `h[h] m[m]`);
 
   return (
     <div className="movie-card__text movie-card__row">

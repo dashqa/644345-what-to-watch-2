@@ -6,7 +6,7 @@ import MovieCardTopDesc from "@partials/movie-card-top-desc/movie-card-top-desc"
 import MovieCardPoster from "@partials/movie-card-poster/movie-card-poster";
 
 const MovieCardTop = ({movie, isMainPage}) => {
-  const {name, backgroundImage, posterImage, genre, released} = movie;
+  const {id, name, backgroundImage, posterImage, genre, released} = movie;
 
   return (
     <>
@@ -29,6 +29,7 @@ const MovieCardTop = ({movie, isMainPage}) => {
             />
 
             <MovieCardTopDesc
+              id={id}
               name={name}
               genre={genre}
               released={released}
@@ -36,6 +37,7 @@ const MovieCardTop = ({movie, isMainPage}) => {
           </div>
         ) : (
           <MovieCardTopDesc
+            id={id}
             name={name}
             genre={genre}
             released={released}
@@ -48,6 +50,7 @@ const MovieCardTop = ({movie, isMainPage}) => {
 
 MovieCardTop.defaultProps = {
   movie: {
+    id: 0,
     name: ``,
     genre: ``,
     released: 0,
@@ -59,6 +62,7 @@ MovieCardTop.defaultProps = {
 
 MovieCardTop.propTypes = {
   movie: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
     released: PropTypes.number.isRequired,

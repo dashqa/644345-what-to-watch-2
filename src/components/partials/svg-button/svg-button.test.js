@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import SvgButton from './svg-button';
 
 const props = {
-  classMods: ``,
+  classes: ``,
   title: ``,
   svgViewBox: ``,
   svgWidth: ``,

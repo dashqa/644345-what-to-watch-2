@@ -1,8 +1,9 @@
 import React from "react";
-import moment from "moment/moment";
 import PropTypes from "prop-types";
 
+import {formatDate} from "@utils";
 import withDividedComments from "@hocs/with-divided-comments/with-divided-comments";
+
 
 const TabReviews = ({dividedComments}) => {
   return (
@@ -13,8 +14,6 @@ const TabReviews = ({dividedComments}) => {
           key={key}
         >
           {comments.map(({id, comment, user, date, rating}) => {
-            const commentDate = moment(date);
-
             return (
               <div
                 className="review"
@@ -25,8 +24,8 @@ const TabReviews = ({dividedComments}) => {
 
                   <footer className="review__details">
                     <cite className="review__author">{user.name}</cite>
-                    <time className="review__date" dateTime={commentDate.format(`YYYY-MM-DD`)}>
-                      {commentDate.format(`MMMM Do, YYYY`)}</time>
+                    <time className="review__date" dateTime={formatDate(date, `YYYY-MM-DD`)}>
+                      {formatDate(date, `MMMM Do, YYYY`)}</time>
                   </footer>
                 </blockquote>
 

@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 import VideoPlayer from "@partials/video-player/video-player";
 import withPlayOnHover from "@hocs/with-play-on-hover/with-play-on-hover";
 
-const CatalogCard = ({movie, onEnter, onLeave, isVideoPlaying}) => {
+const CatalogCard = ({movie, videoRef, onEnter, onLeave}) => {
   const {id, name, previewImage, previewVideoLink} = movie;
 
   return (
@@ -20,9 +20,9 @@ const CatalogCard = ({movie, onEnter, onLeave, isVideoPlaying}) => {
       >
         <div className="small-movie-card__image">
           <VideoPlayer
+            videoRef={videoRef}
             link={previewVideoLink}
             poster={previewImage}
-            isPlaying={isVideoPlaying}
             muted
             width="280"
             height="180"
@@ -38,9 +38,9 @@ const CatalogCard = ({movie, onEnter, onLeave, isVideoPlaying}) => {
 
 CatalogCard.defaultProps = {
   movie: {},
+  videoRef: {},
   onEnter: () => {},
   onLeave: () => {},
-  isVideoPlaying: false,
 };
 
 CatalogCard.propTypes = {
@@ -50,9 +50,9 @@ CatalogCard.propTypes = {
     previewImage: PropTypes.string.isRequired,
     previewVideoLink: PropTypes.string
   }).isRequired,
+  videoRef: PropTypes.object.isRequired,
   onEnter: PropTypes.func.isRequired,
   onLeave: PropTypes.func.isRequired,
-  isVideoPlaying: PropTypes.bool.isRequired,
 };
 
 export {CatalogCard};

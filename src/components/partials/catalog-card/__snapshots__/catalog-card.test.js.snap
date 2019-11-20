@@ -15,6 +15,7 @@ exports[`Catalog card correctly renders after relaunch 1`] = `
       className="small-movie-card__image"
     >
       <video
+        className=""
         controls={false}
         height="180"
         muted={true}

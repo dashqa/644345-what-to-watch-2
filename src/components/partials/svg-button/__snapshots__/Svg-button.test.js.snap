@@ -2,7 +2,8 @@
 
 exports[`Svg button correctly renders after relaunch 1`] = `
 <button
-  className="btn movie-card__button"
+  className=""
+  data-icon=""
   onClick={[Function]}
   type="button"
 >
