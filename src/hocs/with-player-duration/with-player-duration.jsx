@@ -28,12 +28,6 @@ const withPlayerDuration = (Component) => {
       };
     }
 
-    componentWillUnmount() {
-      const video = this.props.videoRef.current;
-      video.onloadedmetadata = null;
-      video.ontimeupdate = null;
-    }
-
     render() {
       const {timeLeft, percentage} = this.state;
 
