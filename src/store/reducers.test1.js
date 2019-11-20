@@ -1,8 +1,8 @@
-import {initialState, rootReducer} from "./reducers";
+import {initialState, rootReducer} from "./reducers1";
 
 // const mock = {
 //   state: {
-//     movies: [{
+//     movies-data: [{
 //       "name": `Midnight Special`,
 //       "posterImage": `https://es31-server.appspot.com/wtw/static/film/poster/Midnight_Special.jpg`,
 //       "previewImage": `https://es31-server.appspot.com/wtw/static/film/preview/midnight-special.jpg`,
@@ -36,7 +36,7 @@ describe(`Reducer works correctly`, () => {
 
   // it(`Reducer should set active filter by a given value`, () => {
   //   expect(rootReducer({
-  //     movies: state.movies,
+  //     movies-data: state.movies-data,
   //     promoMovie: {},
   //     currentMovie: {},
   //     genres: [],
@@ -48,7 +48,7 @@ describe(`Reducer works correctly`, () => {
   //   }))
   //     .toEqual({
   //       activeFilter: `Drama`,
-  //       movies: state.movies,
+  //       movies-data: state.movies-data,
   //       promoMovie: {},
   //       currentMovie: {},
   //       genres: [],
@@ -58,7 +58,7 @@ describe(`Reducer works correctly`, () => {
   //
   // it(`Reducer should set current movie by a given value`, () => {
   //   expect(rootReducer({
-  //     movies: state.movies,
+  //     movies-data: state.movies-data,
   //     promoMovie: {},
   //     currentMovie: {},
   //     genres: [],
@@ -66,11 +66,11 @@ describe(`Reducer works correctly`, () => {
   //     activeFilter: `All genres`,
   //   }, {
   //     type: `SET_CURRENT_MOVIE`,
-  //     payload: state.movies[0]
+  //     payload: state.movies-data[0]
   //   }))
   //     .toEqual({
-  //       currentMovie: state.movies[0],
-  //       movies: state.movies,
+  //       currentMovie: state.movies-data[0],
+  //       movies-data: state.movies-data,
   //       promoMovie: {},
   //       genres: [],
   //       relatedMovies: [],

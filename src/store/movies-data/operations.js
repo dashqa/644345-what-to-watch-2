@@ -1,4 +1,5 @@
-import {setFetchingMovies, setFetchingPromo, setMovies, setPromoMovie} from "@store/action-creators";
+import {setMovies, setPromoMovie} from "@store/movies-data/action-creators";
+import {setFetchingMovies, setFetchingPromo} from "@store/common/action-creators";
 
 export const loadMovies = () => (dispatch, _, api) => {
   dispatch(setFetchingMovies(true));
