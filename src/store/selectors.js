@@ -8,6 +8,7 @@ export const getMoviesCounter = (state) => state.moviesData.moviesCounter;
 export const getMovieById = (state, movieId) => state.moviesData.movies.find(({id}) => id === parseInt(movieId, 10));
 export const getFetchingMovies = (state) => state.common.isLoadingMovies;
 export const getFetchingPromo = (state) => state.common.isLoadingPromo;
+export const getAuthorisationStatus = (state) => state.user.isAuthorized;
 
 export const getRelatedMovies = (state, currentMovie) =>
   state.moviesData.movies.filter(({id, genre}) => id !== currentMovie.id && genre === currentMovie.genre);

@@ -1238,9 +1238,16 @@ main {
   line-height: 44px;
   text-align: center;
   color: #D9CD8D;
-  cursor: pointer; }
-  .sign-in__btn:hover, .sign-in__btn:focus {
-    border: 1px solid rgba(217, 205, 141, 0.7); }
+  cursor: pointer;
+}
+
+.sign-in__btn:hover, .sign-in__btn:focus {
+  border: 1px solid rgba(217, 205, 141, 0.7);
+}
+
+.sign-in__btn:disabled {
+  opacity: 0.3;
+}
 
 .sign-in__reset-password {
   text-align: center; }

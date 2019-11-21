@@ -12,7 +12,7 @@ const createAPI = () => {
 
   const onFail = (error) => {
     if (error.response.status === 403) {
-      history.push(`/`);
+      history.push(`/login`);
     }
     return error;
   };
