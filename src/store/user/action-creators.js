@@ -6,3 +6,10 @@ export const setIsAuthorized = (isAuthorized) => {
     payload: isAuthorized
   };
 };
+
+export const setUser = (user) => {
+  return {
+    type: ActionTypes.SET_USER,
+    payload: user
+  };
+};
