@@ -1,4 +1,4 @@
-import {setUser} from "@store/user/action-creators";
+import * as actionType from "./types";
 
 export const authorizeUser = (formData) => (dispatch, _, api) => {
   return api.post(`/login`, formData)
@@ -8,4 +8,11 @@ export const authorizeUser = (formData) => (dispatch, _, api) => {
     .catch((error) => {
       throw new Error(`${error} on loading movies`);
     });
+};
+
+export const setUser = (user) => {
+  return {
+    type: actionType.SET_USER,
+    payload: user
+  };
 };

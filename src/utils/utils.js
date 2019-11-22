@@ -6,10 +6,8 @@ export const computeRatingLevel = (rating) => USER_RATINGS.filter((rank) => rank
 export const formatTime = (time, unit, format) => moment.duration(time, unit).format(format, {trim: false});
 export const formatDate = (date, format) => moment(date).format(format);
 
-export const validateForm = (errors) => {
-  let valid = true;
-  Object.values(errors).forEach(
-      (val) => val.length > 0 && (valid = false)
-  );
-  return valid;
+export const validateForm = (errors, form) => {
+  const nonErrors = !Object.values(errors).some((val) => val.length);
+  const nonNullFields = Object.values(form).every((val) => val.length);
+  return nonErrors && nonNullFields;
 };

@@ -1,14 +1,15 @@
 import React from "react";
 import {compose} from "recompose";
+import {connect} from "react-redux";
 import PropTypes from "prop-types";
+import {getMovieById} from "@store/movies-data/selectors";
 
 import SvgButton from "@partials/svg-button/svg-button";
 import VideoPlayer from "@partials/video-player/video-player";
+import VideoProgressBar from "@partials/video-player-progress/video-player-progress";
 
 import withLoading from "@hocs/with-loading/with-loading";
-import withCurrentMovie from "@hocs/with-current-movie/with-current-movie";
 import withPlayerFunctionality from "@hocs/with-player-functionality/with-player-functionality";
-import VideoProgressBar from "@partials/video-player-progress/video-player-progress";
 
 const MoviePlayer = ({currentMovie, videoRef, onPlayPause, onClosePlayer, onFullScreen, isPlaying}) => {
   const {name, videoLink, previewImage} = currentMovie;
@@ -91,10 +92,14 @@ MoviePlayer.propTypes = {
   isPlaying: PropTypes.bool.isRequired,
 };
 
+const mapStateToProps = (state, {match}) => ({
+  currentMovie: getMovieById(state, match.params.id)
+});
+
 export {MoviePlayer};
 
 export default compose(
     withLoading,
-    withCurrentMovie,
-    withPlayerFunctionality
+    withPlayerFunctionality,
+    connect(mapStateToProps)
 )(MoviePlayer);

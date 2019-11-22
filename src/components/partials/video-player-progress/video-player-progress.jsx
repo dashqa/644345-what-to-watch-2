@@ -1,6 +1,7 @@
 import React from "react";
-import withPlayerDuration from "@hocs/with-player-duration/with-player-duration";
 import PropTypes from "prop-types";
+
+import withPlayerDuration from "@hocs/with-player-duration/with-player-duration";
 
 const VideoProgressBar = ({progressPosition, progressRef, toggleRef, timing}) => {
   const toggleStyles = {

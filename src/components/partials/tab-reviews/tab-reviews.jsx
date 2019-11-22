@@ -1,9 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-
 import {formatDate} from "@utils";
-import withDividedComments from "@hocs/with-divided-comments/with-divided-comments";
 
+import withDividedComments from "@hocs/with-divided-comments/with-divided-comments";
 
 const TabReviews = ({dividedComments}) => {
   return (

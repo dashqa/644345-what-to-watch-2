@@ -21,6 +21,8 @@ module.exports = {
       "@partials": path.resolve(__dirname, `src/components/partials`),
       "@hocs": path.resolve(__dirname, `src/hocs`),
       "@store": path.resolve(__dirname, `src/store`),
+      "@reducers": path.resolve(__dirname, `src/reducers`),
+      "@selectors": path.resolve(__dirname, `src/reducers/selectors`),
       "@api": path.resolve(__dirname, `src/api`),
       "@utils": path.resolve(__dirname, `src/utils/utils.js`),
       "@constants": path.resolve(__dirname, `src/utils/constants.js`)

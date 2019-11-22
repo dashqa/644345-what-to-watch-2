@@ -18,7 +18,7 @@ const MovieCardTop = ({movie, isMainPage}) => {
       </div>
       <h1 className="visually-hidden">WTW</h1>
 
-      <Header/>
+      <Header />
 
       <div className="movie-card__wrap">
         {isMainPage ? (

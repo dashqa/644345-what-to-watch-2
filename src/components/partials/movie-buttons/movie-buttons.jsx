@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {Link} from "react-router-dom";
 
 import SvgButton from "@partials/svg-button/svg-button";
 
@@ -27,7 +28,7 @@ const MovieButtons = ({onPlayClick, onAddMovieClick}) => {
       />
 
       {location.pathname !== `/` &&
-          <a href="add-review.html" className="btn movie-card__button">Add review</a>
+          <Link to={`/review`} className="btn movie-card__button">Add review</Link>
       }
     </div>
   );

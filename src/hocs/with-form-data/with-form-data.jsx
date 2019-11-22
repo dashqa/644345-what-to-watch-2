@@ -1,41 +1,35 @@
 import React from "react";
-import PropTypes from "prop-types";
-import {connect} from "react-redux";
-import {compose} from "recompose";
-import {bindActionCreators} from "redux";
-
 import {validateForm} from "@utils";
-import {authorizeUser} from "@store/user/operations";
 
 const withFormData = (Component) => {
   class WithFormData extends React.PureComponent {
     constructor(props) {
       super(props);
 
-      this._handleSubmit = this._handleSubmit.bind(this);
       this._handleChange = this._handleChange.bind(this);
 
       this.state = {
-        email: ``,
-        password: ``,
+        formData: {
+          email: ``,
+          password: ``,
+        },
         errors: {
           email: ``,
           password: ``,
         },
         isValid: false,
       };
-
     }
 
     render() {
-      const {errors, isValid} = this.state;
+      const {errors, isValid, formData} = this.state;
 
       return <Component
         {...this.props}
+        formData={formData}
         errors={errors}
         isValid={isValid}
         onChange={this._handleChange}
-        onSubmit={this._handleSubmit}
       />;
     }
 
@@ -61,43 +55,22 @@ const withFormData = (Component) => {
           break;
       }
 
-      const isValid = validateForm(errors);
+      this.setState((prevState) => {
+        const formData = Object.assign({}, prevState.formData);
+        formData[name] = value;
 
-      this.setState({
-        errors,
-        isValid,
-        [name]: value,
+        return {
+          formData,
+          errors,
+          isValid: validateForm(errors, formData)
+        };
       });
     }
-
-    _handleSubmit(evt) {
-      evt.preventDefault();
-      const {onAuthorizeUser} = this.props;
-      const {isValid, email, password} = this.state;
-      if (!isValid) {
-        return;
-      }
-
-      onAuthorizeUser({email, password});
-    }
   }
-
-  WithFormData.propTypes = {
-    onAuthorizeUser: PropTypes.func.isRequired
-  };
 
   return WithFormData;
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  onAuthorizeUser: bindActionCreators(authorizeUser, dispatch)
-});
-
-const WithFormDataWrapped = compose(
-    connect(null, mapDispatchToProps),
-    withFormData
-);
-
-export default WithFormDataWrapped;
+export default withFormData;
 
 

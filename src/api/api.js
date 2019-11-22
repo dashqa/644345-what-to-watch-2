@@ -11,7 +11,7 @@ const createAPI = () => {
   const onSuccess = (response) => response;
 
   const onFail = (error) => {
-    if (error.response.status === 403) {
+    if (error.response.status === 401 || error.response.status === 403) {
       history.push(`/login`);
     }
     return error;

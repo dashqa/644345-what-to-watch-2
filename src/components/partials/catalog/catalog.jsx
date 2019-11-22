@@ -5,8 +5,8 @@ import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import {DEFAULT_FILTER, MOVIES_COUNTER_INITIAL} from "@constants";
 
-import {setActiveFilter, increaseMoviesCounter} from "@store/movies-data/action-creators";
-import {getActiveFilter, getGenres, getMoviesCounter} from "@store/selectors";
+import {setActiveFilter, increaseMoviesCounter} from "@store/movies-data/actions";
+import {getActiveFilter, getGenres, getMoviesCounter} from "@store/movies-data/selectors";
 
 import CatalogCard from "@partials/catalog-card/catalog-card";
 import ShowMore from "@partials/show-more/show-more";

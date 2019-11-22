@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
+import {compose} from "redux";
 
-import {getMovieById, getRelatedMovies} from "@store/selectors";
+import {getMovieById, getRelatedMovies} from "@store/movies-data/selectors";
 import withLoading from "@hocs/with-loading/with-loading";
 
 import MovieCard from "@partials/movie-card/movie-card";
@@ -42,4 +43,8 @@ const mapStateToProps = (state, {match}) => {
 };
 
 export {MovieDetails};
-export default connect(mapStateToProps)(withLoading(MovieDetails));
+
+export default compose(
+    withLoading,
+    connect(mapStateToProps)
+)(MovieDetails);

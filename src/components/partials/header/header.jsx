@@ -1,9 +1,21 @@
 import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 import {Link} from 'react-router-dom';
+import {withRouter} from "react-router-dom";
 
-const Header = () => {
+import UserBlock from "@partials/user-block/user-block";
+
+const Header = ({location}) => {
+  const isLoginPage = location.pathname === `/login`;
+
+  const classes = classNames(`page-header`, {
+    'movie-card__head': !isLoginPage,
+    'user-page__head': isLoginPage
+  });
+
   return (
-    <header className="page-header movie-card__head">
+    <header className={classes}>
       <div className="logo">
         <Link
           to={`/`}
@@ -14,13 +26,21 @@ const Header = () => {
         </Link>
       </div>
 
-      <div className="user-block">
-        <div className="user-block__avatar">
-          <img src="/img/avatar.jpg" alt="User avatar" width="63" height="63"/>
-        </div>
-      </div>
+      {isLoginPage ? (
+        <h1 className="page-title user-page__title">Sign in</h1>
+      ) : (
+        <UserBlock/>
+      )}
     </header>
   );
 };
 
-export default Header;
+Header.defaultProps = {
+  location: {},
+};
+
+Header.propTypes = {
+  location: PropTypes.object.isRequired,
+};
+
+export default withRouter(Header);

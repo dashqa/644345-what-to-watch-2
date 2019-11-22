@@ -7,6 +7,8 @@ module.exports = {
     "@partials(.*)$": `<rootDir>/src/components/partials/$1`,
     "@hocs(.*)$": `<rootDir>/src/hocs/$1`,
     "@store(.*)$": `<rootDir>/src/store/$1`,
+    "@reducers(.*)$": `<rootDir>/src/reducers/$1`,
+    "@selectors(.*)$": `<rootDir>/src/reducers/selectors.js`,
     "@api(.*)$": `<rootDir>/src/api/$1`,
     "@utils(.*)$": `<rootDir>/src/utils/utils.js`,
     "@constants(.*)$": `<rootDir>/src/utils/constants.js`,
