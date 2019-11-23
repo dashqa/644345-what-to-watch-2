@@ -12,7 +12,28 @@ exports[`App correctly renders after relaunch 1`] = `
     }
   }
 >
-  <BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
     <Switch>
       <Route
         component={
@@ -41,7 +62,15 @@ exports[`App correctly renders after relaunch 1`] = `
         path="/films/:id"
       />
       <Route
-        component={Object {}}
+        component={
+          Object {
+            "$$typeof": Symbol(react.memo),
+            "WrappedComponent": [Function],
+            "compare": null,
+            "displayName": "Connect(WithLoading)",
+            "type": [Function],
+          }
+        }
         path="/films/:id/review"
       />
       <Route
@@ -62,13 +91,13 @@ exports[`App correctly renders after relaunch 1`] = `
             "$$typeof": Symbol(react.memo),
             "WrappedComponent": [Function],
             "compare": null,
-            "displayName": "Connect(WithFormData)",
+            "displayName": "Connect(WithAuthSubmit)",
             "type": [Function],
           }
         }
         path="/login"
       />
     </Switch>
-  </BrowserRouter>
+  </Router>
 </Provider>
 `;

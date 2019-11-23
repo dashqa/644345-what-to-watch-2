@@ -1,7 +1,10 @@
 import axios from 'axios/index';
 import {BASE_URL, TIMEOUT} from "@api/constants";
 
-const createAPI = () => {
+import history from "@store/history";
+import {resetUser} from "@store/user-data/actions";
+
+const createAPI = (dispatch) => {
   const api = axios.create({
     baseURL: BASE_URL,
     timeout: TIMEOUT,
@@ -13,6 +16,7 @@ const createAPI = () => {
   const onFail = (error) => {
     if (error.response.status === 401 || error.response.status === 403) {
       history.push(`/login`);
+      dispatch(resetUser());
     }
     return error;
   };

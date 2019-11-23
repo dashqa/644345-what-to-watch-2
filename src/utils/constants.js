@@ -7,6 +7,9 @@ export const DEFAULT_FILTER = `All genres`;
 export const MOVIES_COUNTER_INITIAL = 8;
 export const MOVIES_COUNTER_STEP = 20;
 export const MOVIE_PREVIEW_DELAY = 1000;
+export const DEFAULT_FORM_RATING = 3;
+export const MIN_REVIEW_LENGTH = 50;
+export const MAX_REVIEW_LENGTH = 400;
 
 export const USER_RATINGS = [
   {title: `Bad`, min: 0},

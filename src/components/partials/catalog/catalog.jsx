@@ -45,7 +45,7 @@ const Catalog = ({movies, genres, activeFilter, moviesCounter, onChangeFilter, o
 
 Catalog.defaultProps = {
   movies: [],
-  genres: {},
+  genres: new Set([DEFAULT_FILTER]),
   moviesCounter: MOVIES_COUNTER_INITIAL,
   activeFilter: DEFAULT_FILTER,
   isMainPage: false,
@@ -75,4 +75,5 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export {Catalog};
+
 export default connect(mapStateToProps, mapDispatchToProps)(Catalog);

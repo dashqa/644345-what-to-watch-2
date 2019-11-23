@@ -1,6 +1,7 @@
 import React from "react";
 import {Provider} from "react-redux";
-import {Switch, Route, BrowserRouter} from "react-router-dom";
+import {Switch, Route, Router} from "react-router-dom";
+import history from "@store/history";
 
 import store from "@store/store.js";
 import {loadMovies, loadPromoMovie} from "@store/movies-data/actions";
@@ -17,7 +18,7 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <Router history={history}>
         <Switch>
           <Route exact path='/' component={MainPage}/>
           <Route exact path='/films/:id' component={MovieDetails}/>
@@ -25,7 +26,7 @@ const App = () => {
           <Route path='/films/:id/player' component={MoviePlayer}/>
           <Route path='/login' component={SignIn}/>
         </Switch>
-      </BrowserRouter>
+      </Router>
     </Provider>
   );
 };

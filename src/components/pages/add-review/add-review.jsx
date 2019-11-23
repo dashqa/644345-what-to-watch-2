@@ -1,123 +1,154 @@
-// import React from "react";
-// import PropTypes from "prop-types";
-// import classNames from "classnames";
-// import {bindActionCreators} from "redux";
-// import {connect} from "react-redux";
-//
-// import withAuthStatus from "@hocs/with-auth-status/with-auth-status";
-// import {getMovieById} from "@store/movies-data/selectors";
-// import {compose} from "recompose";
-// import withLoading from "@hocs/with-loading/with-loading";
-// import MovieCard from "@partials/movie-card/movie-card";
-//
-// class AddReview extends React.PureComponent {
-//   constructor(props) {
-//     super(props);
-//
-//   }
-//
-//   render() {
-//     return (
-//       <section className="movie-card movie-card--full">
-//
-//         <MovieCard/>
-//         <div className="movie-card__header">
-//           <div className="movie-card__bg">
-//             <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel"/>
-//           </div>
-//
-//           <h1 className="visually-hidden">WTW</h1>
-//
-//           <header className="page-header">
-//             <div className="logo">
-//               <a href="main.html" className="logo__link">
-//                 <span className="logo__letter logo__letter--1">W</span>
-//                 <span className="logo__letter logo__letter--2">T</span>
-//                 <span className="logo__letter logo__letter--3">W</span>
-//               </a>
-//             </div>
-//
-//             <nav className="breadcrumbs">
-//               <ul className="breadcrumbs__list">
-//                 <li className="breadcrumbs__item">
-//                   <a href="movie-page.html" className="breadcrumbs__link">The Grand Budapest Hotel</a>
-//                 </li>
-//                 <li className="breadcrumbs__item">
-//                   <a className="breadcrumbs__link">Add review</a>
-//                 </li>
-//               </ul>
-//             </nav>
-//
-//             <div className="user-block">
-//               <div className="user-block__avatar">
-//                 <img src="img/avatar.jpg" alt="User avatar" width="63" height="63"/>
-//               </div>
-//             </div>
-//           </header>
-//
-//           <div className="movie-card__poster movie-card__poster--small">
-//             <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218"
-//               height="327"/>
-//           </div>
-//         </div>
-//
-//         <div className="add-review">
-//           <form action="#" className="add-review__form">
-//             <div className="rating">
-//               <div className="rating__stars">
-//                 <input className="rating__input" id="star-1" type="radio" name="rating" value="1"/>
-//                 <label className="rating__label" htmlFor="star-1">Rating 1</label>
-//
-//                 <input className="rating__input" id="star-2" type="radio" name="rating" value="2"/>
-//                 <label className="rating__label" htmlFor="star-2">Rating 2</label>
-//
-//                 <input className="rating__input" id="star-3" type="radio" name="rating" value="3" checked/>
-//                 <label className="rating__label" htmlFor="star-3">Rating 3</label>
-//
-//                 <input className="rating__input" id="star-4" type="radio" name="rating" value="4"/>
-//                 <label className="rating__label" htmlFor="star-4">Rating 4</label>
-//
-//                 <input className="rating__input" id="star-5" type="radio" name="rating" value="5"/>
-//                 <label className="rating__label" htmlFor="star-5">Rating 5</label>
-//               </div>
-//             </div>
-//
-//             <div className="add-review__text">
-//               <textarea className="add-review__textarea" name="review-text" id="review-text"
-//                 placeholder="Review text"></textarea>
-//               <div className="add-review__submit">
-//                 <button className="add-review__btn" type="submit">Post</button>
-//               </div>
-//
-//             </div>
-//           </form>
-//         </div>
-//
-//       </section>
-//     );
-//   }
-// }
-//
-// AddReview.defaultProps = {
-//
-// };
-//
-// AddReview.propTypes = {
-//
-// };
-//
-// const mapDispatchToProps = (dispatch) => ({
-//   // onAuthorizeUser: bindActionCreators(authorizeUser, dispatch)
-// });
-//
-// const mapStateToProps = (state, {match}) => ({
-//   currentMovie: getMovieById(state, match.params.id)
-// });
-//
-// export {AddReview};
-//
-// export default compose(
-//     withLoading,
-//     withAuthStatus,
-//     connect(mapStateToProps, mapDispatchToProps)
-// )(AddReview);
+import React from "react";
+import PropTypes from "prop-types";
+import {compose} from "recompose";
+import {Link} from "react-router-dom";
+
+import UserBlock from "@partials/user-block/user-block";
+import MovieCardPoster from "@partials/movie-card-poster/movie-card-poster";
+import HeaderLogo from "@partials/header-logo/header-logo";
+import MovieCardBackground from "@partials/movie-card-background/movie-card-background";
+
+import withLoading from "@hocs/with-loading/with-loading";
+import withAuthStatus from "@hocs/with-private-route/with-private-route";
+import withReviewFormData from "@hocs/with-review-submit/with-review-submit";
+
+const AddReview = ({currentMovie, isUploading, isValid, formData, error, onChange, onSubmit}) => {
+  const {id, name, backgroundImage, posterImage, backgroundColor} = currentMovie;
+  const errorStyles = {color: `red`, textAlign: `center`};
+  return (
+    <section
+      className="movie-card movie-card--full"
+      style={{backgroundColor}}>
+      <div className="movie-card__header">
+        <MovieCardBackground
+          name={name}
+          backgroundImage={backgroundImage}
+        />
+        <h1 className="visually-hidden">WTW</h1>
+
+        <header className="page-header">
+          <HeaderLogo/>
+
+          <nav className="breadcrumbs">
+            <ul className="breadcrumbs__list">
+              <li className="breadcrumbs__item">
+                <Link
+                  to={`/films/${id}`}
+                  className="breadcrumbs__link">{name}</Link>
+              </li>
+              <li className="breadcrumbs__item">
+                <a className="breadcrumbs__link">Add review</a>
+              </li>
+            </ul>
+          </nav>
+
+          <UserBlock/>
+        </header>
+
+        <MovieCardPoster
+          classMods="movie-card__poster--small"
+          name={name}
+          posterImage={posterImage}
+        />
+      </div>
+
+      <div className="add-review">
+        {error &&
+        <p style={errorStyles}>{error}</p>
+        }
+        <form action="#" className="add-review__form">
+          <div className="rating">
+            <div className="rating__stars">
+              {[...new Array(5)].map((_, i) => {
+                const index = i + 1;
+                const inputId = `star-${index}`;
+                return (
+                  <React.Fragment key={index}>
+                    <input
+                      className="rating__input"
+                      id={inputId}
+                      type="radio"
+                      name="rating"
+                      value={index}
+                      checked={Number(formData.rating) === index}
+                      onChange={onChange}
+                    />
+                    <label
+                      className="rating__label"
+                      htmlFor={inputId}
+                    >
+                      {`Rating ${index}`}</label>
+                  </React.Fragment>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="add-review__text">
+            <textarea
+              className="add-review__textarea"
+              name="comment"
+              id="review-text"
+              placeholder="Review text"
+              minLength="50"
+              maxLength="400"
+              onChange={onChange}
+            >
+            </textarea>
+            <div className="add-review__submit">
+              <button
+                className="add-review__btn"
+                type="submit"
+                onClick={onSubmit}
+                disabled={!isValid || isUploading}
+              >
+                Post</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  );
+};
+
+AddReview.defaultProps = {
+  currentMovie: {
+    id: 0,
+    name: ``,
+    backgroundImage: ``,
+    posterImage: ``,
+    backgroundColor: ``,
+  },
+  isUploading: false,
+  isValid: false,
+  formData: {},
+  error: null,
+  onChange: () => {},
+  onSubmit: () => {},
+};
+
+AddReview.propTypes = {
+  currentMovie: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    backgroundImage: PropTypes.string.isRequired,
+    posterImage: PropTypes.string.isRequired,
+    backgroundColor: PropTypes.string.isRequired
+  }),
+  isUploading: PropTypes.bool.isRequired,
+  isValid: PropTypes.bool.isRequired,
+  formData: PropTypes.shape({
+    rating: PropTypes.number.isRequired
+  }).isRequired,
+  error: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+};
+
+export {AddReview};
+
+export default compose(
+    withLoading,
+    withAuthStatus,
+    withReviewFormData
+)(AddReview);

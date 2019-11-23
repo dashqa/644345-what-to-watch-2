@@ -11,6 +11,11 @@ export const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         user: getAdaptedUser(action.payload),
       });
+
+    case actionType.RESET_USER:
+      return Object.assign({}, state, {
+        user: initialState.user,
+      });
   }
 
   return state;

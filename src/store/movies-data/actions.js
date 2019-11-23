@@ -10,6 +10,7 @@ export const loadMovies = () => (dispatch, _, api) => {
       dispatch(setFetching(`movies`, false));
     })
     .catch((error) => {
+      dispatch(setFetching(`movies`, false));
       throw new Error(`${error} on loading movies`);
     });
 };
@@ -22,7 +23,21 @@ export const loadPromoMovie = () => (dispatch, _, api) => {
       dispatch(setFetching(`promo`, false));
     })
     .catch((error) => {
+      dispatch(setFetching(`promo`, false));
       throw new Error(`${error} on loading promo movie`);
+    });
+};
+
+export const uploadReview = (movieId, formData) => (dispatch, _, api) => {
+  dispatch(setFetching(`review`, true));
+  return api.post(`/comments/${movieId}`, formData)
+    .then((response) => {
+      dispatch(setFetching(`review`, false));
+      return response;
+    })
+    .catch((error) => {
+      dispatch(setFetching(`review`, false));
+      throw new Error(`${error} on uploading review`);
     });
 };
 

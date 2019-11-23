@@ -3,6 +3,7 @@ import * as actionType from "./types";
 const initialState = {
   moviesLoading: false,
   promoLoading: false,
+  reviewLoading: false,
 };
 
 export const reducer = (state = initialState, action) => {

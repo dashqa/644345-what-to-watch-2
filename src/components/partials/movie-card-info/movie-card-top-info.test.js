@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import {BrowserRouter} from "react-router-dom";
-import MovieCardTopDesc from './movie-card-top-desc';
+import MovieCardTopDesc from './movie-card-info';
 
 const props = {
   name: ``,

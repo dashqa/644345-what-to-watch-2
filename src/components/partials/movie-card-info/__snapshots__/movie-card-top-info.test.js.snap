@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movie card top desc correctly renders after relaunch 1`] = `
+Array [
+  <h2
+    className="movie-card__title"
+  >
+    
+  </h2>,
+  <p
+    className="movie-card__meta"
+  >
+    <span
+      className="movie-card__genre"
+    >
+      
+    </span>
+    <span
+      className="movie-card__year"
+    >
+      0
+    </span>
+  </p>,
+]
+`;

@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
+import history from "@store/history";
 
 import SvgButton from "@partials/svg-button/svg-button";
 
-const MovieButtons = ({onPlayClick, onAddMovieClick}) => {
+const MovieButtons = ({movieId}) => {
   return (
     <div className="movie-card__buttons">
       <SvgButton
@@ -14,7 +15,7 @@ const MovieButtons = ({onPlayClick, onAddMovieClick}) => {
         svgViewBox="0 0 19 19"
         svgWidth="19"
         svgHeight="19"
-        onClick={onPlayClick}
+        onClick={() => history.push(`/films/${movieId}/player`)}
       />
 
       <SvgButton
@@ -24,24 +25,26 @@ const MovieButtons = ({onPlayClick, onAddMovieClick}) => {
         svgViewBox="0 0 19 20"
         svgWidth="19"
         svgHeight="20"
-        onClick={onAddMovieClick}
+        onClick={() => history.push(`/my-list`)}
       />
 
       {location.pathname !== `/` &&
-          <Link to={`/review`} className="btn movie-card__button">Add review</Link>
+        <Link
+          to={`/films/${movieId}/review`}
+          className="btn movie-card__button"
+        >
+          Add review</Link>
       }
     </div>
   );
 };
 
 MovieButtons.defaultProps = {
-  onPlayClick: () => {},
-  onAddMovieClick: () => {}
+  movieId: 0,
 };
 
 MovieButtons.propTypes = {
-  onPlayClick: PropTypes.func.isRequired,
-  onAddMovieClick: PropTypes.func.isRequired,
+  movieId: PropTypes.number.isRequired,
 };
 
 export default MovieButtons;

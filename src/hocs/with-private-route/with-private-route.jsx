@@ -3,12 +3,11 @@ import PropTypes from "prop-types";
 import {compose} from "redux";
 import {connect} from 'react-redux';
 
-import {getUser} from "@store/user-data/selectors";
+import {getAuthStatus} from "@store/user-data/selectors";
 
-const withAuthStatus = (Component) => {
-  const WithAuthStatus = (props) => {
-    const {user, history} = props;
-    const authorized = Object.keys(user).length;
+const withPrivateRoute = (Component) => {
+  const WithPrivateRoute = (props) => {
+    const {authorized, history} = props;
 
     if (!authorized) {
       history.push(`/login`);
@@ -18,26 +17,26 @@ const withAuthStatus = (Component) => {
     return <Component {...props}/>;
   };
 
-  WithAuthStatus.defaultProps = {
-    user: {},
+  WithPrivateRoute.defaultProps = {
+    authorized: false,
     history: {},
   };
 
-  WithAuthStatus.propTypes = {
-    user: PropTypes.object,
+  WithPrivateRoute.propTypes = {
+    authorized: PropTypes.bool,
     history: PropTypes.object,
   };
 
-  return WithAuthStatus;
+  return WithPrivateRoute;
 };
 
 const mapStateToProps = (state) => ({
-  user: getUser(state),
+  authorized: getAuthStatus(state),
 });
 
 export default compose(
     connect(mapStateToProps),
-    withAuthStatus
+    withPrivateRoute
 );
 
 

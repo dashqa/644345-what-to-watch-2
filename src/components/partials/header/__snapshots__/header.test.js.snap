@@ -29,19 +29,6 @@ exports[`Header correctly renders after relaunch 1`] = `
       </span>
     </a>
   </div>
-  <div
-    className="user-block"
-  >
-    <div
-      className="user-block__avatar"
-    >
-      <img
-        alt="User avatar"
-        height="63"
-        src="/img/avatar.jpg"
-        width="63"
-      />
-    </div>
-  </div>
+  <UserBlock />
 </header>
 `;

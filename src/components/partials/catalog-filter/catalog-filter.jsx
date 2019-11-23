@@ -15,7 +15,7 @@ const CatalogFilter = ({active, genres, onChange}) => {
             key={genre}
             className={classes}
             onClick={() => onChange(genre)}>
-            <a href="#" className="catalog__genres-link">{genre}</a>
+            <a className="catalog__genres-link">{genre}</a>
           </li>
         );
       })}
