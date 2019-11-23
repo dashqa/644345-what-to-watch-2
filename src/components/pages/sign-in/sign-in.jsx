@@ -1,12 +1,22 @@
-import React from "react";
+import React, {useEffect} from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 
 import Footer from "@partials/footer/footer";
 import Header from "@partials/header/header";
 
-import withFormData from "@hocs/with-form-data/with-form-data";
+import withAuthSubmit from "@hocs/with-auth-submit/with-auth-submit";
 
-const SignIn = ({onChange, onSubmit, errors, isValid}) => {
+const SignIn = ({onChange, onSubmit, errors, isValid, authorized, history}) => {
+  const emailClasses = classNames(`sign-in__field`, {'sign-in__field--error': errors.email.length});
+  const passwordClasses = classNames(`sign-in__field`, {'sign-in__field--error': errors.password.length});
+
+  useEffect(() => {
+    if (authorized) {
+      history.goBack();
+    }
+  });
+
   return (
     <div className="user-page">
       <Header/>
@@ -15,12 +25,12 @@ const SignIn = ({onChange, onSubmit, errors, isValid}) => {
         <form action="#" className="sign-in__form">
 
           {!isValid &&
-              <div className="sign-in__message">
-                <p>{errors.email || errors.password}</p>
-              </div>
-          }
+          <div className="sign-in__message">
+            <p>{errors.email || errors.password}</p>
+          </div>}
+
           <div className="sign-in__fields">
-            <div className="sign-in__field">
+            <div className={emailClasses}>
               <input
                 className="sign-in__input"
                 type="email"
@@ -31,7 +41,7 @@ const SignIn = ({onChange, onSubmit, errors, isValid}) => {
               />
               <label className="sign-in__label visually-hidden" htmlFor="user-email">Email address</label>
             </div>
-            <div className="sign-in__field">
+            <div className={passwordClasses}>
               <input
                 className="sign-in__input"
                 type="password"
@@ -50,7 +60,7 @@ const SignIn = ({onChange, onSubmit, errors, isValid}) => {
               onClick={onSubmit}
               disabled={!isValid}
             >
-                Sign in</button>
+              Sign in</button>
           </div>
         </form>
       </div>
@@ -61,18 +71,25 @@ const SignIn = ({onChange, onSubmit, errors, isValid}) => {
 };
 
 SignIn.defaultProps = {
+  formData: {},
   onChange: () => {},
   onSubmit: () => {},
   errors: {},
   isValid: false,
+  authorized: false,
+  history: {}
 };
 
 SignIn.propTypes = {
+  formData: PropTypes.objectOf(PropTypes.string).isRequired,
   onChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
   errors: PropTypes.objectOf(PropTypes.string),
   isValid: PropTypes.bool.isRequired,
+  authorized: PropTypes.bool.isRequired,
+  history: PropTypes.object.isRequired,
 };
 
 export {SignIn};
-export default withFormData(SignIn);
+
+export default withAuthSubmit(SignIn);

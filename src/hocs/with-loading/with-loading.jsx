@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
+import {compose} from "redux";
 
+import {getFetchingMovies, getFetchingPromo} from "@store/loading/selectors";
 import Loader from "@partials/loader/loader";
-import {getFetchingMovies, getFetchingPromo} from "@store/selectors";
 
 const withLoading = (Component) => {
   const WithLoading = (props) => {
@@ -32,14 +33,17 @@ const withLoading = (Component) => {
     children: PropTypes.node
   };
 
-  const mapStateToProps = (state) => ({
-    isLoadingMovies: getFetchingMovies(state),
-    isLoadingPromo: getFetchingPromo(state),
-  });
-
-  return connect(mapStateToProps)(WithLoading);
+  return WithLoading;
 };
 
-export default withLoading;
+const mapStateToProps = (state) => ({
+  isLoadingMovies: getFetchingMovies(state),
+  isLoadingPromo: getFetchingPromo(state),
+});
+
+export default compose(
+    connect(mapStateToProps),
+    withLoading
+);
 
 

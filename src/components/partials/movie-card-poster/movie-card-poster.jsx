@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-const MovieCardPoster = ({name, posterImage, isBig}) => {
-  const classes = classNames(`movie-card__poster`, {'movie-card__poster--big': isBig});
+const MovieCardPoster = ({name, posterImage, classMods}) => {
+  const classes = classNames(`movie-card__poster`, classMods);
   return (
     <div className={classes}>
       <img
@@ -19,13 +19,13 @@ const MovieCardPoster = ({name, posterImage, isBig}) => {
 MovieCardPoster.defaultProps = {
   name: ``,
   posterImage: ``,
-  isBig: false,
+  classMods: ``,
 };
 
 MovieCardPoster.propTypes = {
   name: PropTypes.string.isRequired,
   posterImage: PropTypes.string.isRequired,
-  isBig: PropTypes.bool
+  classMods: PropTypes.string,
 };
 
 export default MovieCardPoster;

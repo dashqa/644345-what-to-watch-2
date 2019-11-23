@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 
-import {getMovieById} from "@store/selectors";
+import {getMovieById} from "@store/movies-data/selectors";
 
 const withCurrentMovie = (Component) => {
   const WithCurrentMovie = (props) => {

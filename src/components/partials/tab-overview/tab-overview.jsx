@@ -1,6 +1,5 @@
 import React, {useMemo} from "react";
 import PropTypes from "prop-types";
-
 import {computeRatingLevel} from "@utils";
 
 const TabOverview = ({rating, scoresCount, description, director, starring}) => {

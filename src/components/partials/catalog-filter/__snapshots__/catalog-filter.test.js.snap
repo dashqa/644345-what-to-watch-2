@@ -10,7 +10,6 @@ exports[`Catalog filter correctly renders after relaunch 1`] = `
   >
     <a
       className="catalog__genres-link"
-      href="#"
     >
       comedy
     </a>

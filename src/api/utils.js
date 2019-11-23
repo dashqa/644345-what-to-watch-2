@@ -1,3 +1,16 @@
+export const getAdaptedUser = (user) => {
+  const {
+    id = null,
+    name = ``,
+    email = ``,
+    avatar_url: avatarImg = ``
+  } = user;
+
+  return {
+    id, name, email, avatarImg
+  };
+};
+
 export const getAdaptedMovie = (movie) => {
   const {
     id = null,

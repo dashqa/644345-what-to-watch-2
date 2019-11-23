@@ -1,24 +1,26 @@
 import React from "react";
-import {Link} from 'react-router-dom';
+import classNames from "classnames";
+
+import HeaderLogo from "@partials/header-logo/header-logo";
+import UserBlock from "@partials/user-block/user-block";
 
 const Header = () => {
-  return (
-    <header className="page-header movie-card__head">
-      <div className="logo">
-        <Link
-          to={`/`}
-          className="logo__link">
-          <span className="logo__letter logo__letter--1">W</span>
-          <span className="logo__letter logo__letter--2">T</span>
-          <span className="logo__letter logo__letter--3">W</span>
-        </Link>
-      </div>
+  const isLoginPage = location.pathname === `/login`;
 
-      <div className="user-block">
-        <div className="user-block__avatar">
-          <img src="/img/avatar.jpg" alt="User avatar" width="63" height="63"/>
-        </div>
-      </div>
+  const classes = classNames(`page-header`, {
+    'movie-card__head': !isLoginPage,
+    'user-page__head': isLoginPage
+  });
+
+  return (
+    <header className={classes}>
+      <HeaderLogo/>
+
+      {isLoginPage ? (
+        <h1 className="page-title user-page__title">Sign in</h1>
+      ) : (
+        <UserBlock/>
+      )}
     </header>
   );
 };
