@@ -4,6 +4,7 @@ const initialState = {
   moviesLoading: false,
   promoLoading: false,
   reviewLoading: false,
+  favoriteLoading: false,
 };
 
 export const reducer = (state = initialState, action) => {

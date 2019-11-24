@@ -10,6 +10,7 @@ const props = {
 
 jest.mock(`@partials/catalog/catalog.jsx`, () => `Catalog`);
 jest.mock(`@partials/header/header.jsx`, () => `Header`);
+jest.mock(`@partials/movie-buttons/movie-buttons.jsx`, () => `MovieButtons`);
 
 it(`Main page correctly renders after relaunch`, () => {
   const tree = renderer.create(<BrowserRouter><MainPage {...props}/></BrowserRouter>).toJSON();
