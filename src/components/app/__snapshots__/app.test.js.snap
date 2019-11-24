@@ -91,11 +91,26 @@ exports[`App correctly renders after relaunch 1`] = `
             "$$typeof": Symbol(react.memo),
             "WrappedComponent": [Function],
             "compare": null,
+            "displayName": "Connect(WithPrivateRoute)",
+            "type": [Function],
+          }
+        }
+        path="/my-list"
+      />
+      <Route
+        component={
+          Object {
+            "$$typeof": Symbol(react.memo),
+            "WrappedComponent": [Function],
+            "compare": null,
             "displayName": "Connect(WithAuthSubmit)",
             "type": [Function],
           }
         }
         path="/login"
+      />
+      <Route
+        component={[Function]}
       />
     </Switch>
   </Router>

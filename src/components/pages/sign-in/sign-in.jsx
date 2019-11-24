@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
@@ -7,68 +7,80 @@ import Header from "@partials/header/header";
 
 import withAuthSubmit from "@hocs/with-auth-submit/with-auth-submit";
 
-const SignIn = ({onChange, onSubmit, errors, isValid, authorized, history}) => {
-  const emailClasses = classNames(`sign-in__field`, {'sign-in__field--error': errors.email.length});
-  const passwordClasses = classNames(`sign-in__field`, {'sign-in__field--error': errors.password.length});
+class SignIn extends React.PureComponent {
+  constructor(props) {
+    super(props);
+  }
 
-  useEffect(() => {
+  componentDidUpdate() {
+    const {authorized, history} = this.props;
     if (authorized) {
       history.goBack();
     }
-  });
+  }
 
-  return (
-    <div className="user-page">
-      <Header/>
+  render() {
+    const {onChange, onSubmit, errors, isValid} = this.props;
+    const emailClasses = classNames(`sign-in__field`, {'sign-in__field--error': errors.email.length});
+    const passwordClasses = classNames(`sign-in__field`, {'sign-in__field--error': errors.password.length});
 
-      <div className="sign-in user-page__content">
-        <form action="#" className="sign-in__form">
+    return (
+      <div className="user-page">
 
-          {!isValid &&
-          <div className="sign-in__message">
-            <p>{errors.email || errors.password}</p>
-          </div>}
+        <Header
+          classMods="user-page__head"
+          title="Sign in"
+        />
 
-          <div className="sign-in__fields">
-            <div className={emailClasses}>
-              <input
-                className="sign-in__input"
-                type="email"
-                placeholder="Email address"
-                name="email"
-                id="user-email"
-                onChange={onChange}
-              />
-              <label className="sign-in__label visually-hidden" htmlFor="user-email">Email address</label>
+        <div className="sign-in user-page__content">
+          <form action="#" className="sign-in__form">
+
+            {!isValid &&
+            <div className="sign-in__message">
+              <p>{errors.email || errors.password}</p>
+            </div>}
+
+            <div className="sign-in__fields">
+              <div className={emailClasses}>
+                <input
+                  className="sign-in__input"
+                  type="email"
+                  placeholder="Email address"
+                  name="email"
+                  id="user-email"
+                  onChange={onChange}
+                />
+                <label className="sign-in__label visually-hidden" htmlFor="user-email">Email address</label>
+              </div>
+              <div className={passwordClasses}>
+                <input
+                  className="sign-in__input"
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+                  id="user-password"
+                  onChange={onChange}
+                />
+                <label className="sign-in__label visually-hidden" htmlFor="user-password">Password</label>
+              </div>
             </div>
-            <div className={passwordClasses}>
-              <input
-                className="sign-in__input"
-                type="password"
-                placeholder="Password"
-                name="password"
-                id="user-password"
-                onChange={onChange}
-              />
-              <label className="sign-in__label visually-hidden" htmlFor="user-password">Password</label>
+            <div className="sign-in__submit">
+              <button
+                className="sign-in__btn"
+                type="submit"
+                onClick={onSubmit}
+                disabled={!isValid}
+              >
+                Sign in</button>
             </div>
-          </div>
-          <div className="sign-in__submit">
-            <button
-              className="sign-in__btn"
-              type="submit"
-              onClick={onSubmit}
-              disabled={!isValid}
-            >
-              Sign in</button>
-          </div>
-        </form>
+          </form>
+        </div>
+
+        <Footer/>
       </div>
-
-      <Footer/>
-    </div>
-  );
-};
+    );
+  }
+}
 
 SignIn.defaultProps = {
   formData: {},

@@ -11,6 +11,8 @@ import MainPage from "@pages/main-page/main-page";
 import MovieDetails from "@pages/movie-details/movie-details";
 import MoviePlayer from "@pages/movie-player/movie-player";
 import AddReview from "@pages/add-review/add-review";
+import MyList from "@pages/my-list/my-list";
+import PageNotFound from "@pages/page-not-found/page-not-found";
 
 const App = () => {
   store.dispatch(loadMovies());
@@ -24,7 +26,9 @@ const App = () => {
           <Route exact path='/films/:id' component={MovieDetails}/>
           <Route path='/films/:id/review' component={AddReview}/>
           <Route path='/films/:id/player' component={MoviePlayer}/>
+          <Route path='/my-list' component={MyList}/>
           <Route path='/login' component={SignIn}/>
+          <Route component={PageNotFound}/>
         </Switch>
       </Router>
     </Provider>

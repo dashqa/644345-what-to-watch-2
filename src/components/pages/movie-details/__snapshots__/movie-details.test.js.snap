@@ -26,7 +26,10 @@ Array [
       >
         WTW
       </h1>
-      <Header />
+      <Header
+        classMods="movie-card__head"
+        needUserBlock={true}
+      />
       <div
         className="movie-card__wrap"
       >

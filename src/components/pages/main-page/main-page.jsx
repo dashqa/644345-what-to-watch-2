@@ -26,7 +26,10 @@ const MainPage = ({movies, promoMovie}) => {
         />
         <h1 className="visually-hidden">WTW</h1>
 
-        <Header/>
+        <Header
+          classMods="movie-card__head"
+          needUserBlock
+        />
 
         <div className="movie-card__wrap">
           <div className="movie-card__info">

@@ -43,7 +43,7 @@ export const reducer = (state = initialState, action) => {
 
     case actionType.SET_FAVORITE:
       return Object.assign({}, state, {
-        favorite: action.payload,
+        favorite: getAdaptedMovies(action.payload),
       });
   }
 
