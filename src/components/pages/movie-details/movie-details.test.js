@@ -6,6 +6,7 @@ import {BrowserRouter} from "react-router-dom";
 jest.mock(`@partials/catalog/catalog.jsx`, () => `Catalog`);
 jest.mock(`@partials/movie-card-tabs/movie-card-tabs.jsx`, () => `MovieCardTabs`);
 jest.mock(`@partials/header/header.jsx`, () => `Header`);
+jest.mock(`@partials/movie-buttons/movie-buttons.jsx`, () => `MovieButtons`);
 
 const props = {
   movies: [],

@@ -54,8 +54,8 @@ const AddReview = ({currentMovie, isUploading, isValid, formData, error, onChang
 
       <div className="add-review">
         {error &&
-        <p style={errorStyles}>{error}</p>
-        }
+        <p style={errorStyles}>{error}</p>}
+
         <form action="#" className="add-review__form">
           <div className="rating">
             <div className="rating__stars">

@@ -17,7 +17,7 @@ import MovieButtons from "@partials/movie-buttons/movie-buttons";
 import withLoading from "@hocs/with-loading/with-loading";
 
 const MovieDetails = ({currentMovie, relatedMovies}) => {
-  const {id, name, backgroundImage, posterImage, genre, released, backgroundColor} = currentMovie;
+  const {id, name, backgroundImage, posterImage, genre, released, backgroundColor, isFavorite} = currentMovie;
   return (
     <>
       <section
@@ -43,6 +43,7 @@ const MovieDetails = ({currentMovie, relatedMovies}) => {
               />
               <MovieButtons
                 movieId={id}
+                isFavorite={isFavorite}
               />
             </div>
           </div>

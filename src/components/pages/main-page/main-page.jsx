@@ -16,7 +16,7 @@ import Footer from "@partials/footer/footer";
 import withLoading from "@hocs/with-loading/with-loading";
 
 const MainPage = ({movies, promoMovie}) => {
-  const {id, name, posterImage, backgroundImage, genre, released} = promoMovie;
+  const {id, name, posterImage, backgroundImage, genre, released, isFavorite} = promoMovie;
   return (
     <>
       <section className="movie-card">
@@ -44,6 +44,7 @@ const MainPage = ({movies, promoMovie}) => {
               />
               <MovieButtons
                 movieId={id}
+                isFavorite={isFavorite}
               />
             </div>
           </div>
