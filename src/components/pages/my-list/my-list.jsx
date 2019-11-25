@@ -3,17 +3,17 @@ import {compose} from "redux";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import {bindActionCreators} from "redux";
+import {Fetch} from "@constants";
 
 import {loadFavorite} from "@store/movies-data/actions";
 import {getFavoriteMovies} from "@store/movies-data/selectors";
-import {getFetchingFavorite} from "@store/loading/selectors";
 
 import Header from "@partials/header/header";
 import Catalog from "@partials/catalog/catalog";
 import Footer from "@partials/footer/footer";
-import Loader from "@partials/loader/loader";
 
 import withPrivateRoute from "@hocs/with-private-route/with-private-route";
+import withLoaded from "@hocs/with-loaded/with-loaded";
 
 class MyList extends React.PureComponent {
   constructor(props) {
@@ -21,16 +21,14 @@ class MyList extends React.PureComponent {
   }
 
   componentDidMount() {
-    const {onLoadFavoriteMovies} = this.props;
-    onLoadFavoriteMovies();
+    const {onLoadFavoriteMovies, favoriteMovies} = this.props;
+    if (!favoriteMovies.length) {
+      onLoadFavoriteMovies();
+    }
   }
 
   render() {
-    const {favoriteMovies, isLoading} = this.props;
-
-    if (isLoading) {
-      return <Loader/>;
-    }
+    const {favoriteMovies} = this.props;
 
     return (
       <div className="user-page">
@@ -56,18 +54,15 @@ class MyList extends React.PureComponent {
 MyList.defaultProps = {
   favoriteMovies: [],
   onLoadFavoriteMovies: () => {},
-  isLoading: false,
 };
 
 MyList.propTypes = {
   favoriteMovies: PropTypes.arrayOf(PropTypes.object).isRequired,
   onLoadFavoriteMovies: PropTypes.func.isRequired,
-  isLoading: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   favoriteMovies: getFavoriteMovies(state),
-  isLoading: getFetchingFavorite(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -77,6 +72,7 @@ const mapDispatchToProps = (dispatch) => ({
 export {MyList};
 
 export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
     withPrivateRoute,
-    connect(mapStateToProps, mapDispatchToProps)
+    withLoaded(Fetch.FAVORITE)
 )(MyList);

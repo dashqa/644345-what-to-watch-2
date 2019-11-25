@@ -90,14 +90,14 @@ MovieCardTabs.propTypes = {
   active: PropTypes.string.isRequired,
   onChangeTab: PropTypes.func.isRequired,
   movie: PropTypes.shape({
-    genre: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    released: PropTypes.number.isRequired,
-    rating: PropTypes.number.isRequired,
-    runTime: PropTypes.number.isRequired,
-    director: PropTypes.string.isRequired,
-    starring: PropTypes.arrayOf(PropTypes.string).isRequired,
-    scoresCount: PropTypes.number.isRequired,
+    genre: PropTypes.string,
+    description: PropTypes.string,
+    released: PropTypes.number,
+    rating: PropTypes.number,
+    runTime: PropTypes.number,
+    director: PropTypes.string,
+    starring: PropTypes.arrayOf(PropTypes.string),
+    scoresCount: PropTypes.number,
   }).isRequired,
   comments: PropTypes.arrayOf(PropTypes.object)
 };

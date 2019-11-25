@@ -39,7 +39,7 @@ const TabDetails = ({runTime, genre, released, director, starring}) => {
   );
 };
 
-TabDetails.deafultProps = {
+TabDetails.defaultProps = {
   runTime: 0,
   genre: ``,
   released: 0,

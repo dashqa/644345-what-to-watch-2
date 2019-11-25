@@ -2,6 +2,7 @@ import React from "react";
 import {compose} from "redux";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
+import {Fetch} from "@constants";
 
 import {getFilteredMovies, getPromoMovie} from "@store/movies-data/selectors";
 
@@ -13,7 +14,7 @@ import MovieButtons from "@partials/movie-buttons/movie-buttons";
 import Catalog from "@partials/catalog/catalog";
 import Footer from "@partials/footer/footer";
 
-import withLoading from "@hocs/with-loading/with-loading";
+import withLoaded from "@hocs/with-loaded/with-loaded";
 
 const MainPage = ({movies, promoMovie}) => {
   const {id, name, posterImage, backgroundImage, genre, released, isFavorite} = promoMovie;
@@ -87,6 +88,6 @@ const mapStateToProps = (state) => ({
 export {MainPage};
 
 export default compose(
-    withLoading,
-    connect(mapStateToProps)
+    connect(mapStateToProps),
+    withLoaded(Fetch.MOVIES, Fetch.PROMO)
 )(MainPage);

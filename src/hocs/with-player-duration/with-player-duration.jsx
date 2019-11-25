@@ -73,6 +73,10 @@ const withPlayerDuration = (Component) => {
     videoRef: PropTypes.object.isRequired,
   };
 
+  const displayName = Component.displayName || Component.name;
+  WithPlayerDuration.displayName = `WithPlayerDuration(${displayName})`;
+  WithPlayerDuration.WrappedComponent = Component;
+
   return WithPlayerDuration;
 };
 

@@ -25,7 +25,7 @@ const TabOverview = ({rating, scoresCount, description, director, starring}) => 
   );
 };
 
-TabOverview.deafultProps = {
+TabOverview.defaultProps = {
   rating: 0,
   scoresCount: 0,
   description: ``,

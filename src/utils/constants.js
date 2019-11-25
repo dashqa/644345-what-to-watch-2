@@ -11,6 +11,14 @@ export const DEFAULT_FORM_RATING = `3`;
 export const MIN_REVIEW_LENGTH = 50;
 export const MAX_REVIEW_LENGTH = 400;
 
+export const Fetch = {
+  MOVIES: `movies`,
+  PROMO: `promo`,
+  COMMENTS: `comments`,
+  REVIEW: `review`,
+  FAVORITE: `favorite`
+};
+
 export const USER_RATINGS = [
   {title: `Bad`, min: 0},
   {title: `Normal`, min: 3},

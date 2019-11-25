@@ -1,5 +1,4 @@
 import React from "react";
-
 import {MovieTabs} from "@constants";
 
 const withActiveTab = (Component) => {
@@ -31,7 +30,9 @@ const withActiveTab = (Component) => {
     }
   }
 
-  WithActiveTab.propTypes = {};
+  const displayName = Component.displayName || Component.name;
+  WithActiveTab.displayName = `WithActiveTab(${displayName})`;
+  WithActiveTab.WrappedComponent = Component;
 
   return WithActiveTab;
 };

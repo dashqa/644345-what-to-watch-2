@@ -113,6 +113,10 @@ const withAuthSubmit = (Component) => {
     history: PropTypes.object.isRequired,
   };
 
+  const displayName = Component.displayName || Component.name;
+  WithAuthSubmit.displayName = `WithAuthSubmit(${displayName})`;
+  WithAuthSubmit.WrappedComponent = Component;
+
   return WithAuthSubmit;
 };
 

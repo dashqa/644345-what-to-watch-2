@@ -40,6 +40,10 @@ const withDividedComments = (Component) => {
     comments: PropTypes.arrayOf(PropTypes.object)
   };
 
+  const displayName = Component.displayName || Component.name;
+  WithDividedComments.displayName = `WithDividedComments(${displayName})`;
+  WithDividedComments.WrappedComponent = Component;
+
   return WithDividedComments;
 };
 

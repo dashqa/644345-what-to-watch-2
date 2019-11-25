@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {compose} from "redux";
 import {bindActionCreators} from "redux";
+import {Fetch} from "@constants";
 
 import {getComments, getMovieById, getRelatedMovies} from "@store/movies-data/selectors";
 import {loadComments} from "@store/movies-data/actions";
@@ -16,7 +17,7 @@ import MovieCardTabs from "@partials/movie-card-tabs/movie-card-tabs";
 import MovieCardInfo from "@partials/movie-card-info/movie-card-info";
 import MovieButtons from "@partials/movie-buttons/movie-buttons";
 
-import withLoading from "@hocs/with-loading/with-loading";
+import withLoaded from "@hocs/with-loaded/with-loaded";
 
 class MovieDetails extends React.PureComponent {
   constructor(props) {
@@ -24,8 +25,10 @@ class MovieDetails extends React.PureComponent {
   }
 
   componentDidMount() {
-    const {onLoadComments, currentMovie} = this.props;
-    onLoadComments(currentMovie.id);
+    const {onLoadComments, currentMovie, comments} = this.props;
+    if (!comments.length) {
+      onLoadComments(currentMovie.id);
+    }
   }
 
   render() {
@@ -127,6 +130,6 @@ const mapDispatchToProps = (dispatch) => ({
 export {MovieDetails};
 
 export default compose(
-    withLoading,
-    connect(mapStateToProps, mapDispatchToProps)
+    connect(mapStateToProps, mapDispatchToProps),
+    withLoaded(Fetch.MOVIES, Fetch.COMMENTS)
 )(MovieDetails);
