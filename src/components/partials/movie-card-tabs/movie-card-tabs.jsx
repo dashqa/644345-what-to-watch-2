@@ -9,37 +9,9 @@ import TabReviews from "@partials/tab-reviews/tab-reviews";
 
 import withActiveTab from "@hocs/with-active-tab/with-active-tab";
 
-const MovieCardTabs = ({active, onChangeTab, movie}) => {
-  const {genre, description, released, rating, scoresCount, runTime, director, starring, comments = []} = movie;
+const MovieCardTabs = ({active, onChangeTab, movie, comments}) => {
+  const {genre, description, released, rating, scoresCount, runTime, director, starring} = movie;
 
-  const _getContent = () => {
-    switch (active) {
-      case MovieTabs.OVERVIEW:
-        return (
-          <TabOverview
-            rating={rating}
-            scoresCount={scoresCount}
-            description={description}
-            director={director}
-            starring={starring}
-          />);
-      case MovieTabs.DETAILS:
-        return (
-          <TabDetails
-            runTime={runTime}
-            genre={genre}
-            released={released}
-            director={director}
-            starring={starring}
-          />);
-      case MovieTabs.REVIEWS:
-        return (
-          <TabReviews comments={comments}/>
-        );
-      default:
-        return null;
-    }
-  };
   return (
     <div className="movie-card__desc">
       <nav className="movie-nav movie-card__nav">
@@ -65,7 +37,35 @@ const MovieCardTabs = ({active, onChangeTab, movie}) => {
           })}
         </ul>
       </nav>
-      {_getContent()}
+
+      {(() => {
+        switch (active) {
+          case MovieTabs.OVERVIEW:
+            return (
+              <TabOverview
+                rating={rating}
+                scoresCount={scoresCount}
+                description={description}
+                director={director}
+                starring={starring}
+              />);
+          case MovieTabs.DETAILS:
+            return (
+              <TabDetails
+                runTime={runTime}
+                genre={genre}
+                released={released}
+                director={director}
+                starring={starring}
+              />);
+          case MovieTabs.REVIEWS:
+            return (
+              <TabReviews comments={comments}/>
+            );
+          default:
+            return null;
+        }
+      })()}
     </div>
   );
 };
@@ -82,8 +82,8 @@ MovieCardTabs.defaultProps = {
     director: ``,
     starring: [],
     scoresCount: 0,
-    comments: []
   },
+  comments: []
 };
 
 MovieCardTabs.propTypes = {
@@ -98,8 +98,8 @@ MovieCardTabs.propTypes = {
     director: PropTypes.string.isRequired,
     starring: PropTypes.arrayOf(PropTypes.string).isRequired,
     scoresCount: PropTypes.number.isRequired,
-    comments: PropTypes.arrayOf(PropTypes.object)
   }).isRequired,
+  comments: PropTypes.arrayOf(PropTypes.object)
 };
 
 export {MovieCardTabs};

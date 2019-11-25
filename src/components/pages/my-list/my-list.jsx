@@ -11,9 +11,9 @@ import {getFetchingFavorite} from "@store/loading/selectors";
 import Header from "@partials/header/header";
 import Catalog from "@partials/catalog/catalog";
 import Footer from "@partials/footer/footer";
+import Loader from "@partials/loader/loader";
 
 import withPrivateRoute from "@hocs/with-private-route/with-private-route";
-import Loader from "@partials/loader/loader";
 
 class MyList extends React.PureComponent {
   constructor(props) {
@@ -42,6 +42,8 @@ class MyList extends React.PureComponent {
 
         <Catalog
           movies={favoriteMovies}
+          headerClassMods="visually-hidden"
+          sectionTitle="Catalog"
         />
 
         <Footer/>

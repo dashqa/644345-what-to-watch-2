@@ -138,7 +138,7 @@ AddReview.propTypes = {
   isUploading: PropTypes.bool.isRequired,
   isValid: PropTypes.bool.isRequired,
   formData: PropTypes.shape({
-    rating: PropTypes.number.isRequired
+    rating: PropTypes.string.isRequired
   }).isRequired,
   error: PropTypes.string,
   onChange: PropTypes.func.isRequired,

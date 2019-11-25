@@ -9,6 +9,7 @@ const initialState = {
   activeFilter: DEFAULT_FILTER,
   moviesCounter: MOVIES_COUNTER_INITIAL,
   favorite: [],
+  comments: [],
 };
 
 export const reducer = (state = initialState, action) => {
@@ -44,6 +45,11 @@ export const reducer = (state = initialState, action) => {
     case actionType.SET_FAVORITE:
       return Object.assign({}, state, {
         favorite: getAdaptedMovies(action.payload),
+      });
+
+    case actionType.SET_COMMENTS:
+      return Object.assign({}, state, {
+        comments: action.payload,
       });
   }
 

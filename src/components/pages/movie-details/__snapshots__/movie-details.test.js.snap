@@ -76,6 +76,7 @@ Array [
           />
         </div>
         <MovieCardTabs
+          comments={Array []}
           movie={Object {}}
         />
       </div>
@@ -86,6 +87,8 @@ Array [
   >
     <Catalog
       movies={Array []}
+      sectionClassMods="catalog--like-this"
+      sectionTitle="More like this"
     />
     <footer
       className="page-footer"

@@ -2,12 +2,12 @@
 
 exports[`Catalog correctly renders after relaunch 1`] = `
 <section
-  className="catalog catalog--like-this"
+  className="catalog"
 >
   <h2
     className="catalog__title"
   >
-    More like this
+    
   </h2>
   <div
     className="catalog__movies-list"

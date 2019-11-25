@@ -28,6 +28,19 @@ export const loadPromoMovie = () => (dispatch, _, api) => {
     });
 };
 
+export const loadComments = (movieId) => (dispatch, _, api) => {
+  dispatch(setFetching(`comments`, true));
+  return api.get(`/comments/${movieId}`)
+    .then(({data}) => {
+      dispatch(setComments(data));
+      dispatch(setFetching(`comments`, false));
+    })
+    .catch((error) => {
+      dispatch(setFetching(`comments`, false));
+      throw new Error(`${error} on loading comments`);
+    });
+};
+
 export const uploadReview = (movieId, formData) => (dispatch, _, api) => {
   dispatch(setFetching(`review`, true));
   return api.post(`/comments/${movieId}`, formData)
@@ -108,5 +121,12 @@ export const setFavorite = (movies) => {
   return {
     type: actionType.SET_FAVORITE,
     payload: movies
+  };
+};
+
+export const setComments = (comments) => {
+  return {
+    type: actionType.SET_COMMENTS,
+    payload: comments
   };
 };

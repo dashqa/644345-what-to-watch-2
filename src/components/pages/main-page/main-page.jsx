@@ -57,7 +57,10 @@ const MainPage = ({movies, promoMovie}) => {
         <div className="page-content">
           <Catalog
             movies={movies}
-            isMainPage
+            headerClassMods="visually-hidden"
+            sectionTitle="Catalog"
+            needFilter
+            needShowMore
           />
 
           <Footer/>

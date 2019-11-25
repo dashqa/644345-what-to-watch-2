@@ -2,8 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {compose} from "redux";
+import {bindActionCreators} from "redux";
 
-import {getMovieById, getRelatedMovies} from "@store/movies-data/selectors";
+import {getComments, getMovieById, getRelatedMovies} from "@store/movies-data/selectors";
+import {loadComments} from "@store/movies-data/actions";
 
 import Catalog from "@partials/catalog/catalog";
 import Footer from "@partials/footer/footer";
@@ -16,72 +18,96 @@ import MovieButtons from "@partials/movie-buttons/movie-buttons";
 
 import withLoading from "@hocs/with-loading/with-loading";
 
-const MovieDetails = ({currentMovie, relatedMovies}) => {
-  const {id, name, backgroundImage, posterImage, genre, released, backgroundColor, isFavorite} = currentMovie;
-  return (
-    <>
-      <section
-        className="movie-card movie-card--full"
-        style={{backgroundColor}}
-      >
-        <div className="movie-card__hero">
-          <MovieCardBackground
-            name={name}
-            backgroundImage={backgroundImage}
-          />
+class MovieDetails extends React.PureComponent {
+  constructor(props) {
+    super(props);
+  }
 
-          <h1 className="visually-hidden">WTW</h1>
+  componentDidMount() {
+    const {onLoadComments, currentMovie} = this.props;
+    onLoadComments(currentMovie.id);
+  }
 
-          <Header
-            classMods="movie-card__head"
-            needUserBlock
-          />
+  render() {
+    const {currentMovie, relatedMovies, comments} = this.props;
+    const {id, name, backgroundImage, posterImage, genre, released, backgroundColor, isFavorite} = this.props.currentMovie;
 
-          <div className="movie-card__wrap">
-            <div className="movie-card__desc">
-              <MovieCardInfo
+    return (
+      <>
+        <section
+          className="movie-card movie-card--full"
+          style={{backgroundColor}}
+        >
+          <div className="movie-card__hero">
+            <MovieCardBackground
+              name={name}
+              backgroundImage={backgroundImage}
+            />
+
+            <h1 className="visually-hidden">WTW</h1>
+
+            <Header
+              classMods="movie-card__head"
+              needUserBlock
+            />
+
+            <div className="movie-card__wrap">
+              <div className="movie-card__desc">
+                <MovieCardInfo
+                  name={name}
+                  genre={genre}
+                  released={released}
+                />
+                <MovieButtons
+                  movieId={id}
+                  isFavorite={isFavorite}
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="movie-card__wrap movie-card__translate-top">
+            <div className="movie-card__info">
+
+              <MovieCardPoster
+                classMods="movie-card__poster--big"
                 name={name}
-                genre={genre}
-                released={released}
+                posterImage={posterImage}
               />
-              <MovieButtons
-                movieId={id}
-                isFavorite={isFavorite}
+
+              <MovieCardTabs
+                movie={currentMovie}
+                comments={comments}
               />
             </div>
           </div>
+        </section>
+
+        <div className="page-content">
+          <Catalog
+            movies={relatedMovies}
+            sectionClassMods="catalog--like-this"
+            sectionTitle="More like this"
+          />
+          <Footer/>
         </div>
-
-        <div className="movie-card__wrap movie-card__translate-top">
-          <div className="movie-card__info">
-
-            <MovieCardPoster
-              classMods="movie-card__poster--big"
-              name={name}
-              posterImage={posterImage}
-            />
-
-            <MovieCardTabs movie={currentMovie}/>
-          </div>
-        </div>
-      </section>
-
-      <div className="page-content">
-        <Catalog movies={relatedMovies}/>
-        <Footer/>
-      </div>
-    </>
-  );
-};
+      </>
+    );
+  }
+}
 
 MovieDetails.defaultProps = {
   currentMovie: {},
   relatedMovies: [],
+  comments: [],
+  onLoadComments: () => {},
 };
 
 MovieDetails.propTypes = {
   currentMovie: PropTypes.object.isRequired,
   relatedMovies: PropTypes.arrayOf(PropTypes.object).isRequired,
+  comments: PropTypes.arrayOf(PropTypes.object),
+  onLoadComments: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state, {match}) => {
@@ -90,12 +116,17 @@ const mapStateToProps = (state, {match}) => {
   return {
     currentMovie,
     relatedMovies: getRelatedMovies(state, currentMovie),
+    comments: getComments(state),
   };
 };
+
+const mapDispatchToProps = (dispatch) => ({
+  onLoadComments: bindActionCreators(loadComments, dispatch)
+});
 
 export {MovieDetails};
 
 export default compose(
     withLoading,
-    connect(mapStateToProps)
+    connect(mapStateToProps, mapDispatchToProps)
 )(MovieDetails);
