@@ -26,7 +26,10 @@ Array [
       >
         WTW
       </h1>
-      <Header />
+      <Header
+        classMods="movie-card__head"
+        needUserBlock={true}
+      />
       <div
         className="movie-card__wrap"
       >
@@ -73,6 +76,7 @@ Array [
           />
         </div>
         <MovieCardTabs
+          comments={Array []}
           movie={Object {}}
         />
       </div>
@@ -83,6 +87,8 @@ Array [
   >
     <Catalog
       movies={Array []}
+      sectionClassMods="catalog--like-this"
+      sectionTitle="More like this"
     />
     <footer
       className="page-footer"

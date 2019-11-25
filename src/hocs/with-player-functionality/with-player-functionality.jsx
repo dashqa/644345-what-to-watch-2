@@ -77,6 +77,10 @@ const withPlayerFunctionality = (Component) => {
     location: PropTypes.object.isRequired,
   };
 
+  const displayName = Component.displayName || Component.name;
+  WithPlayerFunctionality.displayName = `WithPlayerFunctionality(${displayName})`;
+  WithPlayerFunctionality.WrappedComponent = Component;
+
   return WithPlayerFunctionality;
 };
 

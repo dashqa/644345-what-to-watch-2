@@ -6,6 +6,8 @@ export const getActiveFilter = (state) => state.moviesData.activeFilter;
 export const getPromoMovie = (state) => state.moviesData.promoMovie;
 export const getMoviesCounter = (state) => state.moviesData.moviesCounter;
 export const getMovieById = (state, movieId) => state.moviesData.movies.find(({id}) => id === parseInt(movieId, 10));
+export const getFavoriteMovies = (state) => state.moviesData.favorite;
+export const getComments = (state) => state.moviesData.comments;
 
 export const getRelatedMovies = (state, currentMovie) =>
   state.moviesData.movies.filter(({id, genre}) => id !== currentMovie.id && genre === currentMovie.genre);

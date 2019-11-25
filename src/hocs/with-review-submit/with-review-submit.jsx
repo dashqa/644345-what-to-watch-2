@@ -7,7 +7,6 @@ import {DEFAULT_FORM_RATING, MAX_REVIEW_LENGTH, MIN_REVIEW_LENGTH} from "@consta
 
 import {uploadReview} from "@store/movies-data/actions";
 import {getMovieById} from "@store/movies-data/selectors";
-import {getFetchingReview} from "@store/loading/selectors";
 
 const validateForm = ({rating, comment}) => {
   return !!(rating && comment.length >= MIN_REVIEW_LENGTH && comment.length <= MAX_REVIEW_LENGTH);
@@ -80,7 +79,6 @@ const withReviewSubmit = (Component) => {
     currentMovie: {
       id: 0,
     },
-    isUploading: false,
     history: {},
     onUploadReview: () => {}
   };
@@ -89,17 +87,19 @@ const withReviewSubmit = (Component) => {
     currentMovie: PropTypes.shape({
       id: PropTypes.number.isRequired,
     }),
-    isUploading: PropTypes.bool.isRequired,
     history: PropTypes.object.isRequired,
     onUploadReview: PropTypes.func.isRequired,
   };
+
+  const displayName = Component.displayName || Component.name;
+  WithReviewSubmit.displayName = `WithReviewSubmit(${displayName})`;
+  WithReviewSubmit.WrappedComponent = Component;
 
   return WithReviewSubmit;
 };
 
 const mapStateToProps = (state, {match}) => ({
   currentMovie: getMovieById(state, match.params.id),
-  isUploading: getFetchingReview(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

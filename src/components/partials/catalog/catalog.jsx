@@ -12,17 +12,27 @@ import CatalogCard from "@partials/catalog-card/catalog-card";
 import ShowMore from "@partials/show-more/show-more";
 import CatalogFilter from "@partials/catalog-filter/catalog-filter";
 
-const Catalog = ({movies, genres, activeFilter, moviesCounter, onChangeFilter, onShowMoreClick, isMainPage}) => {
-  const sectionClasses = classNames(`catalog`, {'catalog--like-this': !isMainPage});
-  const headerClasses = classNames(`catalog__title`, {'visually-hidden': isMainPage});
+const Catalog = (
+    {movies,
+      genres,
+      activeFilter,
+      moviesCounter,
+      onChangeFilter,
+      onShowMoreClick,
+      sectionClassMods,
+      headerClassMods,
+      sectionTitle,
+      needFilter,
+      needShowMore
+    }) => {
+  const sectionClasses = classNames(`catalog`, sectionClassMods);
+  const headerClasses = classNames(`catalog__title`, headerClassMods);
 
   return (
     <section className={sectionClasses}>
-      <h2 className={headerClasses}>
-        {isMainPage ? `Catalog` : `More like this`}
-      </h2>
+      <h2 className={headerClasses}>{sectionTitle}</h2>
 
-      {isMainPage &&
+      {needFilter &&
           <CatalogFilter
             active={activeFilter}
             genres={genres}
@@ -37,7 +47,7 @@ const Catalog = ({movies, genres, activeFilter, moviesCounter, onChangeFilter, o
           />)}
       </div>
 
-      {isMainPage && moviesCounter <= movies.length &&
+      {needShowMore && moviesCounter <= movies.length &&
         <ShowMore onClick={onShowMoreClick}/>}
     </section>
   );
@@ -48,19 +58,27 @@ Catalog.defaultProps = {
   genres: new Set([DEFAULT_FILTER]),
   moviesCounter: MOVIES_COUNTER_INITIAL,
   activeFilter: DEFAULT_FILTER,
-  isMainPage: false,
   onChangeFilter: () => {},
-  onShowMoreClick: () => {}
+  onShowMoreClick: () => {},
+  sectionClassMods: ``,
+  headerClassMods: ``,
+  sectionTitle: ``,
+  needFilter: false,
+  needShowMore: false,
 };
 
 Catalog.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-  isMainPage: PropTypes.bool.isRequired,
   moviesCounter: PropTypes.number,
   genres: PropTypes.object,
   activeFilter: PropTypes.string,
   onChangeFilter: PropTypes.func,
   onShowMoreClick: PropTypes.func,
+  sectionClassMods: PropTypes.string,
+  headerClassMods: PropTypes.string,
+  sectionTitle: PropTypes.string,
+  needFilter: PropTypes.bool,
+  needShowMore: PropTypes.bool,
 };
 
 const mapStateToProps = (state) => ({

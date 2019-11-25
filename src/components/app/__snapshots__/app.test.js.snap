@@ -41,7 +41,7 @@ exports[`App correctly renders after relaunch 1`] = `
             "$$typeof": Symbol(react.memo),
             "WrappedComponent": [Function],
             "compare": null,
-            "displayName": "Connect(WithLoading)",
+            "displayName": "Connect(Connect(WithLoading(WithLoaded(MainPage))))",
             "type": [Function],
           }
         }
@@ -54,7 +54,7 @@ exports[`App correctly renders after relaunch 1`] = `
             "$$typeof": Symbol(react.memo),
             "WrappedComponent": [Function],
             "compare": null,
-            "displayName": "Connect(WithLoading)",
+            "displayName": "Connect(Connect(WithLoading(WithLoaded(MovieDetails))))",
             "type": [Function],
           }
         }
@@ -65,9 +65,21 @@ exports[`App correctly renders after relaunch 1`] = `
         component={
           Object {
             "$$typeof": Symbol(react.memo),
-            "WrappedComponent": [Function],
+            "WrappedComponent": Object {
+              "$$typeof": Symbol(react.memo),
+              "WrappedComponent": Object {
+                "$$typeof": Symbol(react.memo),
+                "WrappedComponent": [Function],
+                "compare": null,
+                "displayName": "Connect(WithLoading(AddReview))",
+                "type": [Function],
+              },
+              "compare": null,
+              "displayName": "Connect(WithReviewSubmit(Connect(WithLoading(AddReview))))",
+              "type": [Function],
+            },
             "compare": null,
-            "displayName": "Connect(WithLoading)",
+            "displayName": "Connect(WithPrivateRoute(Connect(WithReviewSubmit(Connect(WithLoading(AddReview))))))",
             "type": [Function],
           }
         }
@@ -77,9 +89,15 @@ exports[`App correctly renders after relaunch 1`] = `
         component={
           Object {
             "$$typeof": Symbol(react.memo),
-            "WrappedComponent": [Function],
+            "WrappedComponent": Object {
+              "$$typeof": Symbol(react.memo),
+              "WrappedComponent": [Function],
+              "compare": null,
+              "displayName": "Connect(WithLoading(WithLoaded(MoviePlayer)))",
+              "type": [Function],
+            },
             "compare": null,
-            "displayName": "Connect(WithLoading)",
+            "displayName": "Connect(WithPlayerFunctionality(Connect(WithLoading(WithLoaded(MoviePlayer)))))",
             "type": [Function],
           }
         }
@@ -89,13 +107,34 @@ exports[`App correctly renders after relaunch 1`] = `
         component={
           Object {
             "$$typeof": Symbol(react.memo),
+            "WrappedComponent": Object {
+              "$$typeof": Symbol(react.memo),
+              "WrappedComponent": [Function],
+              "compare": null,
+              "displayName": "Connect(WithLoading(WithLoaded(MyList)))",
+              "type": [Function],
+            },
+            "compare": null,
+            "displayName": "Connect(Connect(WithPrivateRoute(Connect(WithLoading(WithLoaded(MyList))))))",
+            "type": [Function],
+          }
+        }
+        path="/my-list"
+      />
+      <Route
+        component={
+          Object {
+            "$$typeof": Symbol(react.memo),
             "WrappedComponent": [Function],
             "compare": null,
-            "displayName": "Connect(WithAuthSubmit)",
+            "displayName": "Connect(WithAuthSubmit(SignIn))",
             "type": [Function],
           }
         }
         path="/login"
+      />
+      <Route
+        component={[Function]}
       />
     </Switch>
   </Router>

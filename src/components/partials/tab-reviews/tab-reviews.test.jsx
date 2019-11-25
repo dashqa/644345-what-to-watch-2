@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import TabReviews from './tab-reviews';
+import {TabReviews} from './tab-reviews';
 
 const props = {
   dividedComments: {},

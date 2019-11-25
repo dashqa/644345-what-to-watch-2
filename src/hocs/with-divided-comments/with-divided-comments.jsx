@@ -12,48 +12,10 @@ const withDividedComments = (Component) => {
     }
 
     componentDidMount() {
-      // const {comments} = this.props;
-      const comments = [
-        {
-          id: 1,
-          user: {
-            id: 5,
-            name: `John Snow`,
-          },
-          rating: 3.4,
-          comment: `Discerning travellers and Wes Anderson fans will luxuriate in the glorious Mittel-European kitsch of one of the director's funniest and most exquisitely designed movies in years.`,
-          date: `2019-05-08T14:13:56.569Z`
-        }, {
-          id: 2,
-          user: {
-            id: 5,
-            name: `John Snow`,
-          },
-          rating: 3.4,
-          comment: `Discerning travellers and Wes Anderson fans will luxuriate in the glorious Mittel-European kitsch of one of the director's funniest and most exquisitely designed movies in years.`,
-          date: `2019-05-08T14:13:56.569Z`
-        }, {
-          id: 3,
-          user: {
-            id: 10,
-            name: `Ivan Ivanov`,
-          },
-          rating: 2.3,
-          comment: `Discerning travellers and Wes Anderson fans will luxuriate in the glorious Mittel-European kitsch of one of the director's funniest and most exquisitely designed movies in years.`,
-          date: `2019-05-08T14:13:56.569Z`
-        }, {
-          id: 4,
-          user: {
-            id: 22,
-            name: `Brad Pitt`,
-          },
-          rating: 5.3,
-          comment: `Discerning travellers and Wes Anderson fans will luxuriate in the glorious Mittel-European kitsch of one of the director's funniest and most exquisitely designed movies in years.`,
-          date: `2019-05-08T14:13:56.569Z`
-        }];
+      const {comments} = this.props;
 
       const commentsObj = comments.reduce((acc, current, i) => {
-        acc[i % 2 ? `odd` : `even`].push(current);
+        acc[i % 2 ? `even` : `odd`].push(current);
         return acc;
       }, {odd: [], even: []});
 
@@ -77,6 +39,10 @@ const withDividedComments = (Component) => {
   WithDividedComments.propTypes = {
     comments: PropTypes.arrayOf(PropTypes.object)
   };
+
+  const displayName = Component.displayName || Component.name;
+  WithDividedComments.displayName = `WithDividedComments(${displayName})`;
+  WithDividedComments.WrappedComponent = Component;
 
   return WithDividedComments;
 };

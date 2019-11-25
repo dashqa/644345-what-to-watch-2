@@ -18,7 +18,10 @@ Array [
     >
       WTW
     </h1>
-    <Header />
+    <Header
+      classMods="movie-card__head"
+      needUserBlock={true}
+    />
     <div
       className="movie-card__wrap"
     >
@@ -66,8 +69,11 @@ Array [
     className="page-content"
   >
     <Catalog
-      isMainPage={true}
+      headerClassMods="visually-hidden"
       movies={Array []}
+      needFilter={true}
+      needShowMore={true}
+      sectionTitle="Catalog"
     />
     <footer
       className="page-footer"

@@ -2,19 +2,22 @@ import React from "react";
 import PropTypes from "prop-types";
 import {compose} from "recompose";
 import {Link} from "react-router-dom";
+import {Fetch} from "@constants";
 
 import UserBlock from "@partials/user-block/user-block";
 import MovieCardPoster from "@partials/movie-card-poster/movie-card-poster";
 import HeaderLogo from "@partials/header-logo/header-logo";
 import MovieCardBackground from "@partials/movie-card-background/movie-card-background";
 
-import withLoading from "@hocs/with-loading/with-loading";
 import withAuthStatus from "@hocs/with-private-route/with-private-route";
 import withReviewFormData from "@hocs/with-review-submit/with-review-submit";
+import withLoading from "react-redux-hoc-loader";
 
-const AddReview = ({currentMovie, isUploading, isValid, formData, error, onChange, onSubmit}) => {
+const AddReview = ({currentMovie, isValid, formData, error, onChange, onSubmit, loaders}) => {
   const {id, name, backgroundImage, posterImage, backgroundColor} = currentMovie;
   const errorStyles = {color: `red`, textAlign: `center`};
+  const isUploading = loaders[Fetch.REVIEW].status;
+
   return (
     <section
       className="movie-card movie-card--full"
@@ -119,12 +122,12 @@ AddReview.defaultProps = {
     posterImage: ``,
     backgroundColor: ``,
   },
-  isUploading: false,
   isValid: false,
   formData: {},
   error: null,
   onChange: () => {},
   onSubmit: () => {},
+  loaders: {},
 };
 
 AddReview.propTypes = {
@@ -135,20 +138,20 @@ AddReview.propTypes = {
     posterImage: PropTypes.string.isRequired,
     backgroundColor: PropTypes.string.isRequired
   }),
-  isUploading: PropTypes.bool.isRequired,
   isValid: PropTypes.bool.isRequired,
   formData: PropTypes.shape({
-    rating: PropTypes.number.isRequired
+    rating: PropTypes.string.isRequired
   }).isRequired,
   error: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
+  loaders: PropTypes.object
 };
 
 export {AddReview};
 
 export default compose(
-    withLoading,
     withAuthStatus,
-    withReviewFormData
+    withReviewFormData,
+    withLoading(Fetch.REVIEW)
 )(AddReview);
