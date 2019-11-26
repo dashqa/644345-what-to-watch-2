@@ -31,6 +31,7 @@ export const getAdaptedMovie = (movie) => {
     video_link: videoLink = ``,
     preview_video_link: previewVideoLink = ``
   } = movie;
+
   return {
     id, name, posterImage, previewImage, backgroundImage, backgroundColor, description, rating, scoresCount, director,
     starring, runTime, genre, released, isFavorite, videoLink, previewVideoLink,

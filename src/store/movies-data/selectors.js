@@ -9,6 +9,16 @@ export const getMovieById = (state, movieId) => state.moviesData.movies.find(({i
 export const getFavoriteMovies = (state) => state.moviesData.favorite;
 export const getComments = (state) => state.moviesData.comments;
 
+export const getDividedComments = createSelector(
+    [getComments],
+    (comments) => {
+      return comments.reduce((acc, current, i) => {
+        acc[i % 2 ? `even` : `odd`].push(current);
+        return acc;
+      }, {odd: [], even: []});
+    }
+);
+
 export const getRelatedMovies = (state, currentMovie) =>
   state.moviesData.movies.filter(({id, genre}) => id !== currentMovie.id && genre === currentMovie.genre);
 

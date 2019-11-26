@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {connect} from "react-redux";
 import {formatDate} from "@utils";
 
-import withDividedComments from "@hocs/with-divided-comments/with-divided-comments";
+import {getDividedComments} from "@store/movies-data/selectors";
 
 const TabReviews = ({dividedComments}) => {
   return (
@@ -49,5 +50,9 @@ TabReviews.propTypes = {
       ))
 };
 
+const mapStateToProps = (state) => ({
+  dividedComments: getDividedComments(state),
+});
+
 export {TabReviews};
-export default withDividedComments(TabReviews);
+export default connect(mapStateToProps)(TabReviews);

@@ -1,68 +1,75 @@
 import * as actionType from "./types";
-import {MOVIES_COUNTER_STEP} from "@constants";
+import {MOVIES_COUNTER_STEP, Fetch} from "@constants";
 import {startLoading, stopLoading} from "react-redux-hoc-loader";
 
+const Url = {
+  MOVIES: `/films`,
+  PROMO: `/films/promo`,
+  COMMENTS: `/comments`,
+  FAVORITE: `/favorite`,
+};
+
 export const loadMovies = () => (dispatch, _, api) => {
-  dispatch(startLoading(`movies`));
-  return api.get(`/films`)
+  dispatch(startLoading(Fetch.MOVIES));
+  return api.get(Url.MOVIES)
     .then(({data}) => {
       dispatch(setMovies(data));
-      dispatch(stopLoading(`movies`));
+      dispatch(stopLoading(Fetch.MOVIES));
     })
     .catch((error) => {
-      dispatch(stopLoading(`movies`));
+      dispatch(stopLoading(Fetch.MOVIES));
       throw new Error(`${error} on loading movies`);
     });
 };
 
 export const loadPromoMovie = () => (dispatch, _, api) => {
-  dispatch(startLoading(`promo`));
-  return api.get(`/films/promo`)
+  dispatch(startLoading(Fetch.PROMO));
+  return api.get(Url.PROMO)
     .then(({data}) => {
       dispatch(setPromoMovie(data));
-      dispatch(stopLoading(`promo`));
+      dispatch(stopLoading(Fetch.PROMO));
     })
     .catch((error) => {
-      dispatch(stopLoading(`promo`));
+      dispatch(stopLoading(Fetch.PROMO));
       throw new Error(`${error} on loading promo movie`);
     });
 };
 
 export const loadComments = (movieId) => (dispatch, _, api) => {
-  dispatch(startLoading(`comments`));
-  return api.get(`/comments/${movieId}`)
+  dispatch(startLoading(Fetch.COMMENTS));
+  return api.get(`${Url.COMMENTS}/${movieId}`)
     .then(({data}) => {
       dispatch(setComments(data));
-      dispatch(stopLoading(`comments`));
+      dispatch(stopLoading(Fetch.COMMENTS));
     })
     .catch((error) => {
-      dispatch(stopLoading(`comments`));
+      dispatch(stopLoading(Fetch.COMMENTS));
       throw new Error(`${error} on loading comments`);
     });
 };
 
 export const uploadReview = (movieId, formData) => (dispatch, _, api) => {
-  dispatch(startLoading(`review`));
-  return api.post(`/comments/${movieId}`, formData)
+  dispatch(startLoading(Fetch.REVIEW));
+  return api.post(`${Url.COMMENTS}/${movieId}`, formData)
     .then((response) => {
-      dispatch(stopLoading(`review`));
+      dispatch(stopLoading(Fetch.REVIEW));
       return response;
     })
     .catch((error) => {
-      dispatch(stopLoading(`review`));
+      dispatch(stopLoading(Fetch.REVIEW));
       throw new Error(`${error} on uploading review`);
     });
 };
 
 export const loadFavorite = () => (dispatch, _, api) => {
-  dispatch(startLoading(`favorite`));
-  return api.get(`/favorite`)
+  dispatch(startLoading(Fetch.FAVORITE));
+  return api.get(Url.FAVORITE)
     .then(({data}) => {
       dispatch(setFavorite(data));
-      dispatch(stopLoading(`favorite`));
+      dispatch(stopLoading(Fetch.FAVORITE));
     })
     .catch((error) => {
-      dispatch(stopLoading(`favorite`));
+      dispatch(stopLoading(Fetch.FAVORITE));
       throw new Error(`${error} on uploading favorite list`);
     });
 };
@@ -70,14 +77,14 @@ export const loadFavorite = () => (dispatch, _, api) => {
 export const addToFavorite = (movieId, isFavorite) => (dispatch, _, api) => {
   const status = isFavorite ? 0 : 1;
 
-  dispatch(startLoading(`favorite`));
-  return api.post(`/favorite/${movieId}/${status}`)
+  dispatch(startLoading(Fetch.FAVORITE));
+  return api.post(`${Url.FAVORITE}${movieId}/${status}`)
     .then(({data}) => {
       dispatch(updateMovie(data));
-      dispatch(stopLoading(`favorite`));
+      dispatch(stopLoading(Fetch.FAVORITE));
     })
     .catch((error) => {
-      dispatch(stopLoading(`favorite`));
+      dispatch(stopLoading(Fetch.FAVORITE));
       throw new Error(`${error} on adding to favorite`);
     });
 };

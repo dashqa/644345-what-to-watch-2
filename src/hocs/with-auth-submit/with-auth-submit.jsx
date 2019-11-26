@@ -7,6 +7,17 @@ import {bindActionCreators} from "redux";
 import {getAuthStatus} from "@store/user-data/selectors";
 import {authorizeUser} from "@store/user-data/actions";
 
+const EMAIL_REGEX = RegExp(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+const ErrorText = {
+  EMAIL: `Please enter a valid email address.`,
+  PASSWORD: `Please enter a valid password.`
+};
+
+const InputName = {
+  EMAIl: `email`,
+  PASSWORD: `password`
+};
+
 const validateForm = (form, errors) => {
   const nonNullFields = Object.values(form).every((val) => val.length);
   const nonErrors = !Object.values(errors).some((val) => val.length);
@@ -50,20 +61,13 @@ const withAuthSubmit = (Component) => {
     _handleChange(evt) {
       const {name, value} = evt.target;
       const errors = Object.assign({}, this.state.errors);
-      const emailRegEx = RegExp(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
 
       switch (name) {
-        case `email`:
-          errors.email =
-            emailRegEx.test(value)
-              ? ``
-              : `Please enter a valid email address.`;
+        case InputName.EMAIl:
+          errors.email = EMAIL_REGEX.test(value) ? `` : ErrorText.EMAIL;
           break;
-        case `password`:
-          errors.password =
-            value.length <= 3
-              ? `Please enter a valid password.`
-              : ``;
+        case InputName.PASSWORD:
+          errors.password = value.length <= 3 ? ErrorText.PASSWORD : ``;
           break;
         default:
           break;

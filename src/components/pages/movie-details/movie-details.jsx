@@ -31,6 +31,16 @@ class MovieDetails extends React.PureComponent {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    const {onLoadComments, currentMovie, comments} = this.props;
+    console.log('prevProps.currentMovie.id: ', prevProps.currentMovie.id);
+    console.log('currentMovie.id: ', currentMovie.id);
+    console.log('comments: ', comments);
+    if (prevProps.currentMovie.id !== currentMovie.id) {
+      onLoadComments(currentMovie.id);
+    }
+  }
+
   render() {
     const {currentMovie, relatedMovies, comments} = this.props;
     const {id, name, backgroundImage, posterImage, genre, released, backgroundColor, isFavorite} = this.props.currentMovie;

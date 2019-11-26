@@ -3,10 +3,13 @@ import {compose} from "recompose";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import PropTypes from "prop-types";
-import {DEFAULT_FORM_RATING, MAX_REVIEW_LENGTH, MIN_REVIEW_LENGTH} from "@constants";
 
 import {uploadReview} from "@store/movies-data/actions";
 import {getMovieById} from "@store/movies-data/selectors";
+
+const DEFAULT_FORM_RATING = `3`;
+const MIN_REVIEW_LENGTH = 50;
+const MAX_REVIEW_LENGTH = 400;
 
 const validateForm = ({rating, comment}) => {
   return !!(rating && comment.length >= MIN_REVIEW_LENGTH && comment.length <= MAX_REVIEW_LENGTH);

@@ -1,7 +1,11 @@
 import * as actionType from "./types";
 
+const Url = {
+  LOGIN: `/login`,
+};
+
 export const authorizeUser = (formData) => (dispatch, _, api) => {
-  return api.post(`/login`, formData)
+  return api.post(Url.LOGIN, formData)
     .then(({data}) => {
       dispatch(setUser(data));
       return data;
