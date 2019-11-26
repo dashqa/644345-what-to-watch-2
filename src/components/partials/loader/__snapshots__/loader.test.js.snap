@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loader correctly renders after relaunch 1`] = `
+<div
+  style={
+    Object {
+      "left": "50vw",
+      "position": "absolute",
+      "top": "50vh",
+      "transform": "translate(-50%, -50%)",
+    }
+  }
+>
+  <svg
+    className="sc-bdVaJa khEZTZ"
+    height="250px"
+    viewBox="0 0 251 251"
+    width="250px"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle
+      className="sc-bwzfXH gScrst"
+      cx={125.5}
+      cy={125.5}
+      fill="none"
+      r={115}
+      strokeLinecap="round"
+      strokeWidth={20}
+    />
+  </svg>
+</div>
+`;

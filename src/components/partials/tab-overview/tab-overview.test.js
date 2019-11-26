@@ -3,11 +3,11 @@ import renderer from 'react-test-renderer';
 import TabOverview from './tab-overview';
 
 const props = {
-  rating: 0,
-  scoresCount: 0,
-  description: ``,
-  director: ``,
-  starring: [],
+  rating: 4.4,
+  scoresCount: 100500,
+  description: `My description`,
+  director: `Lynne Ramsay`,
+  starring: [`Tilda Swinton`, `John C. Reilly`],
 };
 
 it(`Overview tab correctly renders after relaunch`, () => {

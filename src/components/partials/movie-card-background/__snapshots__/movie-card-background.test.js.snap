@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movie card background correctly renders after relaunch 1`] = `
+<div
+  className="movie-card__bg"
+>
+  <img
+    alt="Title"
+    src="http://image.com/image.png"
+  />
+</div>
+`;

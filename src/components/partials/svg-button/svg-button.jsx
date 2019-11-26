@@ -7,7 +7,6 @@ const SvgButton = ({classes, title, svgViewBox, svgWidth, svgHeight, svgXlink, o
       className={classes}
       type="button"
       onClick={onClick}
-      data-icon={svgXlink}
     >
       <svg
         viewBox={svgViewBox}

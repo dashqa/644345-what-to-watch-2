@@ -52,6 +52,7 @@ export const uploadReview = (movieId, formData) => (dispatch, _, api) => {
   dispatch(startLoading(Fetch.REVIEW));
   return api.post(`${Url.COMMENTS}/${movieId}`, formData)
     .then((response) => {
+      dispatch(setComments(response.data));
       dispatch(stopLoading(Fetch.REVIEW));
       return response;
     })

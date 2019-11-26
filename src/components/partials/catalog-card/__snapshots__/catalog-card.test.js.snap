@@ -8,7 +8,7 @@ exports[`Catalog card correctly renders after relaunch 1`] = `
 >
   <a
     className="small-movie-card__link"
-    href="/films/0"
+    href="/films/1"
     onClick={[Function]}
   >
     <div
@@ -19,18 +19,18 @@ exports[`Catalog card correctly renders after relaunch 1`] = `
         controls={false}
         height="180"
         muted={true}
-        poster=""
+        poster="http://image.com/image.png"
         width="280"
       >
         <source
-          src=""
+          src="http://video.com/video.mp4"
           type="video/mp4"
         />
       </video>
       <h3
         className="small-movie-card__title"
       >
-        
+        Macbeth
       </h3>
     </div>
   </a>

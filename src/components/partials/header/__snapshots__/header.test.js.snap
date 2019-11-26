@@ -2,7 +2,7 @@
 
 exports[`Header correctly renders after relaunch 1`] = `
 <header
-  className="page-header"
+  className="page-header user-header"
 >
   <div
     className="logo"
@@ -29,6 +29,10 @@ exports[`Header correctly renders after relaunch 1`] = `
       </span>
     </a>
   </div>
-  
+  <h1
+    className="page-title user-page__title"
+  >
+    Header
+  </h1>
 </header>
 `;

@@ -3,8 +3,8 @@ import renderer from 'react-test-renderer';
 import CatalogFilter from './catalog-filter';
 
 const props = {
-  active: ``,
-  genres: new Set([`comedy`]),
+  active: `Comedy`,
+  genres: new Set([`Comedy`]),
   onChange: () => {}
 };
 

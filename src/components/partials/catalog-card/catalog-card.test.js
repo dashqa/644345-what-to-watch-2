@@ -5,11 +5,14 @@ import CatalogCard from './catalog-card';
 
 const props = {
   movie: {
-    id: 0,
-    name: ``,
-    previewImage: ``
+    id: 1,
+    name: `Macbeth`,
+    previewImage: `http://image.com/image.png`,
+    previewVideoLink: `http://video.com/video.mp4`
   },
-  onClickCard: () => {},
+  videoRef: React.createRef(),
+  onEnter: () => {},
+  onLeave: () => {},
 };
 
 it(`Catalog card correctly renders after relaunch`, () => {

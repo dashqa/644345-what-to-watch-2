@@ -9,8 +9,10 @@ jest.mock(`@partials/header/header.jsx`, () => `Header`);
 jest.mock(`@partials/movie-buttons/movie-buttons.jsx`, () => `MovieButtons`);
 
 const props = {
-  movies: [],
   currentMovie: {},
+  relatedMovies: [],
+  comments: [],
+  onLoadComments: () => {},
 };
 
 it(`Movie details card correctly renders after relaunch`, () => {

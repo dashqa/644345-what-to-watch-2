@@ -146,5 +146,5 @@ export {AddReview};
 export default compose(
     withPrivateRoute,
     withReviewSubmit,
-    // withLoading(Fetch.REVIEW)
+    withLoading(Fetch.REVIEW)
 )(AddReview);

@@ -2,7 +2,6 @@ import React from "react";
 import {compose} from "recompose";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
-import {Fetch} from "@constants";
 import {getMovieById} from "@store/movies-data/selectors";
 
 import SvgButton from "@partials/svg-button/svg-button";
@@ -10,7 +9,6 @@ import VideoPlayer from "@partials/video-player/video-player";
 import VideoPlayerProgress from "@partials/video-player-progress/video-player-progress";
 
 import withPlayerFunctionality from "@hocs/with-player-functionality/with-player-functionality";
-import withLoaded from "@hocs/with-loaded/with-loaded";
 
 const MoviePlayer = ({currentMovie, videoRef, onPlayPause, onClosePlayer, onFullScreen, isPlaying}) => {
   const {name, videoLink, previewImage} = currentMovie;
@@ -100,6 +98,5 @@ export {MoviePlayer};
 
 export default compose(
     connect(mapStateToProps),
-    withPlayerFunctionality,
-    withLoaded(Fetch.MOVIES)
+    withPlayerFunctionality
 )(MoviePlayer);

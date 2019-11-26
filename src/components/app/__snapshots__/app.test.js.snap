@@ -1,142 +1,106 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App correctly renders after relaunch 1`] = `
-<Provider
-  store={
+<Router
+  history={
     Object {
-      "dispatch": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-      Symbol(observable): [Function],
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
     }
   }
 >
-  <Router
-    history={
-      Object {
-        "action": "POP",
-        "block": [Function],
-        "createHref": [Function],
-        "go": [Function],
-        "goBack": [Function],
-        "goForward": [Function],
-        "length": 1,
-        "listen": [Function],
-        "location": Object {
-          "hash": "",
-          "pathname": "/",
-          "search": "",
-          "state": undefined,
-        },
-        "push": [Function],
-        "replace": [Function],
+  <Switch>
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(MainPage)",
+          "type": [Function],
+        }
       }
-    }
-  >
-    <Switch>
-      <Route
-        component={
-          Object {
-            "$$typeof": Symbol(react.memo),
-            "WrappedComponent": [Function],
-            "compare": null,
-            "displayName": "Connect(Connect(WithLoading(WithLoaded(MainPage))))",
-            "type": [Function],
-          }
+      exact={true}
+      path="/"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(MovieDetails)",
+          "type": [Function],
         }
-        exact={true}
-        path="/"
-      />
-      <Route
-        component={
-          Object {
-            "$$typeof": Symbol(react.memo),
-            "WrappedComponent": [Function],
-            "compare": null,
-            "displayName": "Connect(Connect(WithLoading(WithLoaded(MovieDetails))))",
-            "type": [Function],
-          }
+      }
+      exact={true}
+      path="/films/:id"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(WithPrivateRoute(Connect(WithReviewSubmit(Connect(WithLoading(AddReview))))))",
+          "type": [Function],
         }
-        exact={true}
-        path="/films/:id"
-      />
-      <Route
-        component={
-          Object {
-            "$$typeof": Symbol(react.memo),
-            "WrappedComponent": Object {
-              "$$typeof": Symbol(react.memo),
-              "WrappedComponent": Object {
-                "$$typeof": Symbol(react.memo),
-                "WrappedComponent": [Function],
-                "compare": null,
-                "displayName": "Connect(WithLoading(AddReview))",
-                "type": [Function],
-              },
-              "compare": null,
-              "displayName": "Connect(WithReviewSubmit(Connect(WithLoading(AddReview))))",
-              "type": [Function],
-            },
-            "compare": null,
-            "displayName": "Connect(WithPrivateRoute(Connect(WithReviewSubmit(Connect(WithLoading(AddReview))))))",
-            "type": [Function],
-          }
+      }
+      path="/films/:id/review"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(WithPlayerFunctionality(MoviePlayer))",
+          "type": [Function],
         }
-        path="/films/:id/review"
-      />
-      <Route
-        component={
-          Object {
-            "$$typeof": Symbol(react.memo),
-            "WrappedComponent": Object {
-              "$$typeof": Symbol(react.memo),
-              "WrappedComponent": [Function],
-              "compare": null,
-              "displayName": "Connect(WithLoading(WithLoaded(MoviePlayer)))",
-              "type": [Function],
-            },
-            "compare": null,
-            "displayName": "Connect(WithPlayerFunctionality(Connect(WithLoading(WithLoaded(MoviePlayer)))))",
-            "type": [Function],
-          }
+      }
+      path="/films/:id/player"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(Connect(WithPrivateRoute(MyList)))",
+          "type": [Function],
         }
-        path="/films/:id/player"
-      />
-      <Route
-        component={
-          Object {
-            "$$typeof": Symbol(react.memo),
-            "WrappedComponent": Object {
-              "$$typeof": Symbol(react.memo),
-              "WrappedComponent": [Function],
-              "compare": null,
-              "displayName": "Connect(WithLoading(WithLoaded(MyList)))",
-              "type": [Function],
-            },
-            "compare": null,
-            "displayName": "Connect(Connect(WithPrivateRoute(Connect(WithLoading(WithLoaded(MyList))))))",
-            "type": [Function],
-          }
+      }
+      path="/my-list"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(WithAuthSubmit(SignIn))",
+          "type": [Function],
         }
-        path="/my-list"
-      />
-      <Route
-        component={
-          Object {
-            "$$typeof": Symbol(react.memo),
-            "WrappedComponent": [Function],
-            "compare": null,
-            "displayName": "Connect(WithAuthSubmit(SignIn))",
-            "type": [Function],
-          }
-        }
-        path="/login"
-      />
-      <Route
-        component={[Function]}
-      />
-    </Switch>
-  </Router>
-</Provider>
+      }
+      path="/login"
+    />
+    <Route
+      component={[Function]}
+    />
+  </Switch>
+</Router>
 `;

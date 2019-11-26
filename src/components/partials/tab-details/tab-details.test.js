@@ -3,11 +3,11 @@ import renderer from 'react-test-renderer';
 import TabDetails from './tab-details';
 
 const props = {
-  runTime: 0,
-  genre: ``,
-  released: 0,
-  director: ``,
-  starring: [],
+  runTime: 180,
+  genre: `Thriller`,
+  released: 1980,
+  director: `Lynne Ramsay`,
+  starring: [`Tilda Swinton`, `John C. Reilly`],
 };
 
 it(`Details tab correctly renders after relaunch`, () => {

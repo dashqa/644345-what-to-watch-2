@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rating radio poster correctly renders after relaunch 1`] = `
+Array [
+  <input
+    checked={true}
+    className="rating__input"
+    id="my-input-1"
+    name="rating"
+    onChange={[Function]}
+    type="radio"
+    value={1}
+  />,
+  <label
+    className="rating__label"
+    htmlFor="my-input-1"
+  >
+    Rating 1
+  </label>,
+]
+`;

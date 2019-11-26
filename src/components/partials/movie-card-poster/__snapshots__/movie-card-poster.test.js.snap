@@ -2,12 +2,12 @@
 
 exports[`Movie card poster correctly renders after relaunch 1`] = `
 <div
-  className="movie-card__poster"
+  className="movie-card__poster card-poster"
 >
   <img
-    alt=""
+    alt="We need to talk about Kevin"
     height="327"
-    src=""
+    src="http://image.com/image.png"
     width="218"
   />
 </div>

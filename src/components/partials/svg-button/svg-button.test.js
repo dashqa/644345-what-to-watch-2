@@ -3,12 +3,12 @@ import renderer from 'react-test-renderer';
 import SvgButton from './svg-button';
 
 const props = {
-  classes: ``,
-  title: ``,
-  svgViewBox: ``,
-  svgWidth: ``,
-  svgHeight: ``,
-  svgXlink: ``,
+  classes: `play`,
+  title: `Play button`,
+  svgViewBox: `0 0 19 19`,
+  svgWidth: `19`,
+  svgHeight: `19`,
+  svgXlink: `#play-s`,
   onClick: () => {}
 };
 

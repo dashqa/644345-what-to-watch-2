@@ -3,7 +3,6 @@ import {compose} from "redux";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import {bindActionCreators} from "redux";
-import {Fetch} from "@constants";
 
 import {loadFavorite} from "@store/movies-data/actions";
 import {getFavoriteMovies} from "@store/movies-data/selectors";
@@ -13,7 +12,6 @@ import Catalog from "@partials/catalog/catalog";
 import Footer from "@partials/footer/footer";
 
 import withPrivateRoute from "@hocs/with-private-route/with-private-route";
-import withLoaded from "@hocs/with-loaded/with-loaded";
 
 class MyList extends React.PureComponent {
   constructor(props) {
@@ -71,6 +69,5 @@ export {MyList};
 
 export default compose(
     connect(mapStateToProps, mapDispatchToProps),
-    withPrivateRoute,
-    withLoaded(Fetch.FAVORITE)
+    withPrivateRoute
 )(MyList);

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import withPlayerDuration from "@hocs/with-player-duration/with-player-duration";
 
-const VideoProgressBar = ({progressPosition, progressRef, toggleRef, timing}) => {
+const VideoPlayerProgress = ({progressPosition, progressRef, toggleRef, timing}) => {
   const toggleStyles = {
     left: `${progressPosition}%`
   };
@@ -29,18 +29,20 @@ const VideoProgressBar = ({progressPosition, progressRef, toggleRef, timing}) =>
   );
 };
 
-VideoProgressBar.defaultProps = {
+VideoPlayerProgress.defaultProps = {
   progressPosition: 0,
   progressRef: {},
   toggleRef: {},
   timing: ``,
 };
 
-VideoProgressBar.propTypes = {
+VideoPlayerProgress.propTypes = {
   progressPosition: PropTypes.number.isRequired,
   progressRef: PropTypes.object.isRequired,
   toggleRef: PropTypes.object.isRequired,
   timing: PropTypes.string.isRequired,
 };
 
-export default withPlayerDuration(VideoProgressBar);
+export {VideoPlayerProgress};
+
+export default withPlayerDuration(VideoPlayerProgress);

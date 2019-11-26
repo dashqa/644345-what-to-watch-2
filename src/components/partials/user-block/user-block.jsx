@@ -44,4 +44,6 @@ const mapStateToProps = (state) => ({
   user: getUser(state),
 });
 
+export {UserBlock};
+
 export default connect(mapStateToProps)(UserBlock);

@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Movie card top desc correctly renders after relaunch 1`] = `
+exports[`Movie card info correctly renders after relaunch 1`] = `
 Array [
   <h2
     className="movie-card__title"
   >
-    
+    A Star Is Born
   </h2>,
   <p
     className="movie-card__meta"
@@ -13,12 +13,12 @@ Array [
     <span
       className="movie-card__genre"
     >
-      
+      Drama
     </span>
     <span
       className="movie-card__year"
     >
-      0
+      2010
     </span>
   </p>,
 ]

@@ -3,9 +3,9 @@ import renderer from 'react-test-renderer';
 import MovieCardPoster from './movie-card-poster';
 
 const props = {
-  name: ``,
-  posterImage: ``,
-  isBig: false,
+  name: `We need to talk about Kevin`,
+  posterImage: `http://image.com/image.png`,
+  classMods: `card-poster`,
 };
 
 it(`Movie card poster correctly renders after relaunch`, () => {

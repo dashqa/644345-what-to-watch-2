@@ -6,7 +6,6 @@ exports[`Movie buttons correctly renders after relaunch 1`] = `
 >
   <button
     className="btn btn-play movie-card__button"
-    data-icon="#play-s"
     onClick={[Function]}
     type="button"
   >
@@ -25,7 +24,6 @@ exports[`Movie buttons correctly renders after relaunch 1`] = `
   </button>
   <button
     className="btn btn-list movie-card__button"
-    data-icon="#add"
     onClick={[Function]}
     type="button"
   >
@@ -35,7 +33,7 @@ exports[`Movie buttons correctly renders after relaunch 1`] = `
       width="19"
     >
       <use
-        xlinkHref="#add"
+        xlinkHref="#in-list"
       />
     </svg>
     <span>
