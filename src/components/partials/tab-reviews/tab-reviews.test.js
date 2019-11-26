@@ -1,7 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import {TabReviews} from './tab-reviews';
-import moment from "moment";
 
 const props = {
   dividedComments: {
@@ -12,7 +11,7 @@ const props = {
         name: `Dasha`
       },
       comment: `Hello!!`,
-      date: new Date(2019, 11, 14),
+      date: `2019-11-24T02:28:44.715Z`,
       rating: 3.5
     }],
     even: [{
@@ -22,7 +21,7 @@ const props = {
         name: `Masha`
       },
       comment: `Bye`,
-      date: new Date(2019, 11, 27),
+      date: `2019-11-09T02:28:44.715Z`,
       rating: 1.1
     }]
   },
