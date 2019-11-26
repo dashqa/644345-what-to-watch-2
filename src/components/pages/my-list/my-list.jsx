@@ -21,10 +21,8 @@ class MyList extends React.PureComponent {
   }
 
   componentDidMount() {
-    const {onLoadFavoriteMovies, favoriteMovies} = this.props;
-    if (!favoriteMovies.length) {
-      onLoadFavoriteMovies();
-    }
+    const {onLoadFavoriteMovies} = this.props;
+    onLoadFavoriteMovies();
   }
 
   render() {

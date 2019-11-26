@@ -32,7 +32,6 @@ const withActiveTab = (Component) => {
 
   const displayName = Component.displayName || Component.name;
   WithActiveTab.displayName = `WithActiveTab(${displayName})`;
-  WithActiveTab.WrappedComponent = Component;
 
   return WithActiveTab;
 };

@@ -8,9 +8,10 @@ import UserBlock from "@partials/user-block/user-block";
 import MovieCardPoster from "@partials/movie-card-poster/movie-card-poster";
 import HeaderLogo from "@partials/header-logo/header-logo";
 import MovieCardBackground from "@partials/movie-card-background/movie-card-background";
+import RatingRadio from "@partials/rating-radio/rating-radio";
 
-import withAuthStatus from "@hocs/with-private-route/with-private-route";
-import withReviewFormData from "@hocs/with-review-submit/with-review-submit";
+import withPrivateRoute from "@hocs/with-private-route/with-private-route";
+import withReviewSubmit from "@hocs/with-review-submit/with-review-submit";
 import withLoading from "react-redux-hoc-loader";
 
 const AddReview = ({currentMovie, isValid, formData, error, onChange, onSubmit, loaders}) => {
@@ -65,23 +66,15 @@ const AddReview = ({currentMovie, isValid, formData, error, onChange, onSubmit, 
               {[...new Array(5)].map((_, i) => {
                 const index = i + 1;
                 const inputId = `star-${index}`;
+
                 return (
-                  <React.Fragment key={index}>
-                    <input
-                      className="rating__input"
-                      id={inputId}
-                      type="radio"
-                      name="rating"
-                      value={index}
-                      checked={Number(formData.rating) === index}
-                      onChange={onChange}
-                    />
-                    <label
-                      className="rating__label"
-                      htmlFor={inputId}
-                    >
-                      {`Rating ${index}`}</label>
-                  </React.Fragment>
+                  <RatingRadio
+                    key={index}
+                    id={inputId}
+                    value={index}
+                    checkedFlag={Number(formData.rating)}
+                    onChange={onChange}
+                  />
                 );
               })}
             </div>
@@ -133,10 +126,10 @@ AddReview.defaultProps = {
 AddReview.propTypes = {
   currentMovie: PropTypes.shape({
     id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    backgroundImage: PropTypes.string.isRequired,
-    posterImage: PropTypes.string.isRequired,
-    backgroundColor: PropTypes.string.isRequired
+    name: PropTypes.string,
+    backgroundImage: PropTypes.string,
+    posterImage: PropTypes.string,
+    backgroundColor: PropTypes.string
   }),
   isValid: PropTypes.bool.isRequired,
   formData: PropTypes.shape({
@@ -151,7 +144,7 @@ AddReview.propTypes = {
 export {AddReview};
 
 export default compose(
-    withAuthStatus,
-    withReviewFormData,
-    withLoading(Fetch.REVIEW)
+    withPrivateRoute,
+    withReviewSubmit,
+    // withLoading(Fetch.REVIEW)
 )(AddReview);

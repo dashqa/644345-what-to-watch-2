@@ -119,7 +119,6 @@ const withAuthSubmit = (Component) => {
 
   const displayName = Component.displayName || Component.name;
   WithAuthSubmit.displayName = `WithAuthSubmit(${displayName})`;
-  WithAuthSubmit.WrappedComponent = Component;
 
   return WithAuthSubmit;
 };

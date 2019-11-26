@@ -96,7 +96,6 @@ const withReviewSubmit = (Component) => {
 
   const displayName = Component.displayName || Component.name;
   WithReviewSubmit.displayName = `WithReviewSubmit(${displayName})`;
-  WithReviewSubmit.WrappedComponent = Component;
 
   return WithReviewSubmit;
 };

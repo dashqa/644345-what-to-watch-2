@@ -42,7 +42,6 @@ const withPlayOnHover = (Component) => {
 
   const displayName = Component.displayName || Component.name;
   WithPlayerOnHover.displayName = `WithPlayerOnHover(${displayName})`;
-  WithPlayerOnHover.WrappedComponent = Component;
 
   return WithPlayerOnHover;
 };

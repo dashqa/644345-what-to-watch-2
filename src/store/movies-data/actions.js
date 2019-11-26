@@ -78,7 +78,7 @@ export const addToFavorite = (movieId, isFavorite) => (dispatch, _, api) => {
   const status = isFavorite ? 0 : 1;
 
   dispatch(startLoading(Fetch.FAVORITE));
-  return api.post(`${Url.FAVORITE}${movieId}/${status}`)
+  return api.post(`${Url.FAVORITE}/${movieId}/${status}`)
     .then(({data}) => {
       dispatch(updateMovie(data));
       dispatch(stopLoading(Fetch.FAVORITE));

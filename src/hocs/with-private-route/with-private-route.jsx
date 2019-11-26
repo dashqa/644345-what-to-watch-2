@@ -29,7 +29,6 @@ const withPrivateRoute = (Component) => {
 
   const displayName = Component.displayName || Component.name;
   WithPrivateRoute.displayName = `WithPrivateRoute(${displayName})`;
-  WithPrivateRoute.WrappedComponent = Component;
 
   return WithPrivateRoute;
 };

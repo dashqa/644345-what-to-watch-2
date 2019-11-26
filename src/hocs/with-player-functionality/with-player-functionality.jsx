@@ -79,7 +79,6 @@ const withPlayerFunctionality = (Component) => {
 
   const displayName = Component.displayName || Component.name;
   WithPlayerFunctionality.displayName = `WithPlayerFunctionality(${displayName})`;
-  WithPlayerFunctionality.WrappedComponent = Component;
 
   return WithPlayerFunctionality;
 };
