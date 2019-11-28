@@ -1,6 +1,6 @@
 import * as actionType from "./types";
 
-const Url = {
+export const Url = {
   LOGIN: `/login`,
 };
 
