@@ -4,7 +4,7 @@ import CatalogFilter from './catalog-filter';
 
 const props = {
   active: `Comedy`,
-  genres: new Set([`Comedy`]),
+  genres: new Set([`Comedy`, `Drama`, `Thriller`]),
   onChange: () => {}
 };
 

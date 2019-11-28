@@ -97,6 +97,16 @@ exports[`Add review page correctly renders after relaunch 1`] = `
   <div
     className="add-review"
   >
+    <p
+      style={
+        Object {
+          "color": "red",
+          "textAlign": "center",
+        }
+      }
+    >
+      Error 401
+    </p>
     <form
       action="#"
       className="add-review__form"

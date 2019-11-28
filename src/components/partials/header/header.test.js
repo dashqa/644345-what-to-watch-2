@@ -6,7 +6,7 @@ import Header from './header';
 const props = {
   classMods: `user-header`,
   title: `Header`,
-  needUserBlock: false,
+  needUserBlock: true,
 };
 
 jest.mock(`@partials/user-block/user-block.jsx`, () => `UserBlock`);

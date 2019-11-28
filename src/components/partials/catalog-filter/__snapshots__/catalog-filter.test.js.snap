@@ -14,5 +14,25 @@ exports[`Catalog filter correctly renders after relaunch 1`] = `
       Comedy
     </a>
   </li>
+  <li
+    className="catalog__genres-item"
+    onClick={[Function]}
+  >
+    <a
+      className="catalog__genres-link"
+    >
+      Drama
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item"
+    onClick={[Function]}
+  >
+    <a
+      className="catalog__genres-link"
+    >
+      Thriller
+    </a>
+  </li>
 </ul>
 `;

@@ -34,5 +34,6 @@ exports[`Header correctly renders after relaunch 1`] = `
   >
     Header
   </h1>
+  <UserBlock />
 </header>
 `;

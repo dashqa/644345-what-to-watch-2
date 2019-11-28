@@ -2,7 +2,7 @@ import * as actionType from "./types";
 import {MOVIES_COUNTER_STEP, Fetch} from "@constants";
 import {startLoading, stopLoading} from "react-redux-hoc-loader";
 
-const Url = {
+export const Url = {
   MOVIES: `/films`,
   PROMO: `/films/promo`,
   COMMENTS: `/comments`,

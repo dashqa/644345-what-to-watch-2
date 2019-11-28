@@ -28,9 +28,9 @@ exports[`Reviews tab correctly renders after relaunch 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="2019-11-27"
+            dateTime="2019-11-24"
           >
-            November 27th, 2019
+            November 24th, 2019
           </time>
         </footer>
       </blockquote>
@@ -65,9 +65,9 @@ exports[`Reviews tab correctly renders after relaunch 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="2019-11-27"
+            dateTime="2019-11-09"
           >
-            November 27th, 2019
+            November 9th, 2019
           </time>
         </footer>
       </blockquote>

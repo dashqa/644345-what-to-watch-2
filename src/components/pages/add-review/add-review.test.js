@@ -16,7 +16,7 @@ const props = {
     rating: `2`,
     comment: `hello`
   },
-  error: null,
+  error: `Error 401`,
   onChange: () => {},
   onSubmit: () => {},
   loaders: {

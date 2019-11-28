@@ -2,15 +2,15 @@
 
 exports[`Video player correctly renders after relaunch 1`] = `
 <video
-  className=""
+  className="player-class"
   controls={false}
-  height=""
+  height="300"
   muted={false}
-  poster=""
-  width=""
+  poster="https://image.com/image.png"
+  width="300"
 >
   <source
-    src=""
+    src="https://video.com/video.mp4"
     type="video/mp4"
   />
 </video>
