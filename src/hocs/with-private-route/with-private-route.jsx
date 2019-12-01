@@ -2,16 +2,16 @@ import React from "react";
 import PropTypes from "prop-types";
 import {compose} from "redux";
 import {connect} from 'react-redux';
+import {Redirect} from "react-router-dom";
 
 import {getAuthStatus} from "@store/user-data/selectors";
 
 const withPrivateRoute = (Component) => {
   const WithPrivateRoute = (props) => {
-    const {authorized, history} = props;
+    const {authorized} = props;
 
     if (!authorized) {
-      history.push(`/login`);
-      return null;
+      return <Redirect to="/login"/>;
     }
 
     return <Component {...props}/>;
@@ -19,12 +19,10 @@ const withPrivateRoute = (Component) => {
 
   WithPrivateRoute.defaultProps = {
     authorized: false,
-    history: {},
   };
 
   WithPrivateRoute.propTypes = {
     authorized: PropTypes.bool,
-    history: PropTypes.object,
   };
 
   const displayName = Component.displayName || Component.name;
@@ -36,6 +34,8 @@ const withPrivateRoute = (Component) => {
 const mapStateToProps = (state) => ({
   authorized: getAuthStatus(state),
 });
+
+export {withPrivateRoute};
 
 export default compose(
     connect(mapStateToProps),

@@ -63,8 +63,12 @@ const withReviewSubmit = (Component) => {
     _handleSubmit(evt) {
       evt.preventDefault();
       const {onUploadReview, currentMovie, history} = this.props;
-      const {formData} = this.state;
+      const {formData, isValid} = this.state;
       const movieId = currentMovie.id;
+
+      if (!isValid) {
+        return;
+      }
 
       onUploadReview(movieId, formData)
         .then((response) => {
@@ -107,6 +111,8 @@ const mapStateToProps = (state, {match}) => ({
 const mapDispatchToProps = (dispatch) => ({
   onUploadReview: bindActionCreators(uploadReview, dispatch)
 });
+
+export {withReviewSubmit};
 
 export default compose(
     connect(mapStateToProps, mapDispatchToProps),

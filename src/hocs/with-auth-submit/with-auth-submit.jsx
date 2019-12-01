@@ -101,6 +101,9 @@ const withAuthSubmit = (Component) => {
           if (data) {
             history.goBack();
           }
+        })
+        .catch(() => {
+          return null;
         });
     }
   }
@@ -130,6 +133,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   onAuthorizeUser: bindActionCreators(authorizeUser, dispatch)
 });
+
+export {withAuthSubmit};
 
 export default compose(
     connect(mapStateToProps, mapDispatchToProps),
