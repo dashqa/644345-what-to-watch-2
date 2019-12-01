@@ -1,4 +1,5 @@
 import {createSelector} from "reselect";
+import moment from "moment/moment";
 import {DEFAULT_FILTER} from "@constants";
 
 export const getMovies = (state) => state.moviesData.movies;
@@ -9,8 +10,13 @@ export const getMovieById = (state, movieId) => state.moviesData.movies.find(({i
 export const getFavoriteMovies = (state) => state.moviesData.favorite;
 export const getComments = (state) => state.moviesData.comments;
 
-export const getDividedComments = createSelector(
+export const getSortedComments = createSelector(
     [getComments],
+    (comments) => comments.sort((a, b) => moment(b.date) - moment(a.date))
+);
+
+export const getDividedComments = createSelector(
+    [getSortedComments],
     (comments) => {
       return comments.reduce((acc, current, i) => {
         acc[i % 2 ? `even` : `odd`].push(current);

@@ -21,10 +21,8 @@ class MovieDetails extends React.PureComponent {
   }
 
   componentDidMount() {
-    const {onLoadComments, currentMovie, comments} = this.props;
-    if (!comments.length) {
-      onLoadComments(currentMovie.id);
-    }
+    const {onLoadComments, currentMovie} = this.props;
+    onLoadComments(currentMovie.id);
   }
 
   componentDidUpdate(prevProps) {
