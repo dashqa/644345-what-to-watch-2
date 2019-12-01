@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Catalog correctly renders after relaunch Without any additional block 1`] = `
+<section
+  className="catalog section-class-name"
+>
+  <h2
+    className="catalog__title header-class-name"
+  >
+    This is title
+  </h2>
+  <div
+    className="catalog__movies-list"
+  />
+</section>
+`;
+
+exports[`Catalog correctly renders after relaunch with filter block 1`] = `
+<section
+  className="catalog section-class-name"
+>
+  <h2
+    className="catalog__title header-class-name"
+  >
+    This is title
+  </h2>
+  <ul
+    className="catalog__genres-list"
+  >
+    <li
+      className="catalog__genres-item catalog__genres-item--active"
+      onClick={[Function]}
+    >
+      <a
+        className="catalog__genres-link"
+      >
+        All genres
+      </a>
+    </li>
+  </ul>
+  <div
+    className="catalog__movies-list"
+  />
+</section>
+`;
+
+exports[`Catalog correctly renders after relaunch with showMore block 1`] = `
+<section
+  className="catalog section-class-name"
+>
+  <h2
+    className="catalog__title header-class-name"
+  >
+    This is title
+  </h2>
+  <div
+    className="catalog__movies-list"
+  />
+  <div
+    className="catalog__more"
+  >
+    <button
+      className="catalog__button"
+      onClick={[Function]}
+      type="button"
+    >
+      Show more
+    </button>
+  </div>
+</section>
+`;
