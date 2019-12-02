@@ -9,9 +9,7 @@ const withPlayerDuration = (Component) => {
 
       this._progressRef = React.createRef();
       this._toggleRef = React.createRef();
-
-      // avoid memory leak
-      this._isMounted = false;
+      this._video = null;
 
       this.state = {
         timeLeft: 0,
@@ -23,20 +21,22 @@ const withPlayerDuration = (Component) => {
     }
 
     componentDidMount() {
-      this._isMounted = true;
+      this._video = this.props.videoRef.current;
 
-      if (this._isMounted) {
-        const video = this.props.videoRef.current;
-        video.onloadedmetadata = () => this.setState({timeLeft: video.duration});
-        video.ontimeupdate = () => {
-          this._calculatePercentage(video.currentTime, video.duration);
-          this._calculateTimeLeft(video.currentTime, video.duration);
+      if (this._video) {
+        this._video.onloadedmetadata = () => this.setState({timeLeft: this._video.duration});
+        this._video.ontimeupdate = () => {
+          this._calculatePercentage(this._video.currentTime, this._video.duration);
+          this._calculateTimeLeft(this._video.currentTime, this._video.duration);
         };
       }
     }
 
     componentWillUnmount() {
-      this._isMounted = false;
+      if (this._video) {
+        this._video.onloadedmetadata = null;
+        this._video.ontimeupdate = null;
+      }
     }
 
     render() {
