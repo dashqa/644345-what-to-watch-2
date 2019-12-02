@@ -1,6 +1,6 @@
 import {createSelector} from "reselect";
 import moment from "moment/moment";
-import {DEFAULT_FILTER} from "@constants";
+import {DEFAULT_FILTER, MAX_RELATED_MOVIES} from "@constants";
 
 export const getMovies = (state) => state.moviesData.movies;
 export const getActiveFilter = (state) => state.moviesData.activeFilter;
@@ -26,7 +26,9 @@ export const getDividedComments = createSelector(
 );
 
 export const getRelatedMovies = (state, currentMovie) =>
-  state.moviesData.movies.filter(({id, genre}) => id !== currentMovie.id && genre === currentMovie.genre);
+  state.moviesData.movies
+    .filter(({id, genre}) => id !== currentMovie.id && genre === currentMovie.genre)
+    .slice(0, MAX_RELATED_MOVIES);
 
 export const getGenres = createSelector(
     [getMovies],

@@ -17,17 +17,6 @@ const withPlayOnHover = (Component) => {
       this._handleMouseLeave();
     }
 
-    render() {
-      return (
-        <Component
-          {...this.props}
-          videoRef={this._videoRef}
-          onEnter={this._handleMouseEnter}
-          onLeave={this._handleMouseLeave}
-        />
-      );
-    }
-
     _handleMouseEnter() {
       this._videoTimeout = setTimeout(() => {
         this._videoRef.current.play();
@@ -37,6 +26,17 @@ const withPlayOnHover = (Component) => {
     _handleMouseLeave() {
       clearTimeout(this._videoTimeout);
       this._videoRef.current.load();
+    }
+
+    render() {
+      return (
+        <Component
+          {...this.props}
+          videoRef={this._videoRef}
+          onEnter={this._handleMouseEnter}
+          onLeave={this._handleMouseLeave}
+        />
+      );
     }
   }
 

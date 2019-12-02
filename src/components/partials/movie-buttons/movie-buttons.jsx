@@ -16,6 +16,16 @@ class MovieButtons extends React.PureComponent {
     this._handleAddMyListClick = this._handleAddMyListClick.bind(this);
   }
 
+  _handlePlayClick() {
+    const {movieId} = this.props;
+    history.push(`/films/${movieId}/player`);
+  }
+
+  _handleAddMyListClick() {
+    const {onAddToFavorite, movieId, isFavorite} = this.props;
+    onAddToFavorite(movieId, isFavorite);
+  }
+
   render() {
     const {movieId, isFavorite} = this.props;
 
@@ -50,16 +60,6 @@ class MovieButtons extends React.PureComponent {
         }
       </div>
     );
-  }
-
-  _handlePlayClick() {
-    const {movieId} = this.props;
-    history.push(`/films/${movieId}/player`);
-  }
-
-  _handleAddMyListClick() {
-    const {onAddToFavorite, movieId, isFavorite} = this.props;
-    onAddToFavorite(movieId, isFavorite);
   }
 }
 

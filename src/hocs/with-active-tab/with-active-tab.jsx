@@ -13,6 +13,10 @@ const withActiveTab = (Component) => {
       this._handleChangeTab = this._handleChangeTab.bind(this);
     }
 
+    _handleChangeTab(tab) {
+      this.setState({activeTab: tab});
+    }
+
     render() {
       const {activeTab} = this.state;
 
@@ -23,10 +27,6 @@ const withActiveTab = (Component) => {
           onChangeTab={this._handleChangeTab}
         />
       );
-    }
-
-    _handleChangeTab(tab) {
-      this.setState({activeTab: tab});
     }
   }
 

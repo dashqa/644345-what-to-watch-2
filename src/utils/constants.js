@@ -2,6 +2,7 @@ export const DEFAULT_FILTER = `All genres`;
 export const MOVIES_COUNTER_INITIAL = 8;
 export const MOVIES_COUNTER_STEP = 20;
 export const MOVIE_PREVIEW_DELAY = 1000;
+export const MAX_RELATED_MOVIES = 4;
 
 export const USER_RATINGS = [
   {title: `Bad`, min: 0},

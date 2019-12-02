@@ -21,7 +21,7 @@ const App = () => {
         <Route exact path='/films/:id' component={MovieDetails}/>
         <Route path='/films/:id/review' component={AddReview}/>
         <Route path='/films/:id/player' component={MoviePlayer}/>
-        <Route path='/my-list' component={MyList}/>
+        <Route path='/mylist' component={MyList}/>
         <Route path='/login' component={SignIn}/>
         <Route component={PageNotFound}/>
       </Switch>

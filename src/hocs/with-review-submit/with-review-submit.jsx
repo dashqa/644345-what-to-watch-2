@@ -33,19 +33,6 @@ const withReviewSubmit = (Component) => {
       };
     }
 
-    render() {
-      const {isValid, formData, error} = this.state;
-
-      return <Component
-        {...this.props}
-        formData={formData}
-        error={error}
-        isValid={isValid}
-        onChange={this._handleChange}
-        onSubmit={this._handleSubmit}
-      />;
-    }
-
     _handleChange(evt) {
       const {name, value} = evt.target;
 
@@ -79,6 +66,19 @@ const withReviewSubmit = (Component) => {
           }
           return history.push(`/films/${movieId}`);
         });
+    }
+
+    render() {
+      const {isValid, formData, error} = this.state;
+
+      return <Component
+        {...this.props}
+        formData={formData}
+        error={error}
+        isValid={isValid}
+        onChange={this._handleChange}
+        onSubmit={this._handleSubmit}
+      />;
     }
   }
 

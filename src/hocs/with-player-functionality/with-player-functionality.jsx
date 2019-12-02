@@ -16,21 +16,6 @@ const withPlayerFunctionality = (Component) => {
       };
     }
 
-    render() {
-      const {isPlaying} = this.state;
-
-      return (
-        <Component
-          {...this.props}
-          videoRef={this._video}
-          isPlaying={isPlaying}
-          onPlayPause={this._handlePlayPause}
-          onFullScreen={this._handleFullScreen}
-          onClosePlayer={this._handleClosePlayer}
-        />
-      );
-    }
-
     _handlePlayPause() {
       const {isPlaying} = this.state;
       if (!isPlaying) {
@@ -64,6 +49,21 @@ const withPlayerFunctionality = (Component) => {
       } else {
         history.push(`/`);
       }
+    }
+
+    render() {
+      const {isPlaying} = this.state;
+
+      return (
+        <Component
+          {...this.props}
+          videoRef={this._video}
+          isPlaying={isPlaying}
+          onPlayPause={this._handlePlayPause}
+          onFullScreen={this._handleFullScreen}
+          onClosePlayer={this._handleClosePlayer}
+        />
+      );
     }
   }
 

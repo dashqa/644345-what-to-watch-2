@@ -84,7 +84,7 @@ exports[`App correctly renders after relaunch 1`] = `
           "type": [Function],
         }
       }
-      path="/my-list"
+      path="/mylist"
     />
     <Route
       component={

@@ -13,7 +13,7 @@ const UserBlock = ({user}) => {
     <div className="user-block">
       {Object.keys(user).length ? (
         <div className="user-block__avatar">
-          <Link to={`/my-list`}>
+          <Link to={`/mylist`}>
             <img
               src={`${BASE_URL}${imgPath}`}
               alt={name}

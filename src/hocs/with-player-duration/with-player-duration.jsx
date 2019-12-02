@@ -16,8 +16,7 @@ const withPlayerDuration = (Component) => {
         percentage: 0,
       };
 
-      this._calculatePercentage = this._calculatePercentage.bind(this);
-      this._calculateTimeLeft = this._calculateTimeLeft.bind(this);
+      this._handleTimeUpdate = this._handleTimeUpdate.bind(this);
     }
 
     componentDidMount() {
@@ -25,10 +24,7 @@ const withPlayerDuration = (Component) => {
 
       if (this._video) {
         this._video.onloadedmetadata = () => this.setState({timeLeft: this._video.duration});
-        this._video.ontimeupdate = () => {
-          this._calculatePercentage(this._video.currentTime, this._video.duration);
-          this._calculateTimeLeft(this._video.currentTime, this._video.duration);
-        };
+        this._video.ontimeupdate = () => this._handleTimeUpdate(this._video.currentTime, this._video.duration);
       }
     }
 
@@ -37,6 +33,13 @@ const withPlayerDuration = (Component) => {
         this._video.onloadedmetadata = null;
         this._video.ontimeupdate = null;
       }
+    }
+
+    _handleTimeUpdate(currentTime, duration) {
+      const timeLeft = duration - currentTime;
+      const percentage = currentTime / duration * 100;
+
+      this.setState({timeLeft, percentage});
     }
 
     render() {
@@ -52,16 +55,6 @@ const withPlayerDuration = (Component) => {
           toggleRef={this._toggleRef}
         />
       );
-    }
-
-    _calculateTimeLeft(currentTime, duration) {
-      const left = duration - currentTime;
-      this.setState({timeLeft: left});
-    }
-
-    _calculatePercentage(currentTime, duration) {
-      const percent = currentTime / duration * 100;
-      this.setState({percentage: percent});
     }
   }
 

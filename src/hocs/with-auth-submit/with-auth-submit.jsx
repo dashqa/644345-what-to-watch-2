@@ -45,19 +45,6 @@ const withAuthSubmit = (Component) => {
       };
     }
 
-    render() {
-      const {errors, isValid, formData} = this.state;
-
-      return <Component
-        {...this.props}
-        formData={formData}
-        errors={errors}
-        isValid={isValid}
-        onChange={this._handleChange}
-        onSubmit={this._handleSubmit}
-      />;
-    }
-
     _handleChange(evt) {
       const {name, value} = evt.target;
       const errors = Object.assign({}, this.state.errors);
@@ -105,6 +92,19 @@ const withAuthSubmit = (Component) => {
         .catch(() => {
           return null;
         });
+    }
+
+    render() {
+      const {errors, isValid, formData} = this.state;
+
+      return <Component
+        {...this.props}
+        formData={formData}
+        errors={errors}
+        isValid={isValid}
+        onChange={this._handleChange}
+        onSubmit={this._handleSubmit}
+      />;
     }
   }
 

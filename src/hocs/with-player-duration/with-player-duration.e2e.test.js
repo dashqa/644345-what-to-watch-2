@@ -19,14 +19,9 @@ describe(`withPlayerDuration test`, () => {
   const currentMovieTime = 50;
   const durationInSec = 600;
 
-  it(`should change timeLeft state when call calculateTimeLeft to given value`, () => {
-    wrapper.instance()._calculateTimeLeft(currentMovieTime, durationInSec);
+  it(`should change timeLeft and percentage state when call handleTimeUpdate`, () => {
+    wrapper.instance()._handleTimeUpdate(currentMovieTime, durationInSec);
     expect(wrapper.state().timeLeft).toEqual(durationInSec - currentMovieTime);
-  });
-
-
-  it(`should change percentage state when call calculatePercentage to given value`, () => {
-    wrapper.instance()._calculatePercentage(currentMovieTime, durationInSec);
     expect(wrapper.state().percentage).toEqual(currentMovieTime / durationInSec * 100);
   });
 });
