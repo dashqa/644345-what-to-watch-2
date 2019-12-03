@@ -12,6 +12,13 @@ class SignIn extends React.PureComponent {
     super(props);
   }
 
+  componentDidMount() {
+    const {authorized, history} = this.props;
+    if (authorized) {
+      history.goBack();
+    }
+  }
+
   componentDidUpdate() {
     const {authorized, history} = this.props;
     if (authorized) {
