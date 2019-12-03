@@ -31,7 +31,7 @@ CatalogFilter.defaultProps = {
 
 CatalogFilter.propTypes = {
   active: PropTypes.string.isRequired,
-  genres: PropTypes.object.isRequired,
+  genres: PropTypes.objectOf(PropTypes.string).isRequired,
   onChange: PropTypes.func.isRequired,
 };
 

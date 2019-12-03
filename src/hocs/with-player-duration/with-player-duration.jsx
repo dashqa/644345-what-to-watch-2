@@ -63,7 +63,9 @@ const withPlayerDuration = (Component) => {
   };
 
   WithPlayerDuration.propTypes = {
-    videoRef: PropTypes.object.isRequired,
+    videoRef: PropTypes.shape({
+      current: PropTypes.instanceOf(Element)
+    }).isRequired,
   };
 
   const displayName = Component.displayName || Component.name;

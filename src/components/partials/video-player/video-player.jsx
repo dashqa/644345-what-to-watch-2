@@ -36,7 +36,9 @@ VideoPlayer.propTypes = {
   height: PropTypes.string,
   controls: PropTypes.bool,
   muted: PropTypes.bool,
-  videoRef: PropTypes.object,
+  videoRef: PropTypes.shape({
+    current: PropTypes.instanceOf(Element)
+  }).isRequired,
 };
 
 export default VideoPlayer;

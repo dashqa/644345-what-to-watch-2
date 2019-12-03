@@ -93,13 +93,21 @@ SignIn.defaultProps = {
 };
 
 SignIn.propTypes = {
-  formData: PropTypes.objectOf(PropTypes.string).isRequired,
+  formData: PropTypes.shape({
+    email: PropTypes.string.isRequired,
+    password: PropTypes.string.isRequired,
+  }).isRequired,
   onChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  errors: PropTypes.objectOf(PropTypes.string),
+  errors: PropTypes.shape({
+    email: PropTypes.string,
+    password: PropTypes.string,
+  }),
   isValid: PropTypes.bool.isRequired,
   authorized: PropTypes.bool.isRequired,
-  history: PropTypes.object.isRequired,
+  history: PropTypes.shape({
+    goBack: PropTypes.func.isRequired
+  }).isRequired,
 };
 
 export {SignIn};

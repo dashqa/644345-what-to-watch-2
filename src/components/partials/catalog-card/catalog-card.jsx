@@ -50,7 +50,9 @@ CatalogCard.propTypes = {
     previewImage: PropTypes.string.isRequired,
     previewVideoLink: PropTypes.string
   }).isRequired,
-  videoRef: PropTypes.object.isRequired,
+  videoRef: PropTypes.shape({
+    current: PropTypes.instanceOf(Element)
+  }).isRequired,
   onEnter: PropTypes.func.isRequired,
   onLeave: PropTypes.func.isRequired,
 };

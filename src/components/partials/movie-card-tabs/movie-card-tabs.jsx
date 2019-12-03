@@ -99,7 +99,12 @@ MovieCardTabs.propTypes = {
     starring: PropTypes.arrayOf(PropTypes.string),
     scoresCount: PropTypes.number,
   }).isRequired,
-  comments: PropTypes.arrayOf(PropTypes.object)
+  comments: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    date: PropTypes.string,
+    rating: PropTypes.number,
+    comment: PropTypes.string
+  })),
 };
 
 export {MovieCardTabs};

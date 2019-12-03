@@ -83,7 +83,9 @@ MoviePlayer.propTypes = {
     previewImage: PropTypes.string.isRequired,
     runTime: PropTypes.number.isRequired,
   }).isRequired,
-  videoRef: PropTypes.object.isRequired,
+  videoRef: PropTypes.shape({
+    current: PropTypes.instanceOf(Element)
+  }).isRequired,
   onPlayPause: PropTypes.func.isRequired,
   onClosePlayer: PropTypes.func.isRequired,
   onFullScreen: PropTypes.func.isRequired,

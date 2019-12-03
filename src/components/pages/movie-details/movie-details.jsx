@@ -108,9 +108,50 @@ MovieDetails.defaultProps = {
 };
 
 MovieDetails.propTypes = {
-  currentMovie: PropTypes.object.isRequired,
-  relatedMovies: PropTypes.arrayOf(PropTypes.object).isRequired,
-  comments: PropTypes.arrayOf(PropTypes.object),
+  currentMovie: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    posterImage: PropTypes.string,
+    previewImage: PropTypes.string,
+    backgroundImage: PropTypes.string,
+    backgroundColor: PropTypes.string,
+    description: PropTypes.string,
+    rating: PropTypes.number,
+    scoresCount: PropTypes.number,
+    director: PropTypes.string,
+    starring: PropTypes.arrayOf(PropTypes.string),
+    runTime: PropTypes.number,
+    genre: PropTypes.string,
+    released: PropTypes.number,
+    isFavorite: PropTypes.bool,
+    videoLink: PropTypes.string,
+    previewVideoLink: PropTypes.string
+  }).isRequired,
+  relatedMovies: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    posterImage: PropTypes.string,
+    previewImage: PropTypes.string,
+    backgroundImage: PropTypes.string,
+    backgroundColor: PropTypes.string,
+    description: PropTypes.string,
+    rating: PropTypes.number,
+    scoresCount: PropTypes.number,
+    director: PropTypes.string,
+    starring: PropTypes.arrayOf(PropTypes.string),
+    runTime: PropTypes.number,
+    genre: PropTypes.string,
+    released: PropTypes.number,
+    isFavorite: PropTypes.bool,
+    videoLink: PropTypes.string,
+    previewVideoLink: PropTypes.string
+  })).isRequired,
+  comments: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    date: PropTypes.string,
+    rating: PropTypes.number,
+    comment: PropTypes.string
+  })),
   onLoadComments: PropTypes.func.isRequired,
 };
 

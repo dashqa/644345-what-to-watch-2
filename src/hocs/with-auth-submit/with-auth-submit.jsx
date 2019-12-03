@@ -117,7 +117,9 @@ const withAuthSubmit = (Component) => {
   WithAuthSubmit.propTypes = {
     onAuthorizeUser: PropTypes.func.isRequired,
     authorized: PropTypes.bool.isRequired,
-    history: PropTypes.object.isRequired,
+    history: PropTypes.shape({
+      goBack: PropTypes.func.isRequired
+    }).isRequired,
   };
 
   const displayName = Component.displayName || Component.name;

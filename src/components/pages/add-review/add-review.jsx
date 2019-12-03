@@ -138,7 +138,11 @@ AddReview.propTypes = {
   error: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  loaders: PropTypes.object
+  loaders: PropTypes.objectOf(PropTypes.exact({
+    start: PropTypes.func.isRequired,
+    stop: PropTypes.func.isRequired,
+    status: PropTypes.bool.isRequired,
+  }))
 };
 
 export {AddReview};

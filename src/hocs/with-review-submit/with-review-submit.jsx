@@ -94,7 +94,9 @@ const withReviewSubmit = (Component) => {
     currentMovie: PropTypes.shape({
       id: PropTypes.number.isRequired,
     }),
-    history: PropTypes.object.isRequired,
+    history: PropTypes.shape({
+      push: PropTypes.func.isRequired
+    }).isRequired,
     onUploadReview: PropTypes.func.isRequired,
   };
 

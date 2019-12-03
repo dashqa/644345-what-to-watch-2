@@ -44,10 +44,20 @@ TabReviews.deafultProps = {
 };
 
 TabReviews.propTypes = {
-  dividedComments: PropTypes.objectOf(
-      PropTypes.arrayOf(
-          PropTypes.object
-      ))
+  dividedComments: PropTypes.shape({
+    even: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number,
+      date: PropTypes.string,
+      rating: PropTypes.number,
+      comment: PropTypes.string
+    })).isRequired,
+    odd: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number,
+      date: PropTypes.string,
+      rating: PropTypes.number,
+      comment: PropTypes.string
+    })).isRequired,
+  }).isRequired
 };
 
 const mapStateToProps = (state) => ({

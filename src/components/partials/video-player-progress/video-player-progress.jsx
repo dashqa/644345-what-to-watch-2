@@ -38,8 +38,12 @@ VideoPlayerProgress.defaultProps = {
 
 VideoPlayerProgress.propTypes = {
   progressPosition: PropTypes.number.isRequired,
-  progressRef: PropTypes.object.isRequired,
-  toggleRef: PropTypes.object.isRequired,
+  progressRef: PropTypes.shape({
+    current: PropTypes.instanceOf(Element)
+  }).isRequired,
+  toggleRef: PropTypes.shape({
+    current: PropTypes.instanceOf(Element)
+  }).isRequired,
   timing: PropTypes.string.isRequired,
 };
 

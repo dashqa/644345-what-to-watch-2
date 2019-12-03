@@ -25,7 +25,11 @@ const withLoaded = (...loadersNames) => (Component) => {
   };
 
   WithLoaded.propTypes = {
-    loaders: PropTypes.object,
+    loaders: PropTypes.objectOf(PropTypes.exact({
+      start: PropTypes.func.isRequired,
+      stop: PropTypes.func.isRequired,
+      status: PropTypes.bool.isRequired,
+    }))
   };
 
   const displayName = Component.displayName || Component.name;
