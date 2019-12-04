@@ -74,12 +74,12 @@ const withPlayerFunctionality = (Component) => {
 
   WithPlayerFunctionality.propTypes = {
     history: PropTypes.shape({
-      push: PropTypes.func.isRequired,
-      goBack: PropTypes.func.isRequired,
-    }).isRequired,
+      push: PropTypes.func,
+      goBack: PropTypes.func,
+    }),
     location: PropTypes.shape({
       key: PropTypes.string,
-    }).isRequired,
+    }),
   };
 
   const displayName = Component.displayName || Component.name;

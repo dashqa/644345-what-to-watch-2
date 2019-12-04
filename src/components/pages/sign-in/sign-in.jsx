@@ -113,8 +113,8 @@ SignIn.propTypes = {
   isValid: PropTypes.bool.isRequired,
   authorized: PropTypes.bool.isRequired,
   history: PropTypes.shape({
-    goBack: PropTypes.func.isRequired
-  }).isRequired,
+    goBack: PropTypes.func
+  }),
 };
 
 export {SignIn};

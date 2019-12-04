@@ -118,8 +118,8 @@ const withAuthSubmit = (Component) => {
     onAuthorizeUser: PropTypes.func.isRequired,
     authorized: PropTypes.bool.isRequired,
     history: PropTypes.shape({
-      goBack: PropTypes.func.isRequired
-    }).isRequired,
+      goBack: PropTypes.func
+    }),
   };
 
   const displayName = Component.displayName || Component.name;

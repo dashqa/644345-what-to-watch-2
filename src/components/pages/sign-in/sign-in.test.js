@@ -4,7 +4,10 @@ import {SignIn} from './sign-in';
 import {BrowserRouter} from "react-router-dom";
 
 const props = {
-  formData: {},
+  formData: {
+    email: ``,
+    password: ``
+  },
   onChange: () => {},
   onSubmit: () => {},
   errors: {

@@ -95,8 +95,8 @@ const withReviewSubmit = (Component) => {
       id: PropTypes.number.isRequired,
     }),
     history: PropTypes.shape({
-      push: PropTypes.func.isRequired
-    }).isRequired,
+      push: PropTypes.func
+    }),
     onUploadReview: PropTypes.func.isRequired,
   };
 
